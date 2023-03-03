@@ -9,6 +9,7 @@ public class Form extends JFrame{
     private JLabel versionLabel;
     private JButton continueButton;
     private JButton newGameButton;
+    private JButton settingsButton;
 
     public Form() {
     }
