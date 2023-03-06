@@ -14,10 +14,15 @@ public class Dice {
     }
 
     public int rollDice() {
-        return mySide = rand.nextInt(6) + 1;
+        return mySide = rand.nextInt(MAX_SIDE) + MIN_SIDE;
     }
 
     public int getMySide() {
         return mySide;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(getMySide());
     }
 }
