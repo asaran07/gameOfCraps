@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="basic title screen design&#10;version 0.1.1">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="changed the core format to cards">
+      <change afterPath="$PROJECT_DIR$/src/model/Dice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/DiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game of Craps.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Game of Craps.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -38,17 +41,90 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="tests" />
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.DiceTest.testBothDice">
+    <configuration name="DiceTest.testBothDice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Game of Craps" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.DiceTest" />
+      <option name="METHOD_NAME" value="testBothDice" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiceTest.testGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Game of Craps" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.DiceTest" />
+      <option name="METHOD_NAME" value="testGet" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiceTest.testRandomness" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Game of Craps" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.DiceTest" />
+      <option name="METHOD_NAME" value="testRandomness" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.DiceTest.testBothDice" />
+        <item itemvalue="JUnit.DiceTest.testRandomness" />
+        <item itemvalue="JUnit.DiceTest.testGet" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -60,7 +136,7 @@
       <workItem from="1677777198212" duration="4239000" />
       <workItem from="1677792502727" duration="1990000" />
       <workItem from="1677794515221" duration="481000" />
-      <workItem from="1678060646034" duration="1320000" />
+      <workItem from="1678060646034" duration="5389000" />
     </task>
     <task id="LOCAL-00001" summary="getting the basics together">
       <created>1677778120107</created>
@@ -76,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677779022281</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="changed the core format to cards">
+      <created>1678062058696</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678062058696</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,6 +179,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="getting the basics together" />
     <MESSAGE value="switch to intellij gui editor" />
-    <option name="LAST_COMMIT_MESSAGE" value="switch to intellij gui editor" />
+    <MESSAGE value="changed the core format to cards" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed the core format to cards" />
   </component>
 </project>
