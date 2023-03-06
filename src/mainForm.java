@@ -10,6 +10,9 @@ public class mainForm extends JFrame {
     private JLabel settingsText;
     private JButton settingbutton;
     private JButton backbutton;
+    private JButton newGameButton;
+    private JButton continueButton;
+    private JLabel versionLabel;
 
     public mainForm() {
         settingbutton.addActionListener(e -> switchPanel(settingsScreen));
@@ -25,8 +28,8 @@ public class mainForm extends JFrame {
 
     public static void main(String[] args) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int sHeight = screenSize.height/2;
-        int sWidth = screenSize.width/2;
+        int sHeight = screenSize.height/3;
+        int sWidth = screenSize.width/3;
         Dimension screenDimension = new Dimension(sWidth,sHeight);
         mainForm mf = new mainForm();
         mf.setTitle("TGOS 0.1.1");
@@ -34,6 +37,7 @@ public class mainForm extends JFrame {
         mf.setSize(screenDimension);
         mf.setVisible(true);
         mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        mf.setLocationRelativeTo(null);
 
     }
 
