@@ -52,6 +52,7 @@ public class mainForm extends JFrame {
             rollBothDice();
             die1sideField.setText(diceA.toString());
             die2sideField.setText(diceB.toString());
+
             totalDiceRollField.setText(String.valueOf(diceA.getMySide() + diceB.getMySide()));
         });
     }
