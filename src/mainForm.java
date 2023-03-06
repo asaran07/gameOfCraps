@@ -2,9 +2,6 @@ import model.Dice;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 
 
 public class mainForm extends JFrame {
@@ -21,22 +18,41 @@ public class mainForm extends JFrame {
     private JPanel gameScreen;
     private JLabel dieA;
     private JLabel dieB;
-    private JLabel dieAnum;
-    private JLabel dieBnum;
     private JButton rollButton;
     private JButton backButtonGMS;
+    private JLabel bankLabel;
+    private JLabel totalCashLabel;
+    private JLabel tableLabel;
+    private JTextField die1sideField;
+    private JTextField die2sideField;
+    private JTextField currentCashField;
+    private JLabel totalOnDiceLabel;
+    private JTextField totalDiceRollField;
+    private JButton rulesButton;
+    private JLabel myWinLable;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JPanel setBankScreen;
+    private JTextField startingCashField;
+    private JButton continueButtonST;
+    private JLabel startingCashLabel;
     private final Dice diceA = new Dice();
     private final Dice diceB = new Dice();
 
     public mainForm() {
         settingbutton.addActionListener(e -> switchPanel(settingsScreen));
         backbutton.addActionListener(e -> switchPanel(titleScreen));
-        newGameButton.addActionListener(e -> switchPanel(gameScreen));
+        newGameButton.addActionListener(e -> switchPanel(setBankScreen));
         backButtonGMS.addActionListener(e -> switchPanel(titleScreen));
+        continueButtonST.addActionListener(e -> {
+            currentCashField.setText(startingCashField.getText());
+            switchPanel(gameScreen);
+        });
         rollButton.addActionListener(e -> {
             rollBothDice();
-            dieAnum.setText(diceA.toString());
-            dieBnum.setText(diceB.toString());
+            die1sideField.setText(diceA.toString());
+            die2sideField.setText(diceB.toString());
+            totalDiceRollField.setText(String.valueOf(diceA.getMySide() + diceB.getMySide()));
         });
     }
 
@@ -54,11 +70,11 @@ public class mainForm extends JFrame {
 
     public static void main(String[] args) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int sHeight = screenSize.height/3;
-        int sWidth = screenSize.width/3;
+        int sHeight = screenSize.height/2;
+        int sWidth = screenSize.width/2;
         Dimension screenDimension = new Dimension(sWidth,sHeight);
         mainForm mf = new mainForm();
-        mf.setTitle("TGOS 0.2.0");
+        mf.setTitle("TGOS 0.3.2");
         mf.setContentPane(mf.mainPanel);
         mf.setSize(screenDimension);
         mf.setVisible(true);
