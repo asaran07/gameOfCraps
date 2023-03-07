@@ -20,7 +20,9 @@
               <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="JetBrains Mono" size="36" style="1"/>
+              <background color="-16777216"/>
+              <font name="Unispace" size="42" style="1"/>
+              <foreground color="-16777216"/>
               <text value="The Game of Craps"/>
             </properties>
           </component>
@@ -71,8 +73,9 @@
               <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="JetBrains Mono" size="20"/>
-              <text value="0.5.0"/>
+              <font name="Unispace" size="20"/>
+              <foreground color="-16777216"/>
+              <text value="0.5.2"/>
             </properties>
           </component>
           <hspacer id="3cf46">
@@ -500,7 +503,7 @@
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="JetBrains Mono" size="36" style="1"/>
+              <font name="Unispace" size="36" style="1"/>
               <text value="ENTER STARTING CASH"/>
             </properties>
           </component>
@@ -511,9 +514,11 @@
               </grid>
             </constraints>
             <properties>
+              <editable value="true"/>
               <enabled value="true"/>
               <font name="JetBrains Mono" size="24" style="3"/>
               <horizontalAlignment value="0"/>
+              <opaque value="true"/>
               <text value=""/>
             </properties>
           </component>
@@ -542,8 +547,13 @@
               <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <focusPainted value="false"/>
               <font name="JetBrains Mono" size="20" style="1"/>
-              <text value="continue"/>
+              <icon value="ui_resources/buttons/continueButton/continueBtn.png"/>
+              <rolloverIcon value="ui_resources/buttons/continueButton/continueBtnHover.png"/>
+              <text value=""/>
             </properties>
           </component>
         </children>

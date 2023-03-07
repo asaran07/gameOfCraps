@@ -4,29 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="added timer functionality for ux feedback">
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnDisabled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnHover.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnHoverNoUline.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnSpread.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnHover.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnHoverNoUline.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnSpread.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnHover.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnHoverNoUline.png" afterDir="false" />
+    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="custom buttons and organization of ui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/greyButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/greyButton/greyButton.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/greyButton2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/greyButton/greyButton2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/newGameButton.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/newGameButton2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/newGameButtonClicked.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/newGameButtonClickedB.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/newGameButtonSelected.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -168,7 +149,7 @@
       <workItem from="1678060646034" duration="5389000" />
       <workItem from="1678089031740" duration="688000" />
       <workItem from="1678135901140" duration="15212000" />
-      <workItem from="1678156641488" duration="1789000" />
+      <workItem from="1678156641488" duration="5415000" />
     </task>
     <task id="LOCAL-00001" summary="getting the basics together">
       <created>1677778120107</created>
@@ -226,7 +207,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678155779622</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="custom buttons and organization of ui">
+      <created>1678158588651</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678158588651</updated>
+    </task>
+    <task id="LOCAL-00010" summary="custom buttons and organization of ui">
+      <created>1678158629184</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1678158629184</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,6 +246,7 @@
     <MESSAGE value="added external ui button icons with basic ux feedback" />
     <MESSAGE value="button ui changes" />
     <MESSAGE value="added timer functionality for ux feedback" />
-    <option name="LAST_COMMIT_MESSAGE" value="added timer functionality for ux feedback" />
+    <MESSAGE value="custom buttons and organization of ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="custom buttons and organization of ui" />
   </component>
 </project>

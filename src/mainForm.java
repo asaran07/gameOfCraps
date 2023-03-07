@@ -51,15 +51,43 @@ public class mainForm extends JFrame {
     public mainForm() {
         backbutton.addActionListener(e -> switchPanel(titleScreen));
         backButtonGMS.addActionListener(e -> switchPanel(titleScreen));
-        continueButtonST.addActionListener(e -> {
-            currentCashField.setText(startingCashField.getText());
-            switchPanel(gameScreen);
-        });
+
         rollButton.addActionListener(e -> {
             rollBothDice();
             die1sideField.setText(diceA.toString());
             die2sideField.setText(diceB.toString());
             totalDiceRollField.setText(String.valueOf(diceA.getMySide() + diceB.getMySide()));
+        });
+
+        continueButtonST.addActionListener(new ActionListener() {
+            int i = 0;
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                currentCashField.setText(startingCashField.getText());
+                continueButtonST.setRolloverEnabled(false);
+                timer = new Timer(90, this);
+                timer.setRepeats(false);
+                timer.start();
+                if (i == 4) {
+                    i = 0;
+                }
+                if (i == 0) {
+                    continueButtonST.setIcon(new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\ui_resources\\buttons\\continueButton\\continueBtnHover.png"));
+                }
+                if (i == 1) {
+                    continueButtonST.setIcon(new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\ui_resources\\buttons\\continueButton\\continueBtnHoverNoUline.png"));
+                }
+                if (i == 2) {
+                    continueButtonST.setIcon(new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\ui_resources\\buttons\\continueButton\\continueBtnHover.png"));
+                }
+                if (i == 3) {
+                    continueButtonST.setRolloverEnabled(true);
+                    continueButtonST.setIcon(new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\ui_resources\\buttons\\continueButton\\continueBtn.png"));
+                    switchPanel(gameScreen);
+                    timer.stop();
+                }
+                i++;
+            }
         });
 
         settingbutton.addActionListener(new ActionListener() {
@@ -141,13 +169,12 @@ public class mainForm extends JFrame {
         int sWidth = screenSize.width/2;
         Dimension screenDimension = new Dimension(sWidth,sHeight);
         mainForm mf = new mainForm();
-        mf.setTitle("TGOS 0.5.0");
+        mf.setTitle("TGOS 0.5.2");
         mf.setContentPane(mf.mainPanel);
         mf.setSize(screenDimension);
         mf.setVisible(true);
         mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
         mf.setLocationRelativeTo(null);
-
     }
 
 }
