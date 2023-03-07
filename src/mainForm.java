@@ -1,4 +1,4 @@
-import model.Dice;
+import model.Die;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,28 +18,21 @@ public class mainForm extends JFrame {
     private JButton continueButton;
     private JLabel versionLabel;
     private JPanel gameScreen;
-    private JLabel dieA;
-    private JLabel dieB;
     private JButton rollButton;
     private JButton backButtonGMS;
-    private JLabel bankLabel;
-    private JLabel totalCashLabel;
-    private JLabel tableLabel;
     private JTextField die1sideField;
     private JTextField die2sideField;
     private JTextField currentCashField;
-    private JLabel totalOnDiceLabel;
     private JTextField totalDiceRollField;
-    private JButton rulesButton;
-    private JLabel myWinLable;
-    private JTextField textField1;
-    private JTextField textField2;
     private JPanel setBankScreen;
     private JTextField startingCashField;
     private JButton continueButtonST;
     private JLabel startingCashLabel;
-    private final Dice diceA = new Dice();
-    private final Dice diceB = new Dice();
+    private JLabel die1img;
+    private JLabel die2img;
+    private JButton rollDiceButton;
+    private final Die dieA = new Die();
+    private final Die dieB = new Die();
 
     public ImageIcon icon = new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnHover.png");
     public ImageIcon icon2 = new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnHoverNoUline.png");
@@ -52,11 +45,34 @@ public class mainForm extends JFrame {
 
         backButtonGMS.addActionListener(e -> switchPanel(titleScreen));
 
-        rollButton.addActionListener(e -> {
-            rollBothDice();
-            die1sideField.setText(diceA.toString());
-            die2sideField.setText(diceB.toString());
-            totalDiceRollField.setText(String.valueOf(diceA.getMySide() + diceB.getMySide()));
+        rollDiceButton.addActionListener(new ActionListener() {
+            int i = 0;
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rollDiceButton.setText(rollDiceButton.getText());
+                rollDiceButton.setRolloverEnabled(false);
+                timer = new Timer(400, this);
+                timer.setRepeats(false);
+                timer.start();
+                if (i == 4) {
+                    i = 0;
+                }
+                if (i == 0) {
+                    rollDiceButton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\backButton\\backBtnHover.png"));
+                }
+                if (i == 1) {
+                    rollDiceButton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\backButton\\backBtnHoverNoUline.png"));
+                }
+                if (i == 2) {
+                    rollDiceButton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\backButton\\backBtnHover.png"));
+                }
+                if (i == 3) {
+                    rollDiceButton.setRolloverEnabled(true);
+                    rollDiceButton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\backButton\\backBtn.png"));
+                    timer.stop();
+                }
+                i++;
+            }
         });
 
         backbutton.addActionListener(new ActionListener() {
@@ -183,8 +199,8 @@ public class mainForm extends JFrame {
     }
 
     private void rollBothDice() {
-        diceA.rollDice();
-        diceB.rollDice();
+        dieA.rollDice();
+        dieB.rollDice();
     }
 
     private void switchPanel(JPanel thePanel) {
@@ -200,7 +216,7 @@ public class mainForm extends JFrame {
         int sWidth = screenSize.width/2;
         Dimension screenDimension = new Dimension(sWidth,sHeight);
         mainForm mf = new mainForm();
-        mf.setTitle("TGOS 0.6.1");
+        mf.setTitle("TGOS 0.7.2");
         mf.setContentPane(mf.mainPanel);
         mf.setSize(screenDimension);
         mf.setVisible(true);

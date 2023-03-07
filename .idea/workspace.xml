@@ -4,24 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="custom buttons and organization of ui">
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnHover.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnHoverNoUline.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/entrStCashLabel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/gameTitleLabel.png" afterDir="false" />
+    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="replaced main font">
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/newGmBtnHover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnHoverNoUline.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/settingsBtnHoverNoUline.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/dieIcons/die1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/dieIcons/die2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/dieIcons/die3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/dieIcons/die4.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnHover.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnHoverNoUline.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnHoverNoUline.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnHover.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnHoverNoUline.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnHoverNoUline.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnHover.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnHoverNoUline.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnHoverNoUline.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Dice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Die.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/DiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/DiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,13 +54,14 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
     "jdk.selected.JAVA_MODULE": "openjdk-19",
-    "last_opened_file_path": "C:/Users/saran/IdeaProjects/Game of Craps/src/ui_resources/buttons/continueButton",
+    "last_opened_file_path": "C:/Users/saran/IdeaProjects/Game of Craps/src/ui_resources/buttons/rollDiceButton",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -73,11 +70,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\rollDiceButton" />
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\dieIcons" />
       <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\continueButton" />
       <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\settingsButton" />
       <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\newGameButton" />
-      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\labels" />
-      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\backButton" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -237,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678158629184</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="replaced main font">
+      <created>1678216886406</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678216886406</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +267,7 @@
     <MESSAGE value="button ui changes" />
     <MESSAGE value="added timer functionality for ux feedback" />
     <MESSAGE value="custom buttons and organization of ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="custom buttons and organization of ui" />
+    <MESSAGE value="replaced main font" />
+    <option name="LAST_COMMIT_MESSAGE" value="replaced main font" />
   </component>
 </project>
