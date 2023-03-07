@@ -5,9 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="custom buttons and organization of ui">
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnHover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnHoverNoUline.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/entrStCashLabel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/gameTitleLabel.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnHover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnHoverNoUline.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnHoverNoUline.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnHover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnHoverNoUline.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnHoverNoUline.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnHover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnHoverNoUline.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnHoverNoUline.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +64,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
     "jdk.selected.JAVA_MODULE": "openjdk-19",
-    "last_opened_file_path": "C:/Users/Arsh/Downloads/gameOfScraps/src/ui_resources/buttons/settingsButton",
+    "last_opened_file_path": "C:/Users/saran/IdeaProjects/Game of Craps/src/ui_resources/buttons/continueButton",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -59,19 +73,21 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\settingsButton" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\ui_resources" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\view" />
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\continueButton" />
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\settingsButton" />
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\newGameButton" />
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\labels" />
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\backButton" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\labels" />
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\model" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\ui_resources\buttons\greyButton" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\ui_resources\buttons\newGameButton" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\ui_resources\buttons" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\ui_resources\continueButton" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="tests" />

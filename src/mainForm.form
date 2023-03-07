@@ -23,7 +23,8 @@
               <background color="-16777216"/>
               <font name="Unispace" size="42" style="1"/>
               <foreground color="-16777216"/>
-              <text value="The Game of Craps"/>
+              <icon value="ui_resources/labels/gameTitleLabel.png"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="6ae95" class="javax.swing.JButton" binding="continueButton">
@@ -33,10 +34,12 @@
             <properties>
               <borderPainted value="false"/>
               <contentAreaFilled value="false"/>
-              <enabled value="false"/>
+              <defaultCapable value="true"/>
+              <enabled value="true"/>
               <focusPainted value="false"/>
               <font name="JetBrains Mono" size="18" style="1"/>
-              <icon value="ui_resources/buttons/continueButton/continueBtn.png"/>
+              <icon value="ui_resources/buttons/continueButton/continueBtnHoverNoUline.png"/>
+              <inheritsPopupMenu value="true"/>
               <rolloverIcon value="ui_resources/buttons/continueButton/continueBtnHover.png"/>
               <text value=""/>
             </properties>
@@ -73,9 +76,9 @@
               <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="Unispace" size="20"/>
+              <font name="Consolas" size="16"/>
               <foreground color="-16777216"/>
-              <text value="0.5.2"/>
+              <text value="0.6.1"/>
             </properties>
           </component>
           <hspacer id="3cf46">
@@ -127,7 +130,12 @@
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="back"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <focusPainted value="false"/>
+              <icon value="ui_resources/buttons/backButton/backBtn.png"/>
+              <rolloverIcon value="ui_resources/buttons/backButton/backBtnHover.png"/>
+              <text value=""/>
             </properties>
           </component>
           <hspacer id="7bffa">
@@ -500,11 +508,13 @@
         <children>
           <component id="a41b0" class="javax.swing.JLabel" binding="startingCashLabel">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <alignmentY value="0.5"/>
               <font name="Unispace" size="36" style="1"/>
-              <text value="ENTER STARTING CASH"/>
+              <icon value="ui_resources/labels/entrStCashLabel.png"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="4be29" class="javax.swing.JTextField" binding="startingCashField">
