@@ -41,14 +41,14 @@ public class mainForm extends JFrame {
     private final Dice diceA = new Dice();
     private final Dice diceB = new Dice();
 
-    public ImageIcon icon = new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\view\\newGameButtonClicked.png");
-    public ImageIcon icon2 = new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\view\\newGameButtonClickedB.png");
-    public ImageIcon icon3 = new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\view\\newGameButton.png");
+    public ImageIcon icon = new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\ui_resources\\buttons\\newGameButton\\newGmBtnHover.png");
+    public ImageIcon icon2 = new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\ui_resources\\buttons\\newGameButton\\newGmBtnHoverNoUline.png");
+    public ImageIcon icon3 = new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\ui_resources\\buttons\\newGameButton\\newGmBtn.png");
+
 
     Timer timer;
 
     public mainForm() {
-        settingbutton.addActionListener(e -> switchPanel(settingsScreen));
         backbutton.addActionListener(e -> switchPanel(titleScreen));
         backButtonGMS.addActionListener(e -> switchPanel(titleScreen));
         continueButtonST.addActionListener(e -> {
@@ -62,12 +62,42 @@ public class mainForm extends JFrame {
             totalDiceRollField.setText(String.valueOf(diceA.getMySide() + diceB.getMySide()));
         });
 
+        settingbutton.addActionListener(new ActionListener() {
+            int i = 0;
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                settingbutton.setRolloverEnabled(false);
+                timer = new Timer(90, this);
+                timer.setRepeats(false);
+                timer.start();
+                if (i == 4) {
+                    i = 0;
+                }
+                if (i == 0) {
+                    settingbutton.setIcon(new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\ui_resources\\buttons\\settingsButton\\settingsBtnHover.png"));
+                }
+                if (i == 1) {
+                    settingbutton.setIcon(new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\ui_resources\\buttons\\settingsButton\\settingsBtnHoverNoUline.png"));
+                }
+                if (i == 2) {
+                    settingbutton.setIcon(new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\ui_resources\\buttons\\settingsButton\\settingsBtnHover.png"));
+                }
+                if (i == 3) {
+                    settingbutton.setRolloverEnabled(true);
+                    settingbutton.setIcon(new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\ui_resources\\buttons\\settingsButton\\settingsBtn.png"));
+                    switchPanel(settingsScreen);
+                    timer.stop();
+                }
+                i++;
+            }
+        });
+
         newGameButton.addActionListener(new ActionListener() {
             int i = 0;
             @Override
             public void actionPerformed(ActionEvent e) {
                 newGameButton.setRolloverEnabled(false);
-                timer = new Timer(80, this);
+                timer = new Timer(90, this);
                 timer.setRepeats(false);
                 timer.start();
                 if (i == 4) {
@@ -83,8 +113,8 @@ public class mainForm extends JFrame {
                     newGameButton.setIcon(icon);
                 }
                 if (i == 3) {
-                    newGameButton.setIcon(icon3);
                     newGameButton.setRolloverEnabled(true);
+                    newGameButton.setIcon(icon3);
                     switchPanel(setBankScreen);
                     timer.stop();
                 }

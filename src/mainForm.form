@@ -29,11 +29,14 @@
               <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <borderPainted value="true"/>
-              <contentAreaFilled value="true"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
               <enabled value="false"/>
+              <focusPainted value="false"/>
               <font name="JetBrains Mono" size="18" style="1"/>
-              <text value="continue"/>
+              <icon value="ui_resources/buttons/continueButton/continueBtn.png"/>
+              <rolloverIcon value="ui_resources/buttons/continueButton/continueBtnHover.png"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="ab6e" class="javax.swing.JButton" binding="newGameButton">
@@ -45,10 +48,10 @@
               <contentAreaFilled value="false"/>
               <focusPainted value="false"/>
               <font name="JetBrains Mono" size="18" style="1"/>
-              <icon value="view/newGameButton2.png"/>
+              <icon value="ui_resources/buttons/newGameButton/newGmBtn.png"/>
               <iconTextGap value="0"/>
               <margin top="0" left="0" bottom="0" right="0"/>
-              <rolloverIcon value="view/newGameButtonSelected.png"/>
+              <rolloverIcon value="ui_resources/buttons/newGameButton/newGmBtnHover.png"/>
               <selected value="false"/>
               <text value=""/>
             </properties>
@@ -92,8 +95,13 @@
               <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <focusPainted value="false"/>
               <font name="JetBrains Mono" size="18" style="1"/>
-              <text value="settings"/>
+              <icon value="ui_resources/buttons/settingsButton/settingsBtn.png"/>
+              <rolloverIcon value="ui_resources/buttons/settingsButton/settingsBtnHover.png"/>
+              <text value=""/>
             </properties>
           </component>
           <vspacer id="a8611">
@@ -317,13 +325,11 @@
                   <focusable value="true"/>
                   <font name="JetBrains Mono" size="18" style="1"/>
                   <hideActionText value="false"/>
-                  <icon value="view/greyButton2.png"/>
                   <iconTextGap value="4"/>
                   <inheritsPopupMenu value="false"/>
                   <margin top="0" left="0" bottom="0" right="0"/>
                   <opaque value="false"/>
                   <rolloverEnabled value="true"/>
-                  <rolloverIcon value="view/greyButton.png"/>
                   <selected value="false"/>
                   <text value=""/>
                   <visible value="true"/>
