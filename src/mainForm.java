@@ -141,7 +141,7 @@ public class mainForm extends JFrame {
         int sWidth = screenSize.width/2;
         Dimension screenDimension = new Dimension(sWidth,sHeight);
         mainForm mf = new mainForm();
-        mf.setTitle("TGOS 0.4.9");
+        mf.setTitle("TGOS 0.5.0");
         mf.setContentPane(mf.mainPanel);
         mf.setSize(screenDimension);
         mf.setVisible(true);
