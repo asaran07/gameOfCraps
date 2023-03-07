@@ -2,6 +2,8 @@ import model.Dice;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class mainForm extends JFrame {
@@ -39,10 +41,15 @@ public class mainForm extends JFrame {
     private final Dice diceA = new Dice();
     private final Dice diceB = new Dice();
 
+    public ImageIcon icon = new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\view\\newGameButtonClicked.png");
+    public ImageIcon icon2 = new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\view\\newGameButtonClickedB.png");
+    public ImageIcon icon3 = new ImageIcon("C:\\Users\\Arsh\\Downloads\\gameOfScraps\\src\\view\\newGameButton.png");
+
+    Timer timer;
+
     public mainForm() {
         settingbutton.addActionListener(e -> switchPanel(settingsScreen));
         backbutton.addActionListener(e -> switchPanel(titleScreen));
-        newGameButton.addActionListener(e -> switchPanel(setBankScreen));
         backButtonGMS.addActionListener(e -> switchPanel(titleScreen));
         continueButtonST.addActionListener(e -> {
             currentCashField.setText(startingCashField.getText());
@@ -52,8 +59,37 @@ public class mainForm extends JFrame {
             rollBothDice();
             die1sideField.setText(diceA.toString());
             die2sideField.setText(diceB.toString());
-
             totalDiceRollField.setText(String.valueOf(diceA.getMySide() + diceB.getMySide()));
+        });
+
+        newGameButton.addActionListener(new ActionListener() {
+            int i = 0;
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                newGameButton.setRolloverEnabled(false);
+                timer = new Timer(80, this);
+                timer.setRepeats(false);
+                timer.start();
+                if (i == 4) {
+                    i = 0;
+                }
+                if (i == 0) {
+                    newGameButton.setIcon(icon);
+                }
+                if (i == 1) {
+                    newGameButton.setIcon(icon2);
+                }
+                if (i == 2) {
+                    newGameButton.setIcon(icon);
+                }
+                if (i == 3) {
+                    newGameButton.setIcon(icon3);
+                    newGameButton.setRolloverEnabled(true);
+                    switchPanel(setBankScreen);
+                    timer.stop();
+                }
+                i++;
+            }
         });
     }
 
@@ -75,7 +111,7 @@ public class mainForm extends JFrame {
         int sWidth = screenSize.width/2;
         Dimension screenDimension = new Dimension(sWidth,sHeight);
         mainForm mf = new mainForm();
-        mf.setTitle("TGOS 0.3.2");
+        mf.setTitle("TGOS 0.4.9");
         mf.setContentPane(mf.mainPanel);
         mf.setSize(screenDimension);
         mf.setVisible(true);
