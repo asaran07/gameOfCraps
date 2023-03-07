@@ -69,7 +69,7 @@
             </constraints>
             <properties>
               <font name="JetBrains Mono" size="20"/>
-              <text value="0.3.2"/>
+              <text value="0.4.9"/>
             </properties>
           </component>
           <hspacer id="3cf46">
