@@ -53,9 +53,11 @@
               <contentAreaFilled value="false"/>
               <focusPainted value="false"/>
               <font name="JetBrains Mono" size="18" style="1"/>
+              <icon value="ui_resources/buttons/newGameButton/newGmBtn.png"/>
               <iconTextGap value="0"/>
               <inheritsPopupMenu value="false"/>
               <margin top="0" left="0" bottom="0" right="0"/>
+              <rolloverIcon value="ui_resources/buttons/newGameButton/newGmBtnHover.png"/>
               <selected value="false"/>
               <text value=""/>
             </properties>

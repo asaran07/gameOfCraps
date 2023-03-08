@@ -36,18 +36,13 @@ public class mainForm extends JFrame {
     private JLabel exitButton;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
-
     public ImageIcon icon = new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnHover.png");
     public ImageIcon icon2 = new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnHoverNoUline.png");
     public ImageIcon icon3 = new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtn.png");
 
-
     Timer timer;
 
     public mainForm() {
-
-
-
         rollDiceButton.addActionListener(new ActionListener() {
             int i = 0;
             @Override
