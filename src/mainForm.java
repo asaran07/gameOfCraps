@@ -31,6 +31,9 @@ public class mainForm extends JFrame {
     private JLabel die1img;
     private JLabel die2img;
     private JButton rollDiceButton;
+    private JLabel startButton;
+    private JLabel rulesButton;
+    private JLabel exitButton;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
 
@@ -43,7 +46,7 @@ public class mainForm extends JFrame {
 
     public mainForm() {
 
-        backButtonGMS.addActionListener(e -> switchPanel(titleScreen));
+
 
         rollDiceButton.addActionListener(new ActionListener() {
             int i = 0;
@@ -58,18 +61,27 @@ public class mainForm extends JFrame {
                     i = 0;
                 }
                 if (i == 0) {
-                    rollDiceButton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\backButton\\backBtnHover.png"));
+                    die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die3.png"));
+                    die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die4.png"));
+                    rollDiceButton.setEnabled(false);
                 }
                 if (i == 1) {
-                    rollDiceButton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\backButton\\backBtnHoverNoUline.png"));
+                    die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die3.png"));
+                    die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die2.png"));
+
                 }
                 if (i == 2) {
-                    rollDiceButton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\backButton\\backBtnHover.png"));
+                    die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die3.png"));
+                    die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die2.png"));
+
                 }
                 if (i == 3) {
                     rollDiceButton.setRolloverEnabled(true);
-                    rollDiceButton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\backButton\\backBtn.png"));
+                    die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
+                    die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
+                    rollDiceButton.setIcon(new ImageIcon("src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png"));
                     timer.stop();
+                    rollDiceButton.setEnabled(true);
                 }
                 i++;
             }
@@ -110,7 +122,7 @@ public class mainForm extends JFrame {
             int i = 0;
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentCashField.setText(startingCashField.getText());
+//                currentCashField.setText(startingCashField.getText());
                 continueButtonST.setRolloverEnabled(false);
                 timer = new Timer(90, this);
                 timer.setRepeats(false);

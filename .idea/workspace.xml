@@ -5,19 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="replaced main font">
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/newGmBtnHover.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnHoverNoUline.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/settingsBtnHoverNoUline.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/dieIcons/die1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/dieIcons/die2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/dieIcons/die3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/dieIcons/die4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/exitButton/exitBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rulesButton/rulesBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/startButton/startBtn.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Dice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Die.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/DiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/DiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnHover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnHoverNoUline.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnHoverNoUline.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/newGmBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnHover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/settingsBtnHoverNoUline.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +59,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
     "jdk.selected.JAVA_MODULE": "openjdk-19",
-    "last_opened_file_path": "C:/Users/saran/IdeaProjects/Game of Craps/src/ui_resources/buttons/rollDiceButton",
+    "last_opened_file_path": "C:/Users/saran/IdeaProjects/Game of Craps/src/ui_resources/buttons/exitButton",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -70,11 +68,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\exitButton" />
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\rulesButton" />
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\startButton" />
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\backButton" />
       <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\rollDiceButton" />
-      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\dieIcons" />
-      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\continueButton" />
-      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\settingsButton" />
-      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\newGameButton" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
