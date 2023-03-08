@@ -79,7 +79,7 @@
             <properties>
               <font name="Consolas" size="16"/>
               <foreground color="-16777216"/>
-              <text value="0.7.2"/>
+              <text value="0.7.9"/>
             </properties>
           </component>
           <hspacer id="3cf46">
@@ -208,7 +208,7 @@
                   <contentAreaFilled value="false"/>
                   <focusPainted value="false"/>
                   <icon value="ui_resources/buttons/rollDiceButton/rollDiceBtn.png"/>
-                  <rolloverIcon value="ui_resources/buttons/newGameButton/newGmBtnHover.png"/>
+                  <rolloverIcon value="ui_resources/buttons/rollDiceButton/rollDiceBtnHover.png"/>
                   <selected value="false"/>
                   <text value=""/>
                 </properties>
