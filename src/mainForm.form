@@ -208,7 +208,7 @@
                   <contentAreaFilled value="false"/>
                   <focusPainted value="false"/>
                   <icon value="ui_resources/buttons/rollDiceButton/rollDiceBtn.png"/>
-                  <rolloverIcon value="ui_resources/buttons/rollDiceButton/newGmBtnHover.png"/>
+                  <rolloverIcon value="ui_resources/buttons/newGameButton/newGmBtnHover.png"/>
                   <selected value="false"/>
                   <text value=""/>
                 </properties>

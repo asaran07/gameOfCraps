@@ -18,12 +18,6 @@ public class mainForm extends JFrame {
     private JButton continueButton;
     private JLabel versionLabel;
     private JPanel gameScreen;
-    private JButton rollButton;
-    private JButton backButtonGMS;
-    private JTextField die1sideField;
-    private JTextField die2sideField;
-    private JTextField currentCashField;
-    private JTextField totalDiceRollField;
     private JPanel setBankScreen;
     private JTextField startingCashField;
     private JButton continueButtonST;
