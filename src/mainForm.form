@@ -79,7 +79,7 @@
             <properties>
               <font name="Consolas" size="16"/>
               <foreground color="-16777216"/>
-              <text value="0.7.9"/>
+              <text value=""/>
             </properties>
           </component>
           <hspacer id="3cf46">

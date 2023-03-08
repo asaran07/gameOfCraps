@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 
 
 public class mainForm extends JFrame {
+
+    private static final String VERSION = "0.7.9";
     private JPanel mainPanel;
     private JPanel titleScreen;
     private JPanel settingsScreen;
@@ -30,13 +32,13 @@ public class mainForm extends JFrame {
     private JLabel exitButton;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
-    public ImageIcon icon = new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnHover.png");
-    public ImageIcon icon2 = new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnHoverNoUline.png");
-    public ImageIcon icon3 = new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtn.png");
+
 
     Timer timer;
 
     public mainForm() {
+
+        versionLabel.setText(VERSION);
         rollDiceButton.addActionListener(new ActionListener() {
             int i = 0;
             @Override
@@ -180,17 +182,17 @@ public class mainForm extends JFrame {
                     i = 0;
                 }
                 if (i == 0) {
-                    newGameButton.setIcon(icon);
+                    newGameButton.setIcon(new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnHover.png"));
                 }
                 if (i == 1) {
-                    newGameButton.setIcon(icon2);
+                    newGameButton.setIcon(new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnHoverNoUline.png"));
                 }
                 if (i == 2) {
-                    newGameButton.setIcon(icon);
+                    newGameButton.setIcon(new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnHover.png"));
                 }
                 if (i == 3) {
                     newGameButton.setRolloverEnabled(true);
-                    newGameButton.setIcon(icon3);
+                    newGameButton.setIcon(new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtn.png"));
                     switchPanel(setBankScreen);
                     timer.stop();
                 }
@@ -217,7 +219,7 @@ public class mainForm extends JFrame {
         int sWidth = screenSize.width/2;
         Dimension screenDimension = new Dimension(sWidth,sHeight);
         mainForm mf = new mainForm();
-        mf.setTitle("TGOS 0.7.9");
+        mf.setTitle(VERSION);
         mf.setContentPane(mf.mainPanel);
         mf.setSize(screenDimension);
         mf.setVisible(true);
