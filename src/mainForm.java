@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.8.1";
+    private static final String VERSION = "0.8.2";
     private JPanel mainPanel;
     private JPanel titleScreen;
     private JPanel settingsScreen;
