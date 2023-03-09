@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.8.2";
+    private static final String VERSION = "0.8.3";
 
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -31,6 +31,8 @@ public class mainForm extends JFrame {
     private JTextField currentRollField;
     private JLabel cashLabel;
     private JTextField cashField;
+    private JLabel lossProfitField;
+    private JTextField textField1;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
 
