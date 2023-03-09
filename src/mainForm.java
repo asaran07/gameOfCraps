@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.7.9";
+    private static final String VERSION = "0.8.0";
     private JPanel mainPanel;
     private JPanel titleScreen;
     private JPanel settingsScreen;
@@ -27,9 +27,7 @@ public class mainForm extends JFrame {
     private JLabel die1img;
     private JLabel die2img;
     private JButton rollDiceButton;
-    private JLabel startButton;
-    private JLabel rulesButton;
-    private JLabel exitButton;
+    private JTextField textField1;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
 
@@ -70,7 +68,7 @@ public class mainForm extends JFrame {
                     rollDiceButton.setRolloverEnabled(true);
                     die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
                     die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
-                    rollDiceButton.setIcon(new ImageIcon("src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png"));
+                    rollDiceButton.setIcon(new ImageIcon("src/ui_resources/buttons/rollDiceButton/rollBtn.png"));
                     timer.stop();
                     rollDiceButton.setEnabled(true);
                 }
@@ -225,6 +223,7 @@ public class mainForm extends JFrame {
         mf.setVisible(true);
         mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
         mf.setLocationRelativeTo(null);
+        mf.pack();
     }
 
 }
