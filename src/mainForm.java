@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.8.0";
+    private static final String VERSION = "0.8.1";
     private JPanel mainPanel;
     private JPanel titleScreen;
     private JPanel settingsScreen;
@@ -27,7 +27,9 @@ public class mainForm extends JFrame {
     private JLabel die1img;
     private JLabel die2img;
     private JButton rollDiceButton;
-    private JTextField textField1;
+    private JTextField currentRollField;
+    private JLabel cashLabel;
+    private JTextField cashField;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
 
@@ -41,7 +43,9 @@ public class mainForm extends JFrame {
             int i = 0;
             @Override
             public void actionPerformed(ActionEvent e) {
-                rollDiceButton.setText(rollDiceButton.getText());
+                dieA.rollDice();
+                dieB.rollDice();
+                currentRollField.setText(String.valueOf(dieA.getMySide() + dieB.getMySide()));
                 rollDiceButton.setRolloverEnabled(false);
                 timer = new Timer(400, this);
                 timer.setRepeats(false);

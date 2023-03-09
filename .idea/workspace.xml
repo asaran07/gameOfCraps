@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="replaced 3 icon objects with path and added hardcoded string for version.&#10;version 0.7.10">
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollBtnHover.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollBtnHoverNoUline.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/bankLabel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/currentRollLabel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/cashLabel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/lossProfitLabel.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/exitButton/exitBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/exitButton/exitBtn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rulesButton/rulesBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rulesButton/rulesBtn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/startButton/startBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/startButton/startBtn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/gameTitleLabel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/gameTitleLabel.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +53,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
     "jdk.selected.JAVA_MODULE": "openjdk-19",
-    "last_opened_file_path": "C:/Users/Arsh/Downloads/gameOfScraps/src/ui_resources/labels",
+    "last_opened_file_path": "C:/Users/saran/IdeaProjects/Game of Craps/src/ui_resources/labels",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,11 +62,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\labels" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\rollDiceButton" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\rulesButton" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\exitButton" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\startButton" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
