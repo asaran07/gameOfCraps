@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="game screen rework with new ui&#10;version 0.8.5">
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelBlank.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelPYB.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelRD1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelRD2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelRD3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/wlLabel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelLG1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelRDTB1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelW1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_5_2023_7_17_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_5_2023_7_17_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
@@ -52,25 +50,27 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "281",
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
     "jdk.selected.JAVA_MODULE": "openjdk-19",
-    "last_opened_file_path": "C:/Users/saran/IdeaProjects/Game of Craps/src/ui_resources/labels",
+    "last_opened_file_path": "C:/Users/Arsh/Downloads/gameOfScraps/src/ui_resources/labels",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels" />
       <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\labels" />
       <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\plusButtons" />
       <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\rollDiceButton" />
       <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\placeBetButton" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -159,6 +159,7 @@
       <workItem from="1678089031740" duration="688000" />
       <workItem from="1678135901140" duration="15212000" />
       <workItem from="1678156641488" duration="5415000" />
+      <workItem from="1678436161690" duration="3825000" />
     </task>
     <task id="LOCAL-00001" summary="getting the basics together">
       <created>1677778120107</created>

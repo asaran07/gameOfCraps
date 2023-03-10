@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.8.6";
+    private static final String VERSION = "0.8.7";
 
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -33,64 +33,132 @@ public class mainForm extends JFrame {
     private JTextField cashField;
     private JLabel lossProfitLabel;
     private JTextField lossProfitField;
-    private JTextField betField;
-    private JButton betButton;
+    private JTextField betAmountField;
+    private JButton placeBetButton;
     private JLabel infoView;
+    private JLabel plus1Button;
+    private JLabel plus5Button;
+    private JLabel plus10Button;
+    private JLabel plus20Button;
+    private JLabel plus50Button;
+    private JPanel betPanel;
+    private JPanel moneyPanel;
+    private JPanel dicePanel;
+    private JPanel infoPanel;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
 
+    private boolean firstDiceRoll = false;
+    private boolean infoScreenBusy = false;
+    private boolean firstStart = false;
 
     Timer timer;
+    Timer infoTimer;
+    Timer gameTimer;
+
 
     public mainForm() {
 
         versionLabel.setText(VERSION);
 
-        rollDiceButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        betAmountField.setEditable(false);
 
-            }
-        });
+         continueButtonST.addActionListener(new ActionListener() {
+             int i = 0;
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 System.out.println("start");
+                 infoTimer = new Timer(1000, this);
+                 infoTimer.setRepeats(false);
+                 infoTimer.start();
+                 if (i == 3) {
+                     i = 0;
+                 }
+                 if (!firstStart) {
+                     if (i == 0) {
+                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelW1.png"));
+                     }
+                     if (i == 2) {
+                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRDTB1.png"));
+                     }
+                 }
+                 if (firstDiceRoll && !infoScreenBusy) {
+                     if (i == 0) {
+                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
+                     }
+                     if (i == 1) {
+                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBlank.png"));
+                     }
+                     if (i == 2) {
+                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
+                     }
+                 }
+                 i++;
+             }
+         });
 
         rollDiceButton.addActionListener(new ActionListener() {
             int i = 0;
             @Override
             public void actionPerformed(ActionEvent e) {
-                dieA.rollDice();
-                dieB.rollDice();
-                currentRollField.setText(String.valueOf(dieA.getMySide() + dieB.getMySide()));
-                rollDiceButton.setRolloverEnabled(false);
-                timer = new Timer(400, this);
-                timer.setRepeats(false);
-                timer.start();
+
                 if (i == 4) {
                     i = 0;
                 }
+
+                infoScreenBusy = true;
+                firstDiceRoll = true;
+                firstStart = true;
+
+                placeBetButton.setEnabled(false);
+                betAmountField.setEditable(false);
+
+                dieA.rollDice();
+                dieB.rollDice();
+                currentRollField.setText(String.valueOf(dieA.getMySide() + dieB.getMySide()));
+
+                rollDiceButton.setRolloverEnabled(false);
+
+                timer = new Timer(400, this);
+                timer.setRepeats(false);
+                timer.start();
+
                 if (i == 0) {
                     die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die3.png"));
                     die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die4.png"));
+                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD1.png"));
                     rollDiceButton.setEnabled(false);
                 }
+
                 if (i == 1) {
                     die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die3.png"));
                     die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die2.png"));
-
+                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD2.png"));
                 }
+
                 if (i == 2) {
                     die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die3.png"));
                     die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die2.png"));
-
+                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD3.png"));
                 }
+
                 if (i == 3) {
+                    placeBetButton.setEnabled(true);
+                    betAmountField.setEditable(true);
                     rollDiceButton.setRolloverEnabled(true);
+                    infoScreenBusy = false;
+                    rollDiceButton.setEnabled(true);
+
                     die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
                     die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
                     rollDiceButton.setIcon(new ImageIcon("src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png"));
+                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
+
                     timer.stop();
-                    rollDiceButton.setEnabled(true);
                 }
+
                 i++;
+
             }
         });
 
