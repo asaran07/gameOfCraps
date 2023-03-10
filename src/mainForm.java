@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.8.4";
+    private static final String VERSION = "0.8.5";
 
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -31,8 +31,10 @@ public class mainForm extends JFrame {
     private JTextField currentRollField;
     private JLabel cashLabel;
     private JTextField cashField;
-    private JLabel lossProfitField;
-    private JTextField textField1;
+    private JLabel lossProfitLabel;
+    private JTextField lossProfitField;
+    private JTextField betField;
+    private JButton betButton;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
 
@@ -75,7 +77,7 @@ public class mainForm extends JFrame {
                     rollDiceButton.setRolloverEnabled(true);
                     die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
                     die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
-                    rollDiceButton.setIcon(new ImageIcon("src/ui_resources/buttons/rollDiceButton/rollBtn.png"));
+                    rollDiceButton.setIcon(new ImageIcon("src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png"));
                     timer.stop();
                     rollDiceButton.setEnabled(true);
                 }
@@ -118,7 +120,7 @@ public class mainForm extends JFrame {
             int i = 0;
             @Override
             public void actionPerformed(ActionEvent e) {
-//                currentCashField.setText(startingCashField.getText());
+                cashField.setText(startingCashField.getText());
                 continueButtonST.setRolloverEnabled(false);
                 timer = new Timer(90, this);
                 timer.setRepeats(false);

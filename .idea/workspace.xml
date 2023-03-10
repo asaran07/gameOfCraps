@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="added loss/profit label and field&#10;version 0.8.3">
+    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="added borders around fields&#10;version 0.8.4">
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus10Btn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus1Btn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus20Btn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus50Btn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus5Btn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnPressed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/betLabel.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnHover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/entrStCashLabel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/entrStCashLabel.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,10 +72,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\labels" />
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\plusButtons" />
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\rollDiceButton" />
+      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\buttons\placeBetButton" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\rollDiceButton" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\rulesButton" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\exitButton" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -272,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678386114580</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added borders around fields&#10;version 0.8.4">
+      <created>1678387413127</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1678387413127</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,6 +335,7 @@
     <MESSAGE value="added cash label and field" />
     <MESSAGE value="added cash label and field&#10;version 0.8.2" />
     <MESSAGE value="added loss/profit label and field&#10;version 0.8.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="added loss/profit label and field&#10;version 0.8.3" />
+    <MESSAGE value="added borders around fields&#10;version 0.8.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="added borders around fields&#10;version 0.8.4" />
   </component>
 </project>
