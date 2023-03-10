@@ -4,21 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="added borders around fields&#10;version 0.8.4">
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus10Btn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus1Btn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus20Btn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus50Btn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus5Btn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnPressed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/betLabel.png" afterDir="false" />
+    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="game screen rework with new ui&#10;version 0.8.5">
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelBlank.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelPYB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelRD1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelRD2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelRD3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/wlLabel.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnHover.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/entrStCashLabel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/entrStCashLabel.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678387413127</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="game screen rework with new ui&#10;version 0.8.5">
+      <created>1678409766515</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1678409766515</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,6 +338,7 @@
     <MESSAGE value="added cash label and field&#10;version 0.8.2" />
     <MESSAGE value="added loss/profit label and field&#10;version 0.8.3" />
     <MESSAGE value="added borders around fields&#10;version 0.8.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="added borders around fields&#10;version 0.8.4" />
+    <MESSAGE value="game screen rework with new ui&#10;version 0.8.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="game screen rework with new ui&#10;version 0.8.5" />
   </component>
 </project>

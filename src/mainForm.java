@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.8.5";
+    private static final String VERSION = "0.8.6";
 
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -35,6 +35,7 @@ public class mainForm extends JFrame {
     private JTextField lossProfitField;
     private JTextField betField;
     private JButton betButton;
+    private JLabel infoView;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
 
@@ -44,6 +45,14 @@ public class mainForm extends JFrame {
     public mainForm() {
 
         versionLabel.setText(VERSION);
+
+        rollDiceButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
         rollDiceButton.addActionListener(new ActionListener() {
             int i = 0;
             @Override
@@ -84,6 +93,8 @@ public class mainForm extends JFrame {
                 i++;
             }
         });
+
+
 
         backbutton.addActionListener(new ActionListener() {
             int i = 0;
