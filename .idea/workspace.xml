@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="game screen rework with new ui&#10;version 0.8.5">
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelLG1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelRDTB1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelW1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_5_2023_7_17_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_5_2023_7_17_PM__Changes_.xml" afterDir="false" />
+    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="added first core functionality with info-screen&#10;version 0.8.7">
+      <change afterPath="$PROJECT_DIR$/src/model/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/currentBetLabel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelBP1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelWFR1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
@@ -159,7 +159,7 @@
       <workItem from="1678089031740" duration="688000" />
       <workItem from="1678135901140" duration="15212000" />
       <workItem from="1678156641488" duration="5415000" />
-      <workItem from="1678436161690" duration="3825000" />
+      <workItem from="1678436161690" duration="7206000" />
     </task>
     <task id="LOCAL-00001" summary="getting the basics together">
       <created>1677778120107</created>
@@ -294,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678409766515</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added first core functionality with info-screen&#10;version 0.8.7">
+      <created>1678441300164</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1678441300164</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,6 +347,7 @@
     <MESSAGE value="added loss/profit label and field&#10;version 0.8.3" />
     <MESSAGE value="added borders around fields&#10;version 0.8.4" />
     <MESSAGE value="game screen rework with new ui&#10;version 0.8.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="game screen rework with new ui&#10;version 0.8.5" />
+    <MESSAGE value="added first core functionality with info-screen&#10;version 0.8.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="added first core functionality with info-screen&#10;version 0.8.7" />
   </component>
 </project>

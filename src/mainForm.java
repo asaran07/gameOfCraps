@@ -1,4 +1,5 @@
 import model.Die;
+import model.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +9,7 @@ import java.awt.event.ActionListener;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.8.7";
+    private static final String VERSION = "0.8.8";
 
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -45,12 +46,15 @@ public class mainForm extends JFrame {
     private JPanel moneyPanel;
     private JPanel dicePanel;
     private JPanel infoPanel;
+    private JTextField currentBetField;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
+    private Player player = new Player();
 
     private boolean firstDiceRoll = false;
     private boolean infoScreenBusy = false;
     private boolean firstStart = false;
+    private boolean betPlaced = false;
 
     Timer timer;
     Timer infoTimer;
@@ -65,9 +69,9 @@ public class mainForm extends JFrame {
 
          continueButtonST.addActionListener(new ActionListener() {
              int i = 0;
+
              @Override
              public void actionPerformed(ActionEvent e) {
-                 System.out.println("start");
                  infoTimer = new Timer(1000, this);
                  infoTimer.setRepeats(false);
                  infoTimer.start();
@@ -82,7 +86,7 @@ public class mainForm extends JFrame {
                          infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRDTB1.png"));
                      }
                  }
-                 if (firstDiceRoll && !infoScreenBusy) {
+                 if (firstDiceRoll && !infoScreenBusy && !betPlaced) {
                      if (i == 0) {
                          infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
                      }
@@ -93,6 +97,18 @@ public class mainForm extends JFrame {
                          infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
                      }
                  }
+                 if (betPlaced && !infoScreenBusy) {
+                     if (i == 0) {
+                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFR1.png"));
+                     }
+                     if (i == 1) {
+                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBlank.png"));
+                     }
+                     if (i == 2) {
+                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFR1.png"));
+                     }
+                 }
+
                  i++;
              }
          });
@@ -106,6 +122,26 @@ public class mainForm extends JFrame {
                     i = 0;
                 }
 
+                if (firstStart) {
+                    if (Integer.parseInt(currentRollField.getText()) == 7
+                            || Integer.parseInt(currentRollField.getText()) == 11) {
+                        player.setWin(true);
+                    }
+                    if (Integer.parseInt(currentRollField.getText()) == 2
+                            || Integer.parseInt(currentRollField.getText()) == 3
+                            || Integer.parseInt(currentRollField.getText()) == 12) {
+                        player.setLose(true);
+                    }
+                    if (player.isWin()) {
+                        player.setCurrentCash(player.getCurrentCash() + player.getCurrentBet());
+                        player.setWin(false);
+                    }
+                    if (player.isLose()) {
+                        player.setCurrentCash(player.getCurrentCash() - player.getCurrentBet());
+                    }
+                }
+
+                betPlaced = false;
                 infoScreenBusy = true;
                 firstDiceRoll = true;
                 firstStart = true;
@@ -115,7 +151,9 @@ public class mainForm extends JFrame {
 
                 dieA.rollDice();
                 dieB.rollDice();
+
                 currentRollField.setText(String.valueOf(dieA.getMySide() + dieB.getMySide()));
+
 
                 rollDiceButton.setRolloverEnabled(false);
 
@@ -148,6 +186,8 @@ public class mainForm extends JFrame {
                     rollDiceButton.setRolloverEnabled(true);
                     infoScreenBusy = false;
                     rollDiceButton.setEnabled(true);
+                    betAmountField.setEditable(true);
+                    betAmountField.setEditable(true);
 
                     die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
                     die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
@@ -162,6 +202,20 @@ public class mainForm extends JFrame {
             }
         });
 
+
+        placeBetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                player.setCurrentBet(Integer.parseInt(betAmountField.getText()));
+                player.setCurrentCash(player.getCurrentCash() - player.getCurrentBet());
+                betAmountField.setEditable(false);
+                betAmountField.setEditable(false);
+                infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBP1.png"));
+                currentBetField.setText(String.valueOf(player.getCurrentBet()));
+                cashField.setText(String.valueOf(player.getCurrentCash()));
+                betPlaced = true;
+            }
+        });
 
 
         backbutton.addActionListener(new ActionListener() {
@@ -199,11 +253,13 @@ public class mainForm extends JFrame {
             int i = 0;
             @Override
             public void actionPerformed(ActionEvent e) {
-                cashField.setText(startingCashField.getText());
+                player.setCurrentCash(Integer.parseInt(startingCashField.getText()));
+                cashField.setText(String.valueOf(player.getCurrentCash()));
                 continueButtonST.setRolloverEnabled(false);
                 timer = new Timer(90, this);
                 timer.setRepeats(false);
                 timer.start();
+
                 if (i == 4) {
                     i = 0;
                 }
