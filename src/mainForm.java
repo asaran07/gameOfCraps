@@ -47,6 +47,7 @@ public class mainForm extends JFrame {
     private JPanel infoPanel;
     private JTextField currentBetField;
     private JLabel plus100Button;
+    private JLabel pointLabel;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
     private Player player = new Player();
@@ -57,6 +58,7 @@ public class mainForm extends JFrame {
     private boolean betPlaced = false;
     private boolean pointTurn = false;
     private boolean wonOrLost = false;
+    private boolean diceRolled = false;
 
     Timer timer;
     Timer infoTimer;
@@ -70,6 +72,100 @@ public class mainForm extends JFrame {
         betAmountField.setEditable(false);
         continueButtonST.setEnabled(false);
         placeBetButton.setEnabled(false);
+
+        ActionListener diceRolledListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                gameTimer = new Timer(2000, this);
+                gameTimer.setRepeats(false);
+                gameTimer.start();
+
+                System.out.println("game sense running");
+
+                if (wonOrLost) {
+                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFR1 .png"));
+                    wonOrLost = false;
+                }
+
+                if (diceRolled) {
+                    if (!pointTurn) {
+                        rollDiceButton.setEnabled(false);
+                    }
+
+                    if (pointTurn) {
+                        pointLabel.setText(String.valueOf(player.getMyPoint()));
+                        if (!infoScreenBusy) {
+                            infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFRP.png"));
+                        }
+
+                        if (player.getCurrentRoll() == 7) {
+                            player.setLose(true);
+                            pointTurn = false;
+                            betAmountField.setEditable(true);
+                        }
+
+                        else if (player.getCurrentRoll() == player.getMyPoint()) {
+                            player.setWin(true);
+                            pointTurn = false;
+                            betAmountField.setEditable(true);
+                        }
+                    }
+
+                    else {
+                        if (player.getCurrentRoll() == 7
+                                || player.getCurrentRoll() == 11) {
+                            player.setWin(true);
+                            player.setCurrentRoll(0);
+                            infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWON.png"));
+                        }
+
+                        if (player.getCurrentRoll() == 2
+                                || player.getCurrentRoll() == 3
+                                || player.getCurrentRoll() == 12) {
+                            player.setLose(true);
+                            player.setCurrentRoll(0);
+                            infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelLost.png"));
+                        }
+                    }
+
+                    if (!pointTurn) {
+                        if (player.getCurrentRoll() == 4
+                                || player.getCurrentRoll() == 5
+                                || player.getCurrentRoll() == 6
+                                || player.getCurrentRoll() == 8
+                                || player.getCurrentRoll() == 9
+                                || player.getCurrentRoll() == 10) {
+                            pointTurn = true;
+                            placeBetButton.setEnabled(false);
+                            rollDiceButton.setEnabled(true);
+                            betAmountField.setEditable(false);
+                            System.out.println("point turn");
+                            player.setMyPoint(player.getCurrentRoll());
+                        }
+                    }
+
+                    if (player.isLose()) {
+                        wonOrLost = true;
+                        player.setCurrentCash(player.getCurrentCash() - (player.getCurrentBet() * 2));
+                        cashField.setText(String.valueOf(player.getCurrentCash()));
+                        player.setLose(false);
+                        currentBetField.setText("");
+                        diceRolled = false;
+
+                    } else if (player.isWin()) {
+                        wonOrLost = true;
+                        player.setCurrentCash(player.getCurrentCash() + (player.getCurrentBet() * 2));
+                        cashField.setText(String.valueOf(player.getCurrentCash()));
+                        player.setWin(false);
+                        currentBetField.setText("");
+                        diceRolled = false;
+                    }
+                }
+            }
+        };
+
+        rollDiceButton.addActionListener(diceRolledListener);
 
          continueButtonST.addActionListener(new ActionListener() {
              int i = 0;
@@ -136,6 +232,7 @@ public class mainForm extends JFrame {
 
         rollDiceButton.addActionListener(new ActionListener() {
             int i = 0;
+
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -163,7 +260,6 @@ public class mainForm extends JFrame {
 
 
                 if (i == 0) {
-                    System.out.println("info busy true");
                     infoScreenBusy = true;
                     die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die3.png"));
                     die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die4.png"));
@@ -184,110 +280,29 @@ public class mainForm extends JFrame {
 
                 if (i == 3) {
                     if (firstDiceRoll) {
+                        diceRolled = true;
                         placeBetButton.setEnabled(true);
                         player.setCurrentRoll(dieA.diceTotal(dieB));
                         currentRollField.setText(String.valueOf(player.getCurrentRoll()));
                     }
 
-                    System.out.println("info busy false");
                     infoScreenBusy = false;
                     betPlaced = false;
                     firstDiceRoll = true;
                     rollDiceButton.setRolloverEnabled(true);
                     betAmountField.setEditable(true);
 
-
                     die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
                     die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
                     rollDiceButton.setIcon(new ImageIcon("src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png"));
-                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
+
+                    if (!pointTurn) {
+                        infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
+                    }
 
                     timer.stop();
                 }
-
                 i++;
-
-                if (i == 4) {
-                    if (firstStart) {
-
-                        if (wonOrLost) {
-                            gameTimer.stop();
-                            infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFR1.png"));
-                        }
-
-                        if (!wonOrLost) {
-                            if (!pointTurn) {
-                                rollDiceButton.setEnabled(false);
-                            }
-                            if (pointTurn) {
-                                if (player.getCurrentRoll() == 7) {
-                                    player.setLose(true);
-                                    wonOrLost = true;
-                                    pointTurn = false;
-                                    betAmountField.setEditable(true);
-                                } else if (player.getCurrentRoll() == player.getMyPoint()) {
-                                    player.setWin(true);
-                                    wonOrLost = true;
-                                    pointTurn = false;
-                                    betAmountField.setEditable(true);
-                                }
-                            } else {
-                                if (player.getCurrentRoll() == 7
-                                        || player.getCurrentRoll() == 11) {
-                                    player.setWin(true);
-                                    wonOrLost = true;
-                                    player.setCurrentRoll(0);
-                                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWON.png"));
-                                }
-
-                                if (player.getCurrentRoll() == 2
-                                        || player.getCurrentRoll() == 3
-                                        || player.getCurrentRoll() == 12) {
-                                    wonOrLost = true;
-                                    player.setLose(true);
-                                    player.setCurrentRoll(0);
-                                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelLost.png"));
-                                }
-                            }
-
-                            if (!pointTurn) {
-                                if (player.getCurrentRoll() == 4
-                                        || player.getCurrentRoll() == 5
-                                        || player.getCurrentRoll() == 6
-                                        || player.getCurrentRoll() == 8
-                                        || player.getCurrentRoll() == 9
-                                        || player.getCurrentRoll() == 10) {
-                                    pointTurn = true;
-                                    placeBetButton.setEnabled(false);
-                                    rollDiceButton.setEnabled(true);
-                                    betAmountField.setEditable(false);
-                                    System.out.println("point turn");
-                                    player.setMyPoint(player.getCurrentRoll());
-                                }
-                            }
-
-
-                            if (player.isLose()) {
-                                System.out.println("subtracting bet");
-                                player.setCurrentCash(player.getCurrentCash() - (player.getCurrentBet() * 2));
-                                cashField.setText(String.valueOf(player.getCurrentCash()));
-                                player.setLose(false);
-                                currentBetField.setText("");
-
-                            } else if (player.isWin()) {
-                                System.out.println("adding bet");
-                                player.setCurrentCash(player.getCurrentCash() + (player.getCurrentBet() * 2));
-                                cashField.setText(String.valueOf(player.getCurrentCash()));
-                                player.setWin(false);
-                                currentBetField.setText("");
-                            }
-
-
-                            System.out.println("point" + player.getMyPoint());
-                            System.out.println("current roll" + player.getCurrentRoll());
-                        }
-                    }
-                }
             }
         });
 
