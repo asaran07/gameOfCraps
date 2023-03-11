@@ -164,6 +164,7 @@
                   <contentAreaFilled value="false"/>
                   <focusPainted value="false"/>
                   <icon value="ui_resources/buttons/rollDiceButton/rollDiceBtn.png"/>
+                  <pressedIcon value="ui_resources/buttons/rollDiceButton/rollDiceBtnClicked.png"/>
                   <requestFocusEnabled value="false"/>
                   <rolloverIcon value="ui_resources/buttons/rollDiceButton/rollDiceBtnHover.png"/>
                   <text value=""/>
@@ -351,7 +352,10 @@
                 <properties>
                   <borderPainted value="false"/>
                   <contentAreaFilled value="false"/>
+                  <focusPainted value="false"/>
                   <icon value="ui_resources/buttons/placeBetButton/placeBetBtn.png"/>
+                  <pressedIcon value="ui_resources/buttons/placeBetButton/placeBetBtnClicked.png"/>
+                  <rolloverIcon value="ui_resources/buttons/placeBetButton/placeBetBtnHover.png"/>
                   <text value=""/>
                 </properties>
               </component>

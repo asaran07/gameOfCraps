@@ -68,6 +68,7 @@ public class mainForm extends JFrame {
 
         betAmountField.setEditable(false);
         continueButtonST.setEnabled(false);
+        placeBetButton.setEnabled(false);
 
          continueButtonST.addActionListener(new ActionListener() {
              int i = 0;
@@ -221,6 +222,18 @@ public class mainForm extends JFrame {
             }
         });
 
+        betAmountField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (!betAmountField.getText().isBlank()
+                        || !betAmountField.getText().isEmpty()) {
+                    betAmountField.setEnabled(true);
+                }
+                else {
+                    betAmountField.setEnabled(false);
+                }
+            }
+        });
 
         placeBetButton.addActionListener(new ActionListener() {
             @Override
