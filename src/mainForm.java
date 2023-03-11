@@ -8,7 +8,7 @@ import java.awt.event.*;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.9.3";
+    private static final String VERSION = "0.9.4";
 
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -261,24 +261,29 @@ public class mainForm extends JFrame {
                 timer.setRepeats(false);
                 timer.start();
 
-
-                if (i == 0) {
-                    infoScreenBusy = true;
-                    die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die6.png"));
-                    die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die4.png"));
-                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD1.png"));
+                if (!firstDiceRoll) {
+                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelLG1.png"));
                 }
 
-                if (i == 1) {
-                    die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die3.png"));
-                    die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die2.png"));
-                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD2.png"));
-                }
+                if (firstDiceRoll) {
+                    if (i == 0) {
+                        infoScreenBusy = true;
+                        die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die6.png"));
+                        die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die4.png"));
+                        infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD1.png"));
+                    }
 
-                if (i == 2) {
-                    die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
-                    die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die5.png"));
-                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD3.png"));
+                    if (i == 1) {
+                        die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die3.png"));
+                        die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die2.png"));
+                        infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD2.png"));
+                    }
+
+                    if (i == 2) {
+                        die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
+                        die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die5.png"));
+                        infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD3.png"));
+                    }
                 }
 
                 if (i == 3) {
@@ -296,10 +301,6 @@ public class mainForm extends JFrame {
                     rollDiceButton.setRolloverEnabled(true);
                     betAmountField.setEditable(true);
                     rollDiceButton.setIcon(new ImageIcon("src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png"));
-
-                    if (!pointTurn) {
-                        infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
-                    }
 
                     timer.stop();
                 }
