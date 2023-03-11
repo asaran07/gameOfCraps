@@ -8,7 +8,7 @@ import java.awt.event.*;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.9.0";
+    private static final String VERSION = "0.9.3";
 
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -48,6 +48,7 @@ public class mainForm extends JFrame {
     private JTextField currentBetField;
     private JLabel plus100Button;
     private JLabel pointLabel;
+    private JTextField pointField;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
     private Player player = new Player();
@@ -73,6 +74,8 @@ public class mainForm extends JFrame {
         continueButtonST.setEnabled(false);
         placeBetButton.setEnabled(false);
 
+        infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRDTB1.png"));
+
         ActionListener diceRolledListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -84,7 +87,7 @@ public class mainForm extends JFrame {
                 System.out.println("game sense running");
 
                 if (wonOrLost) {
-                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFR1 .png"));
+                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFR1.png"));
                     wonOrLost = false;
                 }
 
@@ -94,7 +97,7 @@ public class mainForm extends JFrame {
                     }
 
                     if (pointTurn) {
-                        pointLabel.setText(String.valueOf(player.getMyPoint()));
+                        pointField.setText(String.valueOf(player.getMyPoint()));
                         if (!infoScreenBusy) {
                             infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFRP.png"));
                         }
@@ -261,7 +264,7 @@ public class mainForm extends JFrame {
 
                 if (i == 0) {
                     infoScreenBusy = true;
-                    die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die3.png"));
+                    die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die6.png"));
                     die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die4.png"));
                     infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD1.png"));
                 }
@@ -273,8 +276,8 @@ public class mainForm extends JFrame {
                 }
 
                 if (i == 2) {
-                    die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die3.png"));
-                    die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die2.png"));
+                    die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
+                    die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die5.png"));
                     infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD3.png"));
                 }
 
@@ -283,6 +286,7 @@ public class mainForm extends JFrame {
                         diceRolled = true;
                         placeBetButton.setEnabled(true);
                         player.setCurrentRoll(dieA.diceTotal(dieB));
+                        syncDieIconRoll();
                         currentRollField.setText(String.valueOf(player.getCurrentRoll()));
                     }
 
@@ -291,9 +295,6 @@ public class mainForm extends JFrame {
                     firstDiceRoll = true;
                     rollDiceButton.setRolloverEnabled(true);
                     betAmountField.setEditable(true);
-
-                    die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
-                    die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
                     rollDiceButton.setIcon(new ImageIcon("src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png"));
 
                     if (!pointTurn) {
@@ -490,6 +491,13 @@ public class mainForm extends JFrame {
                 i++;
             }
         });
+    }
+
+    private void syncDieIconRoll() {
+        die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die"
+                + dieA.getMySide() + ".png"));
+        die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die"
+                + dieB.getMySide() + ".png"));
     }
 
     private void rollBothDice() {
