@@ -8,7 +8,7 @@ import java.awt.event.*;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.8.9";
+    private static final String VERSION = "0.9.0";
 
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -56,6 +56,7 @@ public class mainForm extends JFrame {
     private boolean firstStart = false;
     private boolean betPlaced = false;
     private boolean pointTurn = false;
+    private boolean wonOrLost = false;
 
     Timer timer;
     Timer infoTimer;
@@ -72,59 +73,65 @@ public class mainForm extends JFrame {
 
          continueButtonST.addActionListener(new ActionListener() {
              int i = 0;
+             int j = 0;
 
              @Override
              public void actionPerformed(ActionEvent e) {
-                 infoTimer = new Timer(1000, this);
-                 infoTimer.setRepeats(false);
-                 infoTimer.start();
-                 if (i == 3) {
-                     i = 0;
-                 }
-                 if (!firstStart) {
-                     if (i == 0) {
-                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRDTB1.png"));
-                     }
-                     if (i == 2) {
-                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelW1.png"));
-                     }
-                 }
-                 else if (pointTurn && !infoScreenBusy) {
-                     if (i == 0) {
-                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFRP.png"));
-                     }
-                     if (i == 1) {
-                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBlank.png"));
-                     }
-                     if (i == 2) {
-                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFRP.png"));
-                     }
-                 }
-                 else if (firstDiceRoll && !infoScreenBusy && !betPlaced) {
-                     if (i == 0) {
-                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
-                     }
-                     if (i == 1) {
-                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBlank.png"));
-                     }
-                     if (i == 2) {
-                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
-                     }
-                 }
-                 else if (betPlaced && !infoScreenBusy) {
-                     if (i == 0) {
-                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFR1.png"));
-                     }
-                     if (i == 1) {
-                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBlank.png"));
-                     }
-                     if (i == 2) {
-                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFR1.png"));
-                     }
-                 }
-
-                 i++;
-             }
+//                 infoTimer = new Timer(1000, this);
+//                 infoTimer.setRepeats(false);
+//                 infoTimer.start();
+//                 if (i == 8) {
+//                     i = 0;
+//                 }
+//                 if (!firstStart) {
+//                     if (i == 0 || i == 4) {
+//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRDTB1.png"));
+//                     }
+//                     if (i == 2 || i == 6) {
+//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelW1.png"));
+//                     }
+//                 }
+//                 else if (pointTurn && !infoScreenBusy) {
+//                     System.out.println("POINT TURN TEXTURES RUNNING");
+//                     if (i == 5) {
+//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFRP.png"));
+//                     }
+//                     if (i == 6) {
+//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBlank.png"));
+//                     }
+//                     if (i == 7) {
+//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFRP.png"));
+//                     }
+//                 }
+//                 else if (firstDiceRoll && !infoScreenBusy && !betPlaced) {
+//                     System.out.println("PLACE BET TEXTURES RUNNING");
+//                     if (i == 3) {
+//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
+//                     }
+//                     if (i == 4) {
+//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBlank.png"));
+//                     }
+//                     if (i == 5) {
+//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
+//                     }
+//
+//                 }
+//                 else if (betPlaced && !infoScreenBusy) {
+//                     System.out.println("WAITING FOR ROLL TURN TEXTURES RUNNING");
+//                     if (i == 6) {
+//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFR1.png"));
+//                     }
+//                     if (i == 7) {
+//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBlank.png"));
+//                     }
+//                     if (i == 8) {
+//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFR1.png"));
+//                     }
+//                 }
+//
+//
+//                 i++;
+               }
          });
 
         rollDiceButton.addActionListener(new ActionListener() {
@@ -140,8 +147,6 @@ public class mainForm extends JFrame {
                     rollDiceButton.setEnabled(false);
                 }
 
-                infoScreenBusy = true;
-
                 firstStart = true;
 
                 placeBetButton.setEnabled(false);
@@ -156,7 +161,10 @@ public class mainForm extends JFrame {
                 timer.setRepeats(false);
                 timer.start();
 
+
                 if (i == 0) {
+                    System.out.println("info busy true");
+                    infoScreenBusy = true;
                     die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die3.png"));
                     die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die4.png"));
                     infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD1.png"));
@@ -181,11 +189,13 @@ public class mainForm extends JFrame {
                         currentRollField.setText(String.valueOf(player.getCurrentRoll()));
                     }
 
+                    System.out.println("info busy false");
+                    infoScreenBusy = false;
                     betPlaced = false;
                     firstDiceRoll = true;
-                    infoScreenBusy = false;
                     rollDiceButton.setRolloverEnabled(true);
                     betAmountField.setEditable(true);
+
 
                     die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
                     die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
@@ -199,73 +209,83 @@ public class mainForm extends JFrame {
 
                 if (i == 4) {
                     if (firstStart) {
-                        if (!pointTurn) {
-                            rollDiceButton.setEnabled(false);
+
+                        if (wonOrLost) {
+                            gameTimer.stop();
+                            infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFR1.png"));
                         }
-                        if (pointTurn) {
-                            if (player.getCurrentRoll() == 7) {
-                                player.setLose(true);
-                                pointTurn = false;
-                                betAmountField.setEditable(true);
-                            } else if (player.getCurrentRoll() == player.getMyPoint()) {
-                                player.setWin(true);
-                                pointTurn = false;
-                                betAmountField.setEditable(true);
+
+                        if (!wonOrLost) {
+                            if (!pointTurn) {
+                                rollDiceButton.setEnabled(false);
                             }
-                        }
-                        else {
-                            if (player.getCurrentRoll() == 7
-                                    || player.getCurrentRoll() == 11) {
-                                player.setWin(true);
-                                player.setCurrentRoll(0);
-                                System.out.println("won");
+                            if (pointTurn) {
+                                if (player.getCurrentRoll() == 7) {
+                                    player.setLose(true);
+                                    wonOrLost = true;
+                                    pointTurn = false;
+                                    betAmountField.setEditable(true);
+                                } else if (player.getCurrentRoll() == player.getMyPoint()) {
+                                    player.setWin(true);
+                                    wonOrLost = true;
+                                    pointTurn = false;
+                                    betAmountField.setEditable(true);
+                                }
+                            } else {
+                                if (player.getCurrentRoll() == 7
+                                        || player.getCurrentRoll() == 11) {
+                                    player.setWin(true);
+                                    wonOrLost = true;
+                                    player.setCurrentRoll(0);
+                                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWON.png"));
+                                }
+
+                                if (player.getCurrentRoll() == 2
+                                        || player.getCurrentRoll() == 3
+                                        || player.getCurrentRoll() == 12) {
+                                    wonOrLost = true;
+                                    player.setLose(true);
+                                    player.setCurrentRoll(0);
+                                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelLost.png"));
+                                }
                             }
 
-                            if (player.getCurrentRoll() == 2
-                                    || player.getCurrentRoll() == 3
-                                    || player.getCurrentRoll() == 12) {
-                                player.setLose(true);
-                                player.setCurrentRoll(0);
-                                System.out.println("lost");
+                            if (!pointTurn) {
+                                if (player.getCurrentRoll() == 4
+                                        || player.getCurrentRoll() == 5
+                                        || player.getCurrentRoll() == 6
+                                        || player.getCurrentRoll() == 8
+                                        || player.getCurrentRoll() == 9
+                                        || player.getCurrentRoll() == 10) {
+                                    pointTurn = true;
+                                    placeBetButton.setEnabled(false);
+                                    rollDiceButton.setEnabled(true);
+                                    betAmountField.setEditable(false);
+                                    System.out.println("point turn");
+                                    player.setMyPoint(player.getCurrentRoll());
+                                }
                             }
-                        }
 
-                        if (!pointTurn) {
-                            if (player.getCurrentRoll() == 4
-                                    || player.getCurrentRoll() == 5
-                                    || player.getCurrentRoll() == 6
-                                    || player.getCurrentRoll() == 8
-                                    || player.getCurrentRoll() == 9
-                                    || player.getCurrentRoll() == 10) {
-                                pointTurn = true;
-                                placeBetButton.setEnabled(false);
-                                rollDiceButton.setEnabled(true);
-                                betAmountField.setEditable(false);
-                                System.out.println("point turn");
-                                player.setMyPoint(player.getCurrentRoll());
+
+                            if (player.isLose()) {
+                                System.out.println("subtracting bet");
+                                player.setCurrentCash(player.getCurrentCash() - (player.getCurrentBet() * 2));
+                                cashField.setText(String.valueOf(player.getCurrentCash()));
+                                player.setLose(false);
+                                currentBetField.setText("");
+
+                            } else if (player.isWin()) {
+                                System.out.println("adding bet");
+                                player.setCurrentCash(player.getCurrentCash() + (player.getCurrentBet() * 2));
+                                cashField.setText(String.valueOf(player.getCurrentCash()));
+                                player.setWin(false);
+                                currentBetField.setText("");
                             }
-                        }
 
 
-                        if (player.isLose()) {
-                            System.out.println("subtracting bet");
-                            player.setCurrentCash(player.getCurrentCash() - (player.getCurrentBet() * 2));
-                            cashField.setText(String.valueOf(player.getCurrentCash()));
-                            player.setLose(false);
-                            currentBetField.setText("");
-                            currentRollField.setText("");
+                            System.out.println("point" + player.getMyPoint());
+                            System.out.println("current roll" + player.getCurrentRoll());
                         }
-                        else if (player.isWin()) {
-                            System.out.println("adding bet");
-                            player.setCurrentCash(player.getCurrentCash() + (player.getCurrentBet() * 2));
-                            cashField.setText(String.valueOf(player.getCurrentCash()));
-                            player.setWin(false);
-                            currentBetField.setText("");
-                            currentRollField.setText("");
-                        }
-
-                        System.out.println("point" + player.getMyPoint());
-                        System.out.println("current roll" + player.getCurrentRoll());
                     }
                 }
             }
@@ -288,20 +308,30 @@ public class mainForm extends JFrame {
         placeBetButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                player.setCurrentBet(Integer.parseInt(betAmountField.getText()));
-                player.setCurrentCash(player.getCurrentCash() - player.getCurrentBet());
-                betAmountField.setEditable(false);
-                placeBetButton.setEnabled(false);
+                infoTimer = new Timer(2000, this);
+                infoTimer.setRepeats(false);
+                infoTimer.start();
 
-                infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBP1.png"));
-                currentBetField.setText(String.valueOf(player.getCurrentBet()));
-                cashField.setText(String.valueOf(player.getCurrentCash()));
-                betPlaced = true;
-                betAmountField.setText("");
-                if (!pointTurn) {
-                    rollDiceButton.setEnabled(true);
+                if (betPlaced) {
+                    infoTimer.stop();
+                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFR1.png"));
                 }
 
+                if (!betPlaced) {
+                    player.setCurrentBet(Integer.parseInt(betAmountField.getText()));
+                    player.setCurrentCash(player.getCurrentCash() - player.getCurrentBet());
+                    betAmountField.setEditable(false);
+                    placeBetButton.setEnabled(false);
+
+                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBP1.png"));
+                    currentBetField.setText(String.valueOf(player.getCurrentBet()));
+                    cashField.setText(String.valueOf(player.getCurrentCash()));
+                    betPlaced = true;
+                    betAmountField.setText("");
+                    if (!pointTurn) {
+                        rollDiceButton.setEnabled(true);
+                    }
+                }
             }
         });
 
