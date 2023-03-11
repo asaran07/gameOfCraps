@@ -3,13 +3,12 @@ import model.Player;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.8.8";
+    private static final String VERSION = "0.8.9";
 
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -47,6 +46,7 @@ public class mainForm extends JFrame {
     private JPanel dicePanel;
     private JPanel infoPanel;
     private JTextField currentBetField;
+    private JLabel plus100Button;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
     private Player player = new Player();
@@ -55,6 +55,7 @@ public class mainForm extends JFrame {
     private boolean infoScreenBusy = false;
     private boolean firstStart = false;
     private boolean betPlaced = false;
+    private boolean pointTurn = false;
 
     Timer timer;
     Timer infoTimer;
@@ -66,6 +67,7 @@ public class mainForm extends JFrame {
         versionLabel.setText(VERSION);
 
         betAmountField.setEditable(false);
+        continueButtonST.setEnabled(false);
 
          continueButtonST.addActionListener(new ActionListener() {
              int i = 0;
@@ -123,15 +125,32 @@ public class mainForm extends JFrame {
                 }
 
                 if (firstStart) {
-                    if (Integer.parseInt(currentRollField.getText()) == 7
-                            || Integer.parseInt(currentRollField.getText()) == 11) {
-                        player.setWin(true);
+
+                    if (!pointTurn) {
+                        if (Integer.parseInt(currentRollField.getText()) == 7
+                                || Integer.parseInt(currentRollField.getText()) == 11) {
+                            player.setWin(true);
+                        }
+
+                        if (Integer.parseInt(currentRollField.getText()) == 2
+                                || Integer.parseInt(currentRollField.getText()) == 3
+                                || Integer.parseInt(currentRollField.getText()) == 12) {
+                            player.setLose(true);
+                        }
                     }
-                    if (Integer.parseInt(currentRollField.getText()) == 2
-                            || Integer.parseInt(currentRollField.getText()) == 3
-                            || Integer.parseInt(currentRollField.getText()) == 12) {
-                        player.setLose(true);
+
+                    if (Integer.parseInt(currentRollField.getText()) == 4
+                            || Integer.parseInt(currentRollField.getText()) == 5
+                            || Integer.parseInt(currentRollField.getText()) == 6
+                            || Integer.parseInt(currentRollField.getText()) == 8
+                            || Integer.parseInt(currentRollField.getText()) == 9
+                            || Integer.parseInt(currentRollField.getText()) == 10) {
+                        pointTurn = true;
+
                     }
+
+
+
                     if (player.isWin()) {
                         player.setCurrentCash(player.getCurrentCash() + player.getCurrentBet());
                         player.setWin(false);
@@ -246,6 +265,22 @@ public class mainForm extends JFrame {
                     timer.stop();
                 }
                 i++;
+            }
+        });
+
+
+
+
+        startingCashField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (!startingCashField.getText().isBlank()
+                || !startingCashField.getText().isEmpty()) {
+                    continueButtonST.setEnabled(true);
+                }
+                else {
+                    continueButtonST.setEnabled(false);
+                }
             }
         });
 
