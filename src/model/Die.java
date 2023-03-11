@@ -31,8 +31,8 @@ public class Die {
 
     public int diceTotal(final Die theOtherDie) {
         if (theOtherDie.getClass() == this.getClass()) {
-            Die d = new Die();
-            d = (Die) theOtherDie;
+            Die d;
+            d = theOtherDie;
             return d.getMySide() + getMySide();
         }
         else {

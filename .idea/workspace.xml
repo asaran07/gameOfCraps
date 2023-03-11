@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="continueST button enables only if a value is present in startingCashField.&#10;version 0.8.9">
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetBtnClicked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetBtnHover.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnClicked.png" afterDir="false" />
+    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="changed some button textures&#10;version 0.8.10">
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelWFRP.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetBtn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnHover.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnHoverNoUline.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnHoverNoUline.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Die.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Die.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelBP1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelBP1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelBlank.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelBlank.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelLG1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelLG1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelRDTB1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelRDTB1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelW1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelW1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelWFR1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelWFR1.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
     "jdk.selected.JAVA_MODULE": "openjdk-19",
-    "last_opened_file_path": "C:/Users/Arsh/Downloads/gameOfScraps/src/ui_resources/buttons/rollDiceButton",
+    "last_opened_file_path": "C:/Users/Arsh/Downloads/gameOfScraps/src/ui_resources/labels",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,10 +70,10 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\rollDiceButton" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\placeBetButton" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\plusButtons" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels" />
       <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\labels" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -164,7 +165,8 @@
       <workItem from="1678156641488" duration="5415000" />
       <workItem from="1678436161690" duration="7577000" />
       <workItem from="1678473899492" duration="159000" />
-      <workItem from="1678488510014" duration="6834000" />
+      <workItem from="1678488510014" duration="11388000" />
+      <workItem from="1678517508880" duration="4114000" />
     </task>
     <task id="LOCAL-00001" summary="getting the basics together">
       <created>1677778120107</created>
@@ -320,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678499650889</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="changed some button textures&#10;version 0.8.10">
+      <created>1678501405112</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1678501405112</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,6 +378,7 @@
     <MESSAGE value="added first core functionality with info-screen&#10;version 0.8.7" />
     <MESSAGE value="added betting and player bank functions&#10;version 0.8.8" />
     <MESSAGE value="continueST button enables only if a value is present in startingCashField.&#10;version 0.8.9" />
-    <option name="LAST_COMMIT_MESSAGE" value="continueST button enables only if a value is present in startingCashField.&#10;version 0.8.9" />
+    <MESSAGE value="changed some button textures&#10;version 0.8.10" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed some button textures&#10;version 0.8.10" />
   </component>
 </project>

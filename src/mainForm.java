@@ -83,13 +83,24 @@ public class mainForm extends JFrame {
                  }
                  if (!firstStart) {
                      if (i == 0) {
-                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelW1.png"));
-                     }
-                     if (i == 2) {
                          infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRDTB1.png"));
                      }
+                     if (i == 2) {
+                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelW1.png"));
+                     }
                  }
-                 if (firstDiceRoll && !infoScreenBusy && !betPlaced) {
+                 else if (pointTurn && !infoScreenBusy) {
+                     if (i == 0) {
+                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFRP.png"));
+                     }
+                     if (i == 1) {
+                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBlank.png"));
+                     }
+                     if (i == 2) {
+                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFRP.png"));
+                     }
+                 }
+                 else if (firstDiceRoll && !infoScreenBusy && !betPlaced) {
                      if (i == 0) {
                          infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
                      }
@@ -100,7 +111,7 @@ public class mainForm extends JFrame {
                          infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
                      }
                  }
-                 if (betPlaced && !infoScreenBusy) {
+                 else if (betPlaced && !infoScreenBusy) {
                      if (i == 0) {
                          infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFR1.png"));
                      }
@@ -125,45 +136,12 @@ public class mainForm extends JFrame {
                     i = 0;
                 }
 
-                if (firstStart) {
-
-                    if (!pointTurn) {
-                        if (Integer.parseInt(currentRollField.getText()) == 7
-                                || Integer.parseInt(currentRollField.getText()) == 11) {
-                            player.setWin(true);
-                        }
-
-                        if (Integer.parseInt(currentRollField.getText()) == 2
-                                || Integer.parseInt(currentRollField.getText()) == 3
-                                || Integer.parseInt(currentRollField.getText()) == 12) {
-                            player.setLose(true);
-                        }
-                    }
-
-                    if (Integer.parseInt(currentRollField.getText()) == 4
-                            || Integer.parseInt(currentRollField.getText()) == 5
-                            || Integer.parseInt(currentRollField.getText()) == 6
-                            || Integer.parseInt(currentRollField.getText()) == 8
-                            || Integer.parseInt(currentRollField.getText()) == 9
-                            || Integer.parseInt(currentRollField.getText()) == 10) {
-                        pointTurn = true;
-
-                    }
-
-
-
-                    if (player.isWin()) {
-                        player.setCurrentCash(player.getCurrentCash() + player.getCurrentBet());
-                        player.setWin(false);
-                    }
-                    if (player.isLose()) {
-                        player.setCurrentCash(player.getCurrentCash() - player.getCurrentBet());
-                    }
+                if (!pointTurn) {
+                    rollDiceButton.setEnabled(false);
                 }
 
-                betPlaced = false;
                 infoScreenBusy = true;
-                firstDiceRoll = true;
+
                 firstStart = true;
 
                 placeBetButton.setEnabled(false);
@@ -171,9 +149,6 @@ public class mainForm extends JFrame {
 
                 dieA.rollDice();
                 dieB.rollDice();
-
-                currentRollField.setText(String.valueOf(dieA.getMySide() + dieB.getMySide()));
-
 
                 rollDiceButton.setRolloverEnabled(false);
 
@@ -185,7 +160,6 @@ public class mainForm extends JFrame {
                     die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die3.png"));
                     die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die4.png"));
                     infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD1.png"));
-                    rollDiceButton.setEnabled(false);
                 }
 
                 if (i == 1) {
@@ -201,12 +175,16 @@ public class mainForm extends JFrame {
                 }
 
                 if (i == 3) {
-                    placeBetButton.setEnabled(true);
-                    betAmountField.setEditable(true);
-                    rollDiceButton.setRolloverEnabled(true);
+                    if (firstDiceRoll) {
+                        placeBetButton.setEnabled(true);
+                        player.setCurrentRoll(dieA.diceTotal(dieB));
+                        currentRollField.setText(String.valueOf(player.getCurrentRoll()));
+                    }
+
+                    betPlaced = false;
+                    firstDiceRoll = true;
                     infoScreenBusy = false;
-                    rollDiceButton.setEnabled(true);
-                    betAmountField.setEditable(true);
+                    rollDiceButton.setRolloverEnabled(true);
                     betAmountField.setEditable(true);
 
                     die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
@@ -219,18 +197,90 @@ public class mainForm extends JFrame {
 
                 i++;
 
+                if (i == 4) {
+                    if (firstStart) {
+                        if (!pointTurn) {
+                            rollDiceButton.setEnabled(false);
+                        }
+                        if (pointTurn) {
+                            if (player.getCurrentRoll() == 7) {
+                                player.setLose(true);
+                                pointTurn = false;
+                                betAmountField.setEditable(true);
+                            } else if (player.getCurrentRoll() == player.getMyPoint()) {
+                                player.setWin(true);
+                                pointTurn = false;
+                                betAmountField.setEditable(true);
+                            }
+                        }
+                        else {
+                            if (player.getCurrentRoll() == 7
+                                    || player.getCurrentRoll() == 11) {
+                                player.setWin(true);
+                                player.setCurrentRoll(0);
+                                System.out.println("won");
+                            }
+
+                            if (player.getCurrentRoll() == 2
+                                    || player.getCurrentRoll() == 3
+                                    || player.getCurrentRoll() == 12) {
+                                player.setLose(true);
+                                player.setCurrentRoll(0);
+                                System.out.println("lost");
+                            }
+                        }
+
+                        if (!pointTurn) {
+                            if (player.getCurrentRoll() == 4
+                                    || player.getCurrentRoll() == 5
+                                    || player.getCurrentRoll() == 6
+                                    || player.getCurrentRoll() == 8
+                                    || player.getCurrentRoll() == 9
+                                    || player.getCurrentRoll() == 10) {
+                                pointTurn = true;
+                                placeBetButton.setEnabled(false);
+                                rollDiceButton.setEnabled(true);
+                                betAmountField.setEditable(false);
+                                System.out.println("point turn");
+                                player.setMyPoint(player.getCurrentRoll());
+                            }
+                        }
+
+
+                        if (player.isLose()) {
+                            System.out.println("subtracting bet");
+                            player.setCurrentCash(player.getCurrentCash() - (player.getCurrentBet() * 2));
+                            cashField.setText(String.valueOf(player.getCurrentCash()));
+                            player.setLose(false);
+                            currentBetField.setText("");
+                            currentRollField.setText("");
+                        }
+                        else if (player.isWin()) {
+                            System.out.println("adding bet");
+                            player.setCurrentCash(player.getCurrentCash() + (player.getCurrentBet() * 2));
+                            cashField.setText(String.valueOf(player.getCurrentCash()));
+                            player.setWin(false);
+                            currentBetField.setText("");
+                            currentRollField.setText("");
+                        }
+
+                        System.out.println("point" + player.getMyPoint());
+                        System.out.println("current roll" + player.getCurrentRoll());
+                    }
+                }
             }
         });
+
 
         betAmountField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
                 if (!betAmountField.getText().isBlank()
                         || !betAmountField.getText().isEmpty()) {
-                    betAmountField.setEnabled(true);
+                    placeBetButton.setEnabled(true);
                 }
                 else {
-                    betAmountField.setEnabled(false);
+                    placeBetButton.setEnabled(false);
                 }
             }
         });
@@ -241,11 +291,17 @@ public class mainForm extends JFrame {
                 player.setCurrentBet(Integer.parseInt(betAmountField.getText()));
                 player.setCurrentCash(player.getCurrentCash() - player.getCurrentBet());
                 betAmountField.setEditable(false);
-                betAmountField.setEditable(false);
+                placeBetButton.setEnabled(false);
+
                 infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBP1.png"));
                 currentBetField.setText(String.valueOf(player.getCurrentBet()));
                 cashField.setText(String.valueOf(player.getCurrentCash()));
                 betPlaced = true;
+                betAmountField.setText("");
+                if (!pointTurn) {
+                    rollDiceButton.setEnabled(true);
+                }
+
             }
         });
 
