@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="correct version.&#10;version 0.10.1">
+    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="timer implemented for switching view in sync with lost or win.&#10;version 0.10.2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
     </list>
@@ -23,6 +23,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="3798c028-3263-40ed-99b6-a86f4e687474" />
+        <option name="url" value="https://github.com/asaran07/gameOfScraps.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -46,8 +59,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "525",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "281",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "723",
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
@@ -166,6 +180,7 @@
       <workItem from="1678488510014" duration="11388000" />
       <workItem from="1678517508880" duration="4114000" />
       <workItem from="1678557769433" duration="17496000" />
+      <workItem from="1678652266893" duration="7765000" />
     </task>
     <task id="LOCAL-00001" summary="getting the basics together">
       <created>1677778120107</created>
@@ -370,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678607688839</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="timer implemented for switching view in sync with lost or win.&#10;version 0.10.2">
+      <created>1678612991430</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1678612991430</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,7 +421,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed the core format to cards" />
     <MESSAGE value="dice roll test" />
     <MESSAGE value="added external ui button icons with basic ux feedback" />
     <MESSAGE value="button ui changes" />
@@ -424,6 +445,7 @@
     <MESSAGE value="rewrote logic for info-screen&#10;version 0.9.4" />
     <MESSAGE value="core logic of game working for the first time.&#10;version 0.10.0" />
     <MESSAGE value="correct version.&#10;version 0.10.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="correct version.&#10;version 0.10.1" />
+    <MESSAGE value="timer implemented for switching view in sync with lost or win.&#10;version 0.10.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="timer implemented for switching view in sync with lost or win.&#10;version 0.10.2" />
   </component>
 </project>

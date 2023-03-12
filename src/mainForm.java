@@ -10,7 +10,7 @@ import java.util.TimerTask;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.10.2";
+    private static final String VERSION = "0.10.3";
     private final Random rand = new Random();
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -62,6 +62,7 @@ public class mainForm extends JFrame {
     private boolean wonOrLost = false;
     private boolean diceRolled = false;
     private boolean calculationBusy = false;
+    private boolean blinked = false;
     private int startingCash = 0;
     java.util.Timer PYBTimer = new java.util.Timer();
 
@@ -73,72 +74,101 @@ public class mainForm extends JFrame {
         disableBetting();
         versionLabel.setText(VERSION);
         setInfoViewTo("RDTB1");
-
         rollDiceButton.addActionListener(new ActionListener() {
-            int i = 0;
             @Override
             public void actionPerformed(ActionEvent e) {
-                timer = new Timer(400, this);
-                timer.setRepeats(false);
-                timer.start();
-
-                if (i == 4) {
-                    i = 0;
-                }
-
                 rollDiceButton.setEnabled(false);
                 rollDiceButton.setRolloverEnabled(false);
                 disableBetting();
 
                 if (firstStart) {
-                    if (i == 0) {
-                        infoScreenBusy = true;
-                        randomizeDiceIcons();
-                        setInfoViewTo("RD1");
-                    }
-
-                    if (i == 1) {
-                        randomizeDiceIcons();
-                        setInfoViewTo("RD2");
-                    }
-
-                    if (i == 2) {
-                        randomizeDiceIcons();
-                        setInfoViewTo("RD3");
-                    }
-
-                    if (i == 3) {
-                        diceRolled = true;
-                        timer.stop();
-                        rollBothDice();
-                        processCurrentState();
-                    }
-//                    else {
-//                        if (!pointTurn) {
-//                            betAmountField.setEditable(true);
-//                        }
-//                    }
+                    PYBTimer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            System.out.println("1");
+                            infoScreenBusy = true;
+                            randomizeDiceIcons();
+                            setInfoViewTo("RD1");
+                        }
+                    }, 0);
+                    PYBTimer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            System.out.println("2");
+                            infoScreenBusy = true;
+                            randomizeDiceIcons();
+                            setInfoViewTo("RD2");
+                        }
+                    }, 1000);
+                    PYBTimer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            System.out.println("3");
+                            infoScreenBusy = true;
+                            randomizeDiceIcons();
+                            setInfoViewTo("RD3");
+                        }
+                    }, 2000);
+                    PYBTimer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            diceRolled = true;
+                            timer.stop();
+                            rollBothDice();
+                            processCurrentState();
+                        }
+                    }, 3000);
                 }
+
+
                 else {
                     setInfoViewTo("LG1");
-                    if (i == 3) {
-                        rollDiceButton.setRolloverEnabled(true);
-                        setInfoViewTo("PYB");
-                        firstStart = true;
-                        enableBetting();
-                        timer.stop();
-                    }
+                    PYBTimer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            rollDiceButton.setRolloverEnabled(true);
+                            setInfoViewTo("PYB");
+                            firstStart = true;
+                            betAmountField.setEditable(true);
+                            timer.stop();
+                        }
+                    }, 3000);
                 }
-                i++;
             }
         });
 
         betAmountField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
+                String input;
+                boolean alphaDetected = false;
                 if (!betAmountField.getText().isBlank()
                         || !betAmountField.getText().isEmpty()) {
-                    placeBetButton.setEnabled(true);
+                    input = betAmountField.getText();
+                    for (int i = 0; i < input.length(); i++) {
+                        if (Character.isAlphabetic(input.charAt(i))) {
+                            alphaDetected = true;
+                        }
+                    }
+                    placeBetButton.setEnabled(!alphaDetected);
+                }
+                else {
+                    placeBetButton.setEnabled(false);
+                }
+            }
+            @Override
+            public void keyTyped(KeyEvent e) {
+                String input;
+                boolean alphaDetected = false;
+                if (!betAmountField.getText().isBlank()
+                        || !betAmountField.getText().isEmpty()) {
+                    input = betAmountField.getText();
+                    for (int i = 0; i < input.length(); i++) {
+                        if (Character.isAlphabetic(input.charAt(i))) {
+                            alphaDetected = true;
+                        }
+                    }
+                    placeBetButton.setEnabled(!alphaDetected);
                 }
                 else {
                     placeBetButton.setEnabled(false);
@@ -223,9 +253,25 @@ public class mainForm extends JFrame {
 
 
         continueButtonST.addActionListener(new ActionListener() {
+
             int i = 0;
             @Override
             public void actionPerformed(ActionEvent e) {
+//                PYBTimer.schedule(new TimerTask() {
+//                    @Override
+//                    public void run() {
+//                        System.out.println("r1");
+//                        setInfoViewTo("RDTB1");
+//                    }
+//                }, 3000, 3000);
+//                PYBTimer.schedule(new TimerTask() {
+//                    @Override
+//                    public void run() {
+//                        System.out.println("r2");
+//                        setInfoViewTo("Blank");
+//                    }
+//                }, 5000, 3000);
+
                 player.setCurrentCash(Integer.parseInt(startingCashField.getText()));
                 startingCash = Integer.parseInt(startingCashField.getText());
                 cashField.setText(String.valueOf(player.getCurrentCash()));
@@ -401,8 +447,9 @@ public class mainForm extends JFrame {
                 @Override
                 public void run() {
                     betPlaced = false;
-                    enableBetting();
+                    betAmountField.setEditable(true);
                     currentBetField.setText("");
+                    currentRollField.setText("");
                     setInfoViewTo("PYB");
                 }
             }, 3000);
@@ -470,9 +517,7 @@ public class mainForm extends JFrame {
         mainPanel.revalidate();
     }
 
-
     public static void main(String[] args) {
-
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int sHeight = screenSize.height/2;
         int sWidth = screenSize.width/2;
