@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.9.7";
+    private static final String VERSION = "0.10.0";
     private final Random rand = new Random();
     private JPanel mainPanel;
     private JPanel titleScreen;
