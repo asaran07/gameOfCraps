@@ -4,12 +4,13 @@ import model.Player;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Random;
 
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.9.5";
-
+    private static final String VERSION = "0.9.6";
+    private final Random rand = new Random();
     private JPanel mainPanel;
     private JPanel titleScreen;
     private JPanel settingsScreen;
@@ -52,8 +53,7 @@ public class mainForm extends JFrame {
     private final Die dieA = new Die();
     private final Die dieB = new Die();
     private Player player = new Player();
-
-    private boolean firstDiceRoll = false;
+    private boolean firstDiceRolled = false;
     private boolean infoScreenBusy = false;
     private boolean firstStart = false;
     private boolean betPlaced = false;
@@ -66,11 +66,9 @@ public class mainForm extends JFrame {
     Timer infoTimer;
     Timer gameTimer;
 
-
     public mainForm() {
 
         versionLabel.setText(VERSION);
-
         betAmountField.setEditable(false);
         continueButtonST.setEnabled(false);
         placeBetButton.setEnabled(false);
@@ -173,152 +171,54 @@ public class mainForm extends JFrame {
 
         rollDiceButton.addActionListener(diceRolledListener);
 
-         continueButtonST.addActionListener(new ActionListener() {
-             int i = 0;
-             int j = 0;
-
-             @Override
-             public void actionPerformed(ActionEvent e) {
-//                 infoTimer = new Timer(1000, this);
-//                 infoTimer.setRepeats(false);
-//                 infoTimer.start();
-//                 if (i == 8) {
-//                     i = 0;
-//                 }
-//                 if (!firstStart) {
-//                     if (i == 0 || i == 4) {
-//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRDTB1.png"));
-//                     }
-//                     if (i == 2 || i == 6) {
-//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelW1.png"));
-//                     }
-//                 }
-//                 else if (pointTurn && !infoScreenBusy) {
-//                     System.out.println("POINT TURN TEXTURES RUNNING");
-//                     if (i == 5) {
-//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFRP.png"));
-//                     }
-//                     if (i == 6) {
-//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBlank.png"));
-//                     }
-//                     if (i == 7) {
-//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFRP.png"));
-//                     }
-//                 }
-//                 else if (firstDiceRoll && !infoScreenBusy && !betPlaced) {
-//                     System.out.println("PLACE BET TEXTURES RUNNING");
-//                     if (i == 3) {
-//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
-//                     }
-//                     if (i == 4) {
-//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBlank.png"));
-//                     }
-//                     if (i == 5) {
-//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
-//                     }
-//
-//                 }
-//                 else if (betPlaced && !infoScreenBusy) {
-//                     System.out.println("WAITING FOR ROLL TURN TEXTURES RUNNING");
-//                     if (i == 6) {
-//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFR1.png"));
-//                     }
-//                     if (i == 7) {
-//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelBlank.png"));
-//                     }
-//                     if (i == 8) {
-//                         infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFR1.png"));
-//                     }
-//                 }
-//
-//
-//                 i++;
-               }
-         });
-
         rollDiceButton.addActionListener(new ActionListener() {
             int i = 0;
-
             @Override
             public void actionPerformed(ActionEvent e) {
+                timer = new Timer(400, this);
+                timer.setRepeats(false);
+                timer.start();
 
                 if (i == 4) {
                     i = 0;
                 }
 
                 firstStart = true;
-                rollDiceButton.setEnabled(false);
-
-                placeBetButton.setEnabled(false);
-                betAmountField.setEditable(false);
-
-                dieA.rollDice();
-                dieB.rollDice();
-
                 rollDiceButton.setRolloverEnabled(false);
 
-                timer = new Timer(400, this);
-                timer.setRepeats(false);
-                timer.start();
+                disableBetting();
 
-                if (!firstDiceRoll) {
-                    infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelLG1.png"));
-                }
-
-                if (firstDiceRoll) {
+                if (firstDiceRolled) {
                     if (i == 0) {
                         infoScreenBusy = true;
-                        die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die6.png"));
-                        die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die4.png"));
-                        infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD1.png"));
+                        randomizeDiceIcons();
+                        setInfoViewTo("RD1");
                     }
 
                     if (i == 1) {
-                        die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die3.png"));
-                        die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die2.png"));
-                        infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD2.png"));
+                        randomizeDiceIcons();
+                        setInfoViewTo("RD2");
                     }
 
                     if (i == 2) {
-                        die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die1.png"));
-                        die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die5.png"));
-                        infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelRD3.png"));
+                        randomizeDiceIcons();
+                        setInfoViewTo("RD3");
                     }
-                }
 
-                if (i == 3) {
-                    if (firstDiceRoll) {
-                        player.setCurrentRoll(dieA.diceTotal(dieB));
-                        currentRollField.setText(String.valueOf(player.getCurrentRoll()));
-                        syncDieIconRoll();
-                        diceRolled = true;
-                        checkRoll();
-                        if (!pointTurn) {
-                            placeBetButton.setEnabled(true);
-                            betAmountField.setEditable(true);
-                        }
+                    if (i == 3) {
+                        processGameAfterRollClicked();
+                        timer.stop();
                     }
                     else {
                         betAmountField.setEditable(true);
                     }
-
-                    infoScreenBusy = false;
-                    betPlaced = false;
-                    firstDiceRoll = true;
-                    rollDiceButton.setRolloverEnabled(true);
-                    rollDiceButton.setIcon(new ImageIcon("src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png"));
-
-                    if (!pointTurn && !calculationBusy) {
-                        infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
-                    }
-
-                    System.out.println("finished rolling");
-                    timer.stop();
+                }
+                else {
+                    setInfoViewTo("LG1");
                 }
                 i++;
             }
         });
-
 
         betAmountField.addKeyListener(new KeyAdapter() {
             @Override
@@ -396,8 +296,6 @@ public class mainForm extends JFrame {
         });
 
 
-
-
         startingCashField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -410,6 +308,7 @@ public class mainForm extends JFrame {
                 }
             }
         });
+
 
         continueButtonST.addActionListener(new ActionListener() {
             int i = 0;
@@ -522,17 +421,62 @@ public class mainForm extends JFrame {
                 pointField.setText(String.valueOf(player.getMyPoint()));
                 infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelWFRP.png"));
             }
+            else {
+
+            }
         }
         else {
             rollDiceButton.setEnabled(true);
         }
     }
 
-    private void checkPoint() {
-
+    private void processGameAfterRollClicked() {
+        diceRolled = true;
+        rollBothDice();
+        syncPlayerWithCurrentRoll();
+        syncDieIconsWithCurrentRoll();
+        checkRoll();
+        if (!pointTurn) {
+            enableBetting();
+        }
+        betPlaced = false;
+        firstDiceRolled = true;
+        rollDiceButton.setRolloverEnabled(true);
+        rollDiceButton.setIcon(new ImageIcon("src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png"));
+        if (!pointTurn && !calculationBusy) {
+            infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabelPYB.png"));
+        }
+        System.out.println("finished rolling");
     }
 
-    private void syncDieIconRoll() {
+    private void syncPlayerWithCurrentRoll() {
+        player.setCurrentRoll(dieA.diceTotal(dieB));
+        currentRollField.setText(String.valueOf(player.getCurrentRoll()));
+    }
+
+    private void randomizeDiceIcons() {
+        int randomA = rand.nextInt(6 - 1 + 1) + 1;
+        int randomB = rand.nextInt(6 - 1 + 1) + 1;
+        die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die" + randomA + ".png"));
+        die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die" + randomB + ".png"));
+    }
+
+    private void setInfoViewTo(String infoViewState) {
+        infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabel"
+                + infoViewState + ".png"));
+    }
+
+    private void disableBetting() {
+        placeBetButton.setEnabled(false);
+        betAmountField.setEditable(false);
+    }
+
+    private void enableBetting() {
+        placeBetButton.setEnabled(true);
+        betAmountField.setEditable(true);
+    }
+
+    private void syncDieIconsWithCurrentRoll() {
         die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die"
                 + dieA.getMySide() + ".png"));
         die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die"

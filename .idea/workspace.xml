@@ -30,6 +30,8 @@
   <component name="ProjectId" id="2MT2LLFJgldYN8Er2ZbCkQLCOsV" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -57,6 +59,11 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -404,16 +411,5 @@
     <MESSAGE value="improved formatting and size, and applied all button textures.&#10;version 0.9.3" />
     <MESSAGE value="rewrote logic for info-screen&#10;version 0.9.4" />
     <option name="LAST_COMMIT_MESSAGE" value="rewrote logic for info-screen&#10;version 0.9.4" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/mainForm.java</url>
-          <line>509</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
