@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="rewrote logic for info-screen&#10;version 0.9.4">
+    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="correct version.&#10;version 0.10.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -357,7 +356,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678573147151</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="core logic of game working for the first time.&#10;version 0.10.0">
+      <created>1678607568433</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1678607568433</updated>
+    </task>
+    <task id="LOCAL-00029" summary="correct version.&#10;version 0.10.1">
+      <created>1678607688839</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1678607688839</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,8 +399,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="getting the basics together" />
-    <MESSAGE value="switch to intellij gui editor" />
     <MESSAGE value="changed the core format to cards" />
     <MESSAGE value="dice roll test" />
     <MESSAGE value="added external ui button icons with basic ux feedback" />
@@ -411,6 +422,8 @@
     <MESSAGE value="started seperating core logic from roll dice code&#10;version 0.9.2" />
     <MESSAGE value="improved formatting and size, and applied all button textures.&#10;version 0.9.3" />
     <MESSAGE value="rewrote logic for info-screen&#10;version 0.9.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="rewrote logic for info-screen&#10;version 0.9.4" />
+    <MESSAGE value="core logic of game working for the first time.&#10;version 0.10.0" />
+    <MESSAGE value="correct version.&#10;version 0.10.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct version.&#10;version 0.10.1" />
   </component>
 </project>

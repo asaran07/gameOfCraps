@@ -5,11 +5,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
+import java.util.TimerTask;
 
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.10.0";
+    private static final String VERSION = "0.10.2";
     private final Random rand = new Random();
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -62,6 +63,7 @@ public class mainForm extends JFrame {
     private boolean diceRolled = false;
     private boolean calculationBusy = false;
     private int startingCash = 0;
+    java.util.Timer PYBTimer = new java.util.Timer();
 
     Timer timer;
     Timer infoTimer;
@@ -361,22 +363,22 @@ public class mainForm extends JFrame {
     }
 
     private void processRoundWIN() {
+        setInfoViewTo("WON");
         System.out.println("won due to 7/11");
         player.setCurrentCash(player.getCurrentCash() + (player.getCurrentBet() * 2));
         cashField.setText(String.valueOf(player.getCurrentCash()));
         syncLossProfitField();
         currentBetField.setText("");
         pointField.setText("");
-        setInfoViewTo("WON");
     }
 
     private void processRoundLost() {
+        setInfoViewTo("Lost");
         System.out.println("lost due to 2/3/12");
         cashField.setText(String.valueOf(player.getCurrentCash()));
         syncLossProfitField();
         currentBetField.setText("");
         pointField.setText("");
-        setInfoViewTo("Lost");
     }
 
     private void syncLossProfitField() {
@@ -395,9 +397,15 @@ public class mainForm extends JFrame {
         resetRollDiceButton();
         checkForPointRoll();
         if (!pointTurn) {
-            betPlaced = false;
-            enableBetting();
-            setInfoViewTo("PYB");
+            PYBTimer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    betPlaced = false;
+                    enableBetting();
+                    currentBetField.setText("");
+                    setInfoViewTo("PYB");
+                }
+            }, 3000);
         }
         else {
             rollDiceButton.setEnabled(true);
@@ -462,7 +470,9 @@ public class mainForm extends JFrame {
         mainPanel.revalidate();
     }
 
+
     public static void main(String[] args) {
+
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int sHeight = screenSize.height/2;
         int sWidth = screenSize.width/2;
