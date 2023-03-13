@@ -39,9 +39,10 @@
               <enabled value="true"/>
               <focusPainted value="false"/>
               <font name="JetBrains Mono" size="18" style="1"/>
-              <icon value="ui_resources/buttons/continueButton/continueBtnClicked2.png"/>
+              <icon value="ui_resources/buttons/continueButton/continueButtonClicked2.png"/>
               <inheritsPopupMenu value="true"/>
-              <rolloverIcon value="ui_resources/buttons/continueButton/continueBtnRollover.png"/>
+              <name value="continueButton"/>
+              <rolloverIcon value="ui_resources/buttons/continueButton/continueButtonRollover.png"/>
               <text value=""/>
             </properties>
           </component>
@@ -55,11 +56,12 @@
               <contentAreaFilled value="false"/>
               <focusPainted value="false"/>
               <font name="JetBrains Mono" size="18" style="1"/>
-              <icon value="ui_resources/buttons/newGameButton/newGmBtn.png"/>
+              <icon value="ui_resources/buttons/newGameButton/newGameButton.png"/>
               <iconTextGap value="0"/>
               <inheritsPopupMenu value="false"/>
               <margin top="0" left="0" bottom="0" right="0"/>
-              <rolloverIcon value="ui_resources/buttons/newGameButton/newGmBtnClicked1.png"/>
+              <name value="newGameButton"/>
+              <rolloverIcon value="ui_resources/buttons/newGameButton/newGameButtonClicked1.png"/>
               <selected value="false"/>
               <text value=""/>
             </properties>
@@ -74,8 +76,9 @@
               <contentAreaFilled value="false"/>
               <focusPainted value="false"/>
               <font name="JetBrains Mono" size="18" style="1"/>
-              <icon value="ui_resources/buttons/settingsButton/settingsBtn.png"/>
-              <rolloverIcon value="ui_resources/buttons/settingsButton/settingsBtnRollover.png"/>
+              <icon value="ui_resources/buttons/settingsButton/settingsButton.png"/>
+              <name value="settingsButton"/>
+              <rolloverIcon value="ui_resources/buttons/settingsButton/settingsButtonRollover.png"/>
               <text value=""/>
             </properties>
           </component>
@@ -108,8 +111,9 @@
               <borderPainted value="false"/>
               <contentAreaFilled value="false"/>
               <focusPainted value="false"/>
-              <icon value="ui_resources/buttons/backButton/backBtn.png"/>
-              <rolloverIcon value="ui_resources/buttons/backButton/backBtnClicked1.png"/>
+              <icon value="ui_resources/buttons/backButton/backButton.png"/>
+              <name value="backButton"/>
+              <rolloverIcon value="ui_resources/buttons/backButton/backButtonClicked1.png"/>
               <text value=""/>
             </properties>
           </component>
@@ -338,11 +342,11 @@
                   <borderPainted value="false"/>
                   <contentAreaFilled value="false"/>
                   <focusPainted value="false"/>
-                  <icon value="ui_resources/buttons/rollDiceButton/rollDiceBtn.png"/>
+                  <icon value="ui_resources/buttons/rollDiceButton/rollDiceButton.png"/>
                   <name value="rollDiceButton"/>
-                  <pressedIcon value="ui_resources/buttons/rollDiceButton/rollDiceBtnClicked1.png"/>
+                  <pressedIcon value="ui_resources/buttons/rollDiceButton/rollDiceButtonClicked1.png"/>
                   <requestFocusEnabled value="false"/>
-                  <rolloverIcon value="ui_resources/buttons/rollDiceButton/rollDiceBtnRollover.png"/>
+                  <rolloverIcon value="ui_resources/buttons/rollDiceButton/rollDiceButtonRollover.png"/>
                   <text value=""/>
                 </properties>
               </component>
@@ -395,9 +399,10 @@
                   <borderPainted value="false"/>
                   <contentAreaFilled value="false"/>
                   <focusPainted value="false"/>
-                  <icon value="ui_resources/buttons/placeBetButton/placeBetBtn.png"/>
-                  <pressedIcon value="ui_resources/buttons/placeBetButton/placeBetBtnClicked1.png"/>
-                  <rolloverIcon value="ui_resources/buttons/placeBetButton/placeBetBtnRollover.png"/>
+                  <icon value="ui_resources/buttons/placeBetButton/placeBetButton.png"/>
+                  <name value="placeBetButton"/>
+                  <pressedIcon value="ui_resources/buttons/placeBetButton/placeBetButtonClicked1.png"/>
+                  <rolloverIcon value="ui_resources/buttons/placeBetButton/placeBetButtonRollover.png"/>
                   <text value=""/>
                 </properties>
               </component>
@@ -855,8 +860,9 @@
               <contentAreaFilled value="false"/>
               <focusPainted value="false"/>
               <font name="JetBrains Mono" size="20" style="1"/>
-              <icon value="ui_resources/buttons/continueButton/continueBtn.png"/>
-              <rolloverIcon value="ui_resources/buttons/continueButton/continueBtnRollover.png"/>
+              <icon value="ui_resources/buttons/continueButton/continueButton.png"/>
+              <name value="continueButton"/>
+              <rolloverIcon value="ui_resources/buttons/continueButton/continueButtonRollover.png"/>
               <text value=""/>
             </properties>
           </component>

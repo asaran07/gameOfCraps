@@ -168,7 +168,7 @@ public class mainForm extends JFrame {
             @Override
             public void run() {
                 rollDiceButton.setEnabled(true);
-                betAmountField.setText("");
+                betAmountField.setText(R.messages.BLANK);
                 setTexture(infoScreen,
                         R.infoScreenTextures.WAITING_FOR_ROLL);
             }
@@ -298,17 +298,18 @@ public class mainForm extends JFrame {
         setTexture(infoScreen, R.infoScreenTextures.WON_ROUND);
         syncCash();
         syncLossProfitField();
-        resetSetAndPointFields();
+        resetBetAndPointFields();
     }
 
     private void processRoundLost() {
         setTexture(infoScreen, R.infoScreenTextures.LOST_ROUND);
         syncLossProfitField();
-        resetSetAndPointFields();
+        resetBetAndPointFields();
     }
 
     private void syncLossProfitField() {
         lossProfitField.setText(String.valueOf((player.getCurrentCash()) - startingCash));
+
         if ((player.getCurrentCash() - startingCash) < 0) {
             lossProfitField.setBackground(new Color(255,102,102));
         }
@@ -327,24 +328,22 @@ public class mainForm extends JFrame {
                 @Override
                 public void run() {
                     betPlaced = false;
-                    System.out.println("true field");
                     betAmountField.setEditable(true);
-                    currentBetField.setText("");
-                    currentRollField.setText("");
-                    setTexture(infoScreen, "PYB");
+                    currentBetField.setText(R.messages.BLANK);
+                    currentRollField.setText(R.messages.BLANK);
+                    setTexture(infoScreen, R.infoScreenTextures.PLACE_YOUR_BET);
                 }
-            }, 3000);
+            }, R.time.THREE_SECONDS);
         }
         else {
             rollDiceButton.setEnabled(true);
-            setTexture(infoScreen, "WFRP");
+            setTexture(infoScreen, R.infoScreenTextures.WAITING_FOR_ROLL_POINT);
         }
-        System.out.println("finished rolling");
     }
 
     private void resetRollDiceButton() {
         rollDiceButton.setRolloverEnabled(true);
-        rollDiceButton.setIcon(new ImageIcon("src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png"));
+        rollDiceButton.setIcon(new ImageIcon("src/ui_resources/buttons/rollDiceButton/rollDiceButton.png"));
     }
 
     private void syncPlayerWithCurrentRoll() {
@@ -366,7 +365,7 @@ public class mainForm extends JFrame {
         }
     }
 
-    private void resetSetAndPointFields() {
+    private void resetBetAndPointFields() {
         currentBetField.setText(R.messages.BLANK);
         pointField.setText(R.messages.BLANK);
     }
@@ -382,10 +381,8 @@ public class mainForm extends JFrame {
     }
 
     private void syncDiceIconsWithRoll() {
-        setTexture(die1, "Side" + dieA.getMySide()
-        );
-        setTexture(die2, "Side" + dieB.getMySide()
-        );
+        setTexture(die1, "Side" + dieA.getMySide());
+        setTexture(die2, "Side" + dieB.getMySide());
     }
 
     private void rollBothDice(final int theTimesToRoll, final int theDelay) {

@@ -4,26 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="Removed all swing timers.&#10;version 0.12.0">
+    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="Replaced most literal strings with final strings. Added a resource folder for literals.&#10;version 0.12.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/mainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelBP1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenBP1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelBlank.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenBlank.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelLG1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLG1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelLG2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLG2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelLG3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLG3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelLost.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLost.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelPYB.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenPYB.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelRD1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenRD1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelRD2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenRD2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelRD3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenRD3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelRDTB1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenRDTB1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelW1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenW1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelWFR1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenWFR1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelWFRP.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenWFRP.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelWON.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenWON.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnClicked1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backButtonClicked1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnClicked2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backButtonClicked2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnClicked3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backButtonClicked3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnClicked1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueButtonClicked1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnClicked2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueButtonClicked2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnClicked3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueButtonClicked3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnRollover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueButtonRollover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGameButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnClicked1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGameButtonClicked1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnClicked2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGameButtonClicked2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnClicked3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGameButtonClicked3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnRollover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGameButtonRollover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetBtnClicked1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetButtonClicked1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetBtnClicked2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetButtonClicked2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetBtnRollover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetButtonRollover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnClicked1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceButtonClicked1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnClicked2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceButtonClicked2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnRollover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceButtonRollover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnClicked1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsButtonClicked1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnClicked2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsButtonClicked2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnClicked3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsButtonClicked3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnRollover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsButtonRollover.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/mainForm.form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -204,7 +214,7 @@
       <workItem from="1678517508880" duration="4114000" />
       <workItem from="1678557769433" duration="17496000" />
       <workItem from="1678652266893" duration="38586000" />
-      <workItem from="1678730304244" duration="4273000" />
+      <workItem from="1678730304244" duration="6332000" />
     </task>
     <task id="LOCAL-00001" summary="getting the basics together">
       <created>1677778120107</created>
@@ -451,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678697936688</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Replaced most literal strings with final strings. Added a resource folder for literals.&#10;version 0.12.1">
+      <created>1678735542233</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1678735542233</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,7 +497,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="custom buttons and organization of ui" />
     <MESSAGE value="replaced main font" />
     <MESSAGE value="fixed null form error" />
     <MESSAGE value="replaced 3 icon objects with path and added hardcoded string for version.&#10;version 0.7.10" />
@@ -505,6 +521,7 @@
     <MESSAGE value="patch 1" />
     <MESSAGE value="Rewrote code and switched to using util Timers vs swing Timers. Wrote methods for changing textures with given delays.&#10;version 0.11.0" />
     <MESSAGE value="Removed all swing timers.&#10;version 0.12.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed all swing timers.&#10;version 0.12.0" />
+    <MESSAGE value="Replaced most literal strings with final strings. Added a resource folder for literals.&#10;version 0.12.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Replaced most literal strings with final strings. Added a resource folder for literals.&#10;version 0.12.1" />
   </component>
 </project>
