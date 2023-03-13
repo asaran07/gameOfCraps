@@ -11,7 +11,7 @@ import res.R;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.12.4";
+    private static final String VERSION = "1.0.0-rc.1";
     private final Random rand = new Random();
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -70,7 +70,9 @@ public class mainForm extends JFrame {
     Timer mainTimer = new Timer();
 
     public mainForm() {
-        System.out.println(infoScreen.getName());
+        settingbutton.setEnabled(false);
+        continueButton.setEnabled(false);
+        lossProfitField.setBackground(new Color(184,207,229));
         versionLabel.setText(VERSION);
         setTexture(infoScreen, R.infoScreenTextures.ROLL_DICE_TO_BEGIN_1);
         rollDiceButton.addActionListener(e -> {
@@ -158,12 +160,7 @@ public class mainForm extends JFrame {
             switchPanel(setBankScreen);
         });
 
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        });
+        exitButton.addActionListener(e -> dispose());
     }
 
     private void resetGame() {
