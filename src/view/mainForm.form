@@ -183,7 +183,7 @@
                 <border type="none"/>
                 <children/>
               </grid>
-              <component id="22e8" class="javax.swing.JLabel">
+              <component id="22e8" class="javax.swing.JLabel" binding="currentRollLabel">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -241,7 +241,8 @@
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <icon value="ui_resources/labels/dieIcons/dieSide1.png"/>
+                      <icon value="ui_resources/labels/die/dieSide1.png"/>
+                      <name value="die"/>
                       <text value=""/>
                     </properties>
                   </component>
@@ -260,7 +261,8 @@
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <icon value="ui_resources/labels/dieIcons/dieSide1.png"/>
+                      <icon value="ui_resources/labels/die/dieSide1.png"/>
+                      <name value="die"/>
                       <text value=""/>
                     </properties>
                   </component>
@@ -337,6 +339,7 @@
                   <contentAreaFilled value="false"/>
                   <focusPainted value="false"/>
                   <icon value="ui_resources/buttons/rollDiceButton/rollDiceBtn.png"/>
+                  <name value="rollDiceButton"/>
                   <pressedIcon value="ui_resources/buttons/rollDiceButton/rollDiceBtnClicked1.png"/>
                   <requestFocusEnabled value="false"/>
                   <rolloverIcon value="ui_resources/buttons/rollDiceButton/rollDiceBtnRollover.png"/>
@@ -375,7 +378,7 @@
             </clientProperties>
             <border type="bevel-raised"/>
             <children>
-              <component id="9d248" class="javax.swing.JLabel">
+              <component id="9d248" class="javax.swing.JLabel" binding="betAmountLabel">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -745,12 +748,13 @@
             <properties/>
             <border type="bevel-raised"/>
             <children>
-              <component id="efbb5" class="javax.swing.JLabel" binding="infoView">
+              <component id="efbb5" class="javax.swing.JLabel" binding="infoScreen">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <icon value="ui_resources/labels/infoScreen/infoScreenLabelBlank.png"/>
+                  <icon value="ui_resources/labels/infoScreen/infoScreenBlank.png"/>
+                  <name value="infoScreen"/>
                   <text value=""/>
                 </properties>
               </component>

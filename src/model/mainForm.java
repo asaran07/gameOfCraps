@@ -3,7 +3,7 @@ package model;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Arrays;
+import java.util.Timer;
 import java.util.Random;
 import java.util.TimerTask;
 import res.R;
@@ -11,7 +11,7 @@ import res.R;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.10.3";
+    private static final String VERSION = "0.12.1";
     private final Random rand = new Random();
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -38,7 +38,7 @@ public class mainForm extends JFrame {
     private JTextField lossProfitField;
     private JTextField betAmountField;
     private JButton placeBetButton;
-    private JLabel infoView;
+    private JLabel infoScreen;
     private JLabel plus1Button;
     private JLabel plus5Button;
     private JLabel plus10Button;
@@ -52,6 +52,8 @@ public class mainForm extends JFrame {
     private JLabel plus100Button;
     private JLabel pointLabel;
     private JTextField pointField;
+    private JLabel currentRollLabel;
+    private JLabel betAmountLabel;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
     private final Player player = new Player();
@@ -65,25 +67,21 @@ public class mainForm extends JFrame {
     private final boolean calculationBusy = false;
     private final boolean blinked = false;
     private int startingCash = 0;
-    java.util.Timer mainTimer = new java.util.Timer();
-
-
-    Timer timer;
-    Timer infoTimer;
-    Timer gameTimer;
+    Timer mainTimer = new Timer();
 
     public mainForm() {
+        System.out.println(infoScreen.getName());
         versionLabel.setText(VERSION);
-        setTexture(infoView, "infoScreenLabel", "RDTB1", "infoScreen");
+        setTexture(infoScreen, R.infoScreenTextures.ROLL_DICE_TO_BEGIN_1);
         rollDiceButton.addActionListener(e -> {
             disableRollDiceButton();
             disableBetting();
             if (firstStart) {
-                rollBothDice(3, 500);
+                rollBothDice(3, R.time.HALF_SECOND);
             }
             else {
-                setTexture(infoView, "infoScreenLabel",
-                        "LG", "infoScreen", 3, 500);
+                setTexture(infoScreen, R.infoScreenTextures.LOADING_GAME,
+                        3, R.time.HALF_SECOND);
                 runFirstStart();
             }
         });
@@ -106,18 +104,19 @@ public class mainForm extends JFrame {
             disableBetting();
             syncCashWithBet();
             currentBetField.setText(String.valueOf(player.getCurrentBet()));
-            betAmountField.setText("good luck");
-            setTexture(infoView, "infoScreenLabel",
-                    "BP1", "infoScreen");
+            betAmountField.setText(R.messages.GOOD_LUCK);
+            setTexture(infoScreen,
+                    R.infoScreenTextures.BET_PLACED_1);
             readyNormalTurn();
         });
 
         backbutton.addActionListener(e -> {
             backbutton.setText(backbutton.getText());
             backbutton.setRolloverEnabled(false);
-            setTexture(backbutton, "backBtn", "Clicked",
-                    "backButton", 3, 90);
-            toTitleFromSettings();
+            setTexture(backbutton, R.buttonTextures.CLICKED,
+                    R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY);
+            animateButtonAndSwitch(backbutton, R.buttonTextures.CLICKED,
+                    R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY, gameScreen);
         });
 
         startingCashField.addKeyListener(new KeyAdapter() {
@@ -133,54 +132,35 @@ public class mainForm extends JFrame {
             player.setCurrentCash(Integer.parseInt(startingCashField.getText()));
             startingCash = Integer.parseInt(startingCashField.getText());
             cashField.setText(String.valueOf(player.getCurrentCash()));
-
-            animateButtonAndSwitch(continueButtonST, "continueBtn",
-                    "Clicked", "continueButton",
-                    3, 90, gameScreen);
+            animateButtonAndSwitch(continueButtonST, R.buttonTextures.CLICKED,
+                    R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY, gameScreen);
         });
 
         settingbutton.addActionListener(e -> {
             settingbutton.setRolloverEnabled(false);
 
-            animateButtonAndSwitch(settingbutton, "settingsBtn",
-                    "Clicked", "settingsButton",
-                    3, 90, settingsScreen);
+            animateButtonAndSwitch(settingbutton, R.buttonTextures.CLICKED,
+                    R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY, settingsScreen);
         });
 
         newGameButton.addActionListener(e -> {
-            animateButtonAndSwitch(newGameButton, "newGameBtn",
-                    "Clicked", "newGameButton",
-                    3, 90, setBankScreen);
+            animateButtonAndSwitch(newGameButton, R.buttonTextures.CLICKED,
+                    R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY, setBankScreen);
         });
     }
 
-    private void animateButtonAndSwitch(JButton theButton, String theComponentName,
-                                        String theComponentTexture, String theFolderName,
-                                        int theTextureStates, int theDelay, JPanel thePanel) {
+    private void animateButtonAndSwitch(final JButton theButton, final String theButtonName,
+                                        final int theTextureStates, final int theDelay, JPanel thePanel) {
         theButton.setRolloverEnabled(false);
-        setTexture(theButton, theComponentName, theComponentTexture,
-                theFolderName, theTextureStates, theDelay);
+        setTexture(theButton, theButtonName, theTextureStates, theDelay);
         mainTimer.schedule(new TimerTask() {
             @Override
             public void run() {
                 theButton.setRolloverEnabled(true);
-                setTexture(theButton, theComponentName, "",
-                        theFolderName);
+                setTexture(theButton, R.buttonTextures.NONE);
                 switchPanel(thePanel);
             }
         }, (long) theDelay * theTextureStates);
-    }
-
-    private void toTitleFromSettings() {
-        mainTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                backbutton.setRolloverEnabled(true);
-                setTexture(backbutton, "backBtn", "", "backButton");
-                switchPanel(titleScreen);
-            }
-        }, 180);
-
     }
 
     private void readyNormalTurn() {
@@ -189,22 +169,22 @@ public class mainForm extends JFrame {
             public void run() {
                 rollDiceButton.setEnabled(true);
                 betAmountField.setText("");
-                setTexture(infoView, "infoScreenLabel",
-                        "WFR1", "infoScreen");
+                setTexture(infoScreen,
+                        R.infoScreenTextures.WAITING_FOR_ROLL);
             }
-        }, 2000);
+        }, R.time.TWO_SECONDS);
     }
 
     private void runFirstStart() {
         mainTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                setTexture(infoView, "infoScreenLabel", "PYB", "infoScreen");
+                setTexture(infoScreen, R.infoScreenTextures.PLACE_YOUR_BET);
                 firstStart = true;
                 betAmountField.setEditable(true);
                 rollDiceButton.setRolloverEnabled(true);
             }
-        }, 3000);
+        }, R.time.THREE_SECONDS);
     }
 
     private void syncCashWithBet() {
@@ -213,8 +193,8 @@ public class mainForm extends JFrame {
         cashField.setText(String.valueOf(player.getCurrentCash()));
     }
 
-    private void setTexture(final JComponent theComponent, final String theComponentName, final String theComponentTexture,
-                            final String theFolderName, final int theTextureStates, final int theDelay) {
+    private void setTexture(final JComponent theComponent,  final String theComponentTexture,
+                            final int theTextureStates, final int theDelay) {
         int appliedStates = 0;
         while (!(appliedStates > theTextureStates) && appliedStates != theTextureStates) {
             int finalAppliedStates = appliedStates + 1;
@@ -225,11 +205,11 @@ public class mainForm extends JFrame {
                 @Override
                 public void run() {
                     if (theTextureStates == 1) {
-                        setTexture(theComponent, theComponentName,
-                                theComponentTexture, theFolderName);
+                        setTexture(theComponent,
+                                theComponentTexture);
                     } else {
-                        setTexture(theComponent, theComponentName,
-                                theComponentTexture + finalAppliedStates, theFolderName);
+                        setTexture(theComponent,
+                                theComponentTexture + finalAppliedStates);
                     }
                 }
             },theDelay * appliedStates);
@@ -237,14 +217,14 @@ public class mainForm extends JFrame {
         }
     }
 
-    private void setTexture(JComponent theComponent, String theComponentName, String theComponentTexture, String theFolderName) {
+    private void setTexture(JComponent theComponent, String theComponentTexture) {
         if (theComponent instanceof JButton jButton) {
-            jButton.setIcon(new ImageIcon("src/ui_resources/buttons/" + theFolderName
-                    + "/" + theComponentName + theComponentTexture + ".png"));
+            jButton.setIcon(new ImageIcon(R.locations.SOURCE_BUTTONS + theComponent.getName()
+                    + R.locations.FORWARD_SLASH + theComponent.getName() + theComponentTexture + R.extensions.PNG));
         }
         else if (theComponent instanceof JLabel jLabel) {
-            jLabel.setIcon(new ImageIcon("src/ui_resources/labels/" + theFolderName
-                    + "/" + theComponentName + theComponentTexture + ".png"));
+            jLabel.setIcon(new ImageIcon(R.locations.SOURCE_LABELS + theComponent.getName()
+                    + R.locations.FORWARD_SLASH + theComponent.getName() + theComponentTexture + R.extensions.PNG));
         }
     }
 
@@ -315,21 +295,16 @@ public class mainForm extends JFrame {
     }
 
     private void processRoundWIN() {
-        setTexture(infoView, "infoScreenLabel", "WON", "infoScreen");
-        System.out.println("won due to 7/11");
-        player.setCurrentCash(player.getCurrentCash() + (player.getCurrentBet() * 2));
-        cashField.setText(String.valueOf(player.getCurrentCash()));
+        setTexture(infoScreen, R.infoScreenTextures.WON_ROUND);
+        syncCash();
         syncLossProfitField();
-        currentBetField.setText("");
-        pointField.setText("");
+        resetSetAndPointFields();
     }
 
     private void processRoundLost() {
-        setTexture(infoView, "infoScreenLabel", "Lost", "infoScreen");
-        System.out.println("lost due to 2/3/12");
+        setTexture(infoScreen, R.infoScreenTextures.LOST_ROUND);
         syncLossProfitField();
-        currentBetField.setText("");
-        pointField.setText("");
+        resetSetAndPointFields();
     }
 
     private void syncLossProfitField() {
@@ -356,13 +331,13 @@ public class mainForm extends JFrame {
                     betAmountField.setEditable(true);
                     currentBetField.setText("");
                     currentRollField.setText("");
-                    setTexture(infoView, "infoScreenLabel", "PYB", "infoScreen");
+                    setTexture(infoScreen, "PYB");
                 }
             }, 3000);
         }
         else {
             rollDiceButton.setEnabled(true);
-            setTexture(infoView, "infoScreenLabel", "WFRP", "infoScreen");
+            setTexture(infoScreen, "WFRP");
         }
         System.out.println("finished rolling");
     }
@@ -386,11 +361,19 @@ public class mainForm extends JFrame {
         for (int i = 0; i != theTimesToRoll; i++) {
             int randomA = rand.nextInt(6 - 1 + 1) + 1;
             int randomB = rand.nextInt(6 - 1 + 1) + 1;
-            setTexture(die1, "die", "Side" + randomA,
-                    "dieIcons", 1, theDelay * i);
-            setTexture(die2, "die", "Side" + randomB,
-                    "dieIcons", 1, theDelay * i);
+            setTexture(die1, "Side" + randomA,  1, theDelay * i);
+            setTexture(die2, "Side" + randomB, 1, theDelay * i);
         }
+    }
+
+    private void resetSetAndPointFields() {
+        currentBetField.setText(R.messages.BLANK);
+        pointField.setText(R.messages.BLANK);
+    }
+
+    private void syncCash() {
+        player.setCurrentCash(player.getCurrentCash() + (player.getCurrentBet() * 2));
+        cashField.setText(String.valueOf(player.getCurrentCash()));
     }
 
     private void disableBetting() {
@@ -399,17 +382,16 @@ public class mainForm extends JFrame {
     }
 
     private void syncDiceIconsWithRoll() {
-        setTexture(die1, "die", "Side" + dieA.getMySide(),
-                "dieIcons");
-        setTexture(die2, "die", "Side" + dieB.getMySide(),
-                "dieIcons");
+        setTexture(die1, "Side" + dieA.getMySide()
+        );
+        setTexture(die2, "Side" + dieB.getMySide()
+        );
     }
 
     private void rollBothDice(final int theTimesToRoll, final int theDelay) {
         int delay = theTimesToRoll * theDelay;
         randomizeDiceIcons(theTimesToRoll, theDelay);
-        setTexture(infoView, "infoScreenLabel",
-                "RD", "infoScreen", theTimesToRoll, theDelay);
+        setTexture(infoScreen, R.infoScreenTextures.ROLL_DICE, theTimesToRoll, theDelay);
         mainTimer.schedule(new TimerTask() {
             @Override
             public void run() {
