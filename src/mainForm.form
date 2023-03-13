@@ -39,9 +39,9 @@
               <enabled value="true"/>
               <focusPainted value="false"/>
               <font name="JetBrains Mono" size="18" style="1"/>
-              <icon value="ui_resources/buttons/continueButton/continueBtnHoverNoUline.png"/>
+              <icon value="ui_resources/buttons/continueButton/continueBtnClicked2.png"/>
               <inheritsPopupMenu value="true"/>
-              <rolloverIcon value="ui_resources/buttons/continueButton/continueBtnHover.png"/>
+              <rolloverIcon value="ui_resources/buttons/continueButton/continueBtnRollover.png"/>
               <text value=""/>
             </properties>
           </component>
@@ -59,7 +59,7 @@
               <iconTextGap value="0"/>
               <inheritsPopupMenu value="false"/>
               <margin top="0" left="0" bottom="0" right="0"/>
-              <rolloverIcon value="ui_resources/buttons/newGameButton/newGmBtnHover.png"/>
+              <rolloverIcon value="ui_resources/buttons/newGameButton/newGmBtnClicked1.png"/>
               <selected value="false"/>
               <text value=""/>
             </properties>
@@ -75,7 +75,7 @@
               <focusPainted value="false"/>
               <font name="JetBrains Mono" size="18" style="1"/>
               <icon value="ui_resources/buttons/settingsButton/settingsBtn.png"/>
-              <rolloverIcon value="ui_resources/buttons/settingsButton/settingsBtnHover.png"/>
+              <rolloverIcon value="ui_resources/buttons/settingsButton/settingsBtnRollover.png"/>
               <text value=""/>
             </properties>
           </component>
@@ -236,12 +236,12 @@
                 <properties/>
                 <border type="bevel-raised"/>
                 <children>
-                  <component id="fec37" class="javax.swing.JLabel" binding="die1img">
+                  <component id="fec37" class="javax.swing.JLabel" binding="die1">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <icon value="ui_resources/dieIcons/die1.png"/>
+                      <icon value="ui_resources/labels/dieIcons/dieSide1.png"/>
                       <text value=""/>
                     </properties>
                   </component>
@@ -255,12 +255,12 @@
                 <properties/>
                 <border type="bevel-raised"/>
                 <children>
-                  <component id="77497" class="javax.swing.JLabel" binding="die2img">
+                  <component id="77497" class="javax.swing.JLabel" binding="die2">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <icon value="ui_resources/dieIcons/die1.png"/>
+                      <icon value="ui_resources/labels/dieIcons/dieSide1.png"/>
                       <text value=""/>
                     </properties>
                   </component>
@@ -337,9 +337,9 @@
                   <contentAreaFilled value="false"/>
                   <focusPainted value="false"/>
                   <icon value="ui_resources/buttons/rollDiceButton/rollDiceBtn.png"/>
-                  <pressedIcon value="ui_resources/buttons/rollDiceButton/rollDiceBtnClicked.png"/>
+                  <pressedIcon value="ui_resources/buttons/rollDiceButton/rollDiceBtnClicked1.png"/>
                   <requestFocusEnabled value="false"/>
-                  <rolloverIcon value="ui_resources/buttons/rollDiceButton/rollDiceBtnHover.png"/>
+                  <rolloverIcon value="ui_resources/buttons/rollDiceButton/rollDiceBtnRollover.png"/>
                   <text value=""/>
                 </properties>
               </component>
@@ -380,7 +380,7 @@
                   <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <icon value="ui_resources/labels/betLabel.png"/>
+                  <icon value="ui_resources/labels/betAmountLabel.png"/>
                   <text value=""/>
                 </properties>
               </component>
@@ -393,8 +393,8 @@
                   <contentAreaFilled value="false"/>
                   <focusPainted value="false"/>
                   <icon value="ui_resources/buttons/placeBetButton/placeBetBtn.png"/>
-                  <pressedIcon value="ui_resources/buttons/placeBetButton/placeBetBtnClicked.png"/>
-                  <rolloverIcon value="ui_resources/buttons/placeBetButton/placeBetBtnHover.png"/>
+                  <pressedIcon value="ui_resources/buttons/placeBetButton/placeBetBtnClicked1.png"/>
+                  <rolloverIcon value="ui_resources/buttons/placeBetButton/placeBetBtnRollover.png"/>
                   <text value=""/>
                 </properties>
               </component>
@@ -750,7 +750,7 @@
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <icon value="ui_resources/labels/infoScreenLabelBlank.png"/>
+                  <icon value="ui_resources/labels/infoScreen/infoScreenLabelBlank.png"/>
                   <text value=""/>
                 </properties>
               </component>
@@ -852,7 +852,7 @@
               <focusPainted value="false"/>
               <font name="JetBrains Mono" size="20" style="1"/>
               <icon value="ui_resources/buttons/continueButton/continueBtn.png"/>
-              <rolloverIcon value="ui_resources/buttons/continueButton/continueBtnHover.png"/>
+              <rolloverIcon value="ui_resources/buttons/continueButton/continueBtnRollover.png"/>
               <text value=""/>
             </properties>
           </component>

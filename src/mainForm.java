@@ -27,8 +27,8 @@ public class mainForm extends JFrame {
     private JTextField startingCashField;
     private JButton continueButtonST;
     private JLabel startingCashLabel;
-    private JLabel die1img;
-    private JLabel die2img;
+    private JLabel die1;
+    private JLabel die2;
     private JButton rollDiceButton;
     private JTextField currentRollField;
     private JLabel cashLabel;
@@ -53,158 +53,66 @@ public class mainForm extends JFrame {
     private JTextField pointField;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
-    private Player player = new Player();
-    private boolean firstDiceRolled = false;
-    private boolean infoScreenBusy = false;
+    private final Player player = new Player();
+    private final boolean firstDiceRolled = false;
+    private final boolean infoScreenBusy = false;
     private boolean firstStart = false;
     private boolean betPlaced = false;
     private boolean pointTurn = false;
-    private boolean wonOrLost = false;
-    private boolean diceRolled = false;
-    private boolean calculationBusy = false;
-    private boolean blinked = false;
+    private final boolean wonOrLost = false;
+    private final boolean diceRolled = false;
+    private final boolean calculationBusy = false;
+    private final boolean blinked = false;
     private int startingCash = 0;
-    java.util.Timer PYBTimer = new java.util.Timer();
+    java.util.Timer mainTimer = new java.util.Timer();
+
 
     Timer timer;
     Timer infoTimer;
     Timer gameTimer;
 
     public mainForm() {
-        disableBetting();
         versionLabel.setText(VERSION);
-        setInfoViewTo("RDTB1");
-        rollDiceButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                rollDiceButton.setEnabled(false);
-                rollDiceButton.setRolloverEnabled(false);
-                disableBetting();
-
-                if (firstStart) {
-                    PYBTimer.schedule(new TimerTask() {
-                        @Override
-                        public void run() {
-                            System.out.println("1");
-                            infoScreenBusy = true;
-                            randomizeDiceIcons();
-                            setInfoViewTo("RD1");
-                        }
-                    }, 0);
-                    PYBTimer.schedule(new TimerTask() {
-                        @Override
-                        public void run() {
-                            System.out.println("2");
-                            infoScreenBusy = true;
-                            randomizeDiceIcons();
-                            setInfoViewTo("RD2");
-                        }
-                    }, 1000);
-                    PYBTimer.schedule(new TimerTask() {
-                        @Override
-                        public void run() {
-                            System.out.println("3");
-                            infoScreenBusy = true;
-                            randomizeDiceIcons();
-                            setInfoViewTo("RD3");
-                        }
-                    }, 2000);
-                    PYBTimer.schedule(new TimerTask() {
-                        @Override
-                        public void run() {
-                            diceRolled = true;
-                            timer.stop();
-                            rollBothDice();
-                            processCurrentState();
-                        }
-                    }, 3000);
-                }
-
-
-                else {
-                    setInfoViewTo("LG1");
-                    PYBTimer.schedule(new TimerTask() {
-                        @Override
-                        public void run() {
-                            rollDiceButton.setRolloverEnabled(true);
-                            setInfoViewTo("PYB");
-                            firstStart = true;
-                            betAmountField.setEditable(true);
-                            timer.stop();
-                        }
-                    }, 3000);
-                }
+        setTexture(infoView, "infoScreenLabel", "RDTB1", "infoScreen");
+        rollDiceButton.addActionListener(e -> {
+            disableRollDiceButton();
+            disableBetting();
+            if (firstStart) {
+                rollBothDice(3, 500);
+            }
+            else {
+                setTexture(infoView, "infoScreenLabel",
+                        "LG", "infoScreen", 3, 1000);
+                runFirstStart();
             }
         });
 
         betAmountField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
-                String input;
-                boolean alphaDetected = false;
-                if (!betAmountField.getText().isBlank()
-                        || !betAmountField.getText().isEmpty()) {
-                    input = betAmountField.getText();
-                    for (int i = 0; i < input.length(); i++) {
-                        if (Character.isAlphabetic(input.charAt(i))) {
-                            alphaDetected = true;
-                        }
-                    }
-                    placeBetButton.setEnabled(!alphaDetected);
-                }
-                else {
-                    placeBetButton.setEnabled(false);
-                }
+                placeBetButton.setEnabled(isBlank(betAmountField)
+                        && isAlpha(betAmountField));
             }
             @Override
             public void keyTyped(KeyEvent e) {
-                String input;
-                boolean alphaDetected = false;
-                if (!betAmountField.getText().isBlank()
-                        || !betAmountField.getText().isEmpty()) {
-                    input = betAmountField.getText();
-                    for (int i = 0; i < input.length(); i++) {
-                        if (Character.isAlphabetic(input.charAt(i))) {
-                            alphaDetected = true;
-                        }
-                    }
-                    placeBetButton.setEnabled(!alphaDetected);
-                }
-                else {
-                    placeBetButton.setEnabled(false);
-                }
+                placeBetButton.setEnabled(isBlank(betAmountField)
+                        && isAlpha(betAmountField));
             }
         });
 
         placeBetButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                infoTimer = new Timer(2000, this);
-                infoTimer.setRepeats(false);
-                infoTimer.start();
-
-                if (betPlaced) {
-                    betAmountField.setText("");
-                    rollDiceButton.setEnabled(true);
-                    infoTimer.stop();
-                    setInfoViewTo("WFR1");
-                }
-
-                if (!betPlaced) {
-                    rollDiceButton.setEnabled(false);
-                    player.setCurrentBet(Integer.parseInt(betAmountField.getText()));
-                    player.setCurrentCash(player.getCurrentCash() - player.getCurrentBet());
-                    betAmountField.setEditable(false);
-                    placeBetButton.setEnabled(false);
-                    setInfoViewTo("BP1");
-                    currentBetField.setText(String.valueOf(player.getCurrentBet()));
-                    cashField.setText(String.valueOf(player.getCurrentCash()));
-                    betPlaced = true;
-                    betAmountField.setText("good luck");
-                }
+                betPlaced = true;
+                disableBetting();
+                syncCashWithBet();
+                currentBetField.setText(String.valueOf(player.getCurrentBet()));
+                betAmountField.setText("good luck");
+                setTexture(infoView, "infoScreenLabel",
+                        "BP1", "infoScreen");
+                readyNormalTurn();
             }
         });
-
 
         backbutton.addActionListener(new ActionListener() {
             int i = 0;
@@ -237,68 +145,32 @@ public class mainForm extends JFrame {
             }
         });
 
-
         startingCashField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
-                if (!startingCashField.getText().isBlank()
-                || !startingCashField.getText().isEmpty()) {
-                    continueButtonST.setEnabled(true);
-                }
-                else {
-                    continueButtonST.setEnabled(false);
-                }
+                continueButtonST.setEnabled(isAlpha(startingCashField)
+                        && isBlank(startingCashField));
             }
         });
 
-
         continueButtonST.addActionListener(new ActionListener() {
-
-            int i = 0;
             @Override
             public void actionPerformed(ActionEvent e) {
-//                PYBTimer.schedule(new TimerTask() {
-//                    @Override
-//                    public void run() {
-//                        System.out.println("r1");
-//                        setInfoViewTo("RDTB1");
-//                    }
-//                }, 3000, 3000);
-//                PYBTimer.schedule(new TimerTask() {
-//                    @Override
-//                    public void run() {
-//                        System.out.println("r2");
-//                        setInfoViewTo("Blank");
-//                    }
-//                }, 5000, 3000);
-
+                disableBetting();
                 player.setCurrentCash(Integer.parseInt(startingCashField.getText()));
                 startingCash = Integer.parseInt(startingCashField.getText());
                 cashField.setText(String.valueOf(player.getCurrentCash()));
                 continueButtonST.setRolloverEnabled(false);
-                timer = new Timer(90, this);
-                timer.setRepeats(false);
-                timer.start();
-
-                if (i == 4) {
-                    i = 0;
-                }
-                if (i == 0) {
-                    continueButtonST.setIcon(new ImageIcon("src\\ui_resources\\buttons\\continueButton\\continueBtnHover.png"));
-                }
-                if (i == 1) {
-                    continueButtonST.setIcon(new ImageIcon("src\\ui_resources\\buttons\\continueButton\\continueBtnHoverNoUline.png"));
-                }
-                if (i == 2) {
-                    continueButtonST.setIcon(new ImageIcon("src\\ui_resources\\buttons\\continueButton\\continueBtnHover.png"));
-                }
-                if (i == 3) {
-                    continueButtonST.setRolloverEnabled(true);
-                    continueButtonST.setIcon(new ImageIcon("src\\ui_resources\\buttons\\continueButton\\continueBtn.png"));
-                    switchPanel(gameScreen);
-                    timer.stop();
-                }
-                i++;
+                setTexture(continueButtonST, "continueBtn", "Clicked",
+                        "continueButton", 2, 90);
+                mainTimer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        continueButtonST.setRolloverEnabled(true);
+                        continueButtonST.setIcon(new ImageIcon("src\\ui_resources\\buttons\\continueButton\\continueBtn.png"));
+                        switchPanel(gameScreen);
+                    }
+                }, 180);
             }
         });
 
@@ -314,13 +186,13 @@ public class mainForm extends JFrame {
                     i = 0;
                 }
                 if (i == 0) {
-                    settingbutton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\settingsButton\\settingsBtnHover.png"));
+                    settingbutton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\settingsButton\\settingsBtnRollover.png"));
                 }
                 if (i == 1) {
-                    settingbutton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\settingsButton\\settingsBtnHoverNoUline.png"));
+                    settingbutton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\settingsButton\\settingsBtnClicked2.png"));
                 }
                 if (i == 2) {
-                    settingbutton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\settingsButton\\settingsBtnHover.png"));
+                    settingbutton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\settingsButton\\settingsBtnRollover.png"));
                 }
                 if (i == 3) {
                     settingbutton.setRolloverEnabled(true);
@@ -336,6 +208,7 @@ public class mainForm extends JFrame {
             int i = 0;
             @Override
             public void actionPerformed(ActionEvent e) {
+                continueButtonST.setEnabled(false);
                 newGameButton.setRolloverEnabled(false);
                 timer = new Timer(90, this);
                 timer.setRepeats(false);
@@ -344,13 +217,13 @@ public class mainForm extends JFrame {
                     i = 0;
                 }
                 if (i == 0) {
-                    newGameButton.setIcon(new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnHover.png"));
+                    newGameButton.setIcon(new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnClicked1.png"));
                 }
                 if (i == 1) {
-                    newGameButton.setIcon(new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnHoverNoUline.png"));
+                    newGameButton.setIcon(new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnClicked2.png"));
                 }
                 if (i == 2) {
-                    newGameButton.setIcon(new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnHover.png"));
+                    newGameButton.setIcon(new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnClicked1.png"));
                 }
                 if (i == 3) {
                     newGameButton.setRolloverEnabled(true);
@@ -363,6 +236,92 @@ public class mainForm extends JFrame {
         });
     }
 
+    private void readyNormalTurn() {
+        mainTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                rollDiceButton.setEnabled(true);
+                betAmountField.setText("");
+                setTexture(infoView, "infoScreenLabel",
+                        "WFR1", "infoScreen");
+            }
+        }, 2000);
+    }
+
+    private void runFirstStart() {
+        mainTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                setTexture(infoView, "infoScreenLabel", "PYB", "infoScreen");
+                firstStart = true;
+                betAmountField.setEditable(true);
+                rollDiceButton.setRolloverEnabled(true);
+            }
+        }, 3000);
+    }
+
+    private void syncCashWithBet() {
+        player.setCurrentBet(Integer.parseInt(betAmountField.getText()));
+        player.setCurrentCash(player.getCurrentCash() - player.getCurrentBet());
+        cashField.setText(String.valueOf(player.getCurrentCash()));
+    }
+
+    private void setTexture(final JComponent theComponent, final String theComponentName, final String theComponentTexture,
+                            final String theFolderName, final int theTextureStates, final int theDelay) {
+        int appliedStates = 0;
+        while (!(appliedStates > theTextureStates) && appliedStates != theTextureStates) {
+            int finalAppliedStates = appliedStates + 1;
+            if (theTextureStates == 1) {
+                appliedStates++;
+            }
+            mainTimer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    if (theTextureStates == 1) {
+                        setTexture(theComponent, theComponentName,
+                                theComponentTexture, theFolderName);
+                    } else {
+                        setTexture(theComponent, theComponentName,
+                                theComponentTexture + finalAppliedStates, theFolderName);
+                    }
+                }
+            },theDelay * appliedStates);
+            appliedStates++;
+        }
+    }
+
+    private void setTexture(JComponent theComponent, String theComponentName, String theComponentTexture, String theFolderName) {
+        if (theComponent instanceof JButton jButton) {
+            jButton.setIcon(new ImageIcon("src/ui_resources/buttons/" + theFolderName
+                    + "/" + theComponentName + theComponentTexture + ".png"));
+        }
+        else if (theComponent instanceof JLabel jLabel) {
+            jLabel.setIcon(new ImageIcon("src/ui_resources/labels/" + theFolderName
+                    + "/" + theComponentName + theComponentTexture + ".png"));
+        }
+    }
+
+    private void disableRollDiceButton() {
+        rollDiceButton.setEnabled(false);
+        rollDiceButton.setRolloverEnabled(false);
+    }
+
+    private boolean isAlpha(JTextField theTextField) {
+        String input;
+        input = theTextField.getText();
+        for (int i = 0; i < input.length(); i++) {
+            if (Character.isAlphabetic(input.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    private boolean isBlank(JTextField theTextField) {
+        return !theTextField.getText().isBlank()
+                && !theTextField.getText().isEmpty();
+    }
+
     private void checkForPointRoll() {
         if (!pointTurn) {
             if (player.getCurrentRoll() == 4
@@ -372,7 +331,7 @@ public class mainForm extends JFrame {
                     || player.getCurrentRoll() == 9
                     || player.getCurrentRoll() == 10) {
                 processPointRoll();
-                syncPlayerWithCurrentPoint();
+                syncPlayerWithPoint();
             }
             else {
                 processNormalRoll();
@@ -409,7 +368,7 @@ public class mainForm extends JFrame {
     }
 
     private void processRoundWIN() {
-        setInfoViewTo("WON");
+        setTexture(infoView, "infoScreenLabel", "WON", "infoScreen");
         System.out.println("won due to 7/11");
         player.setCurrentCash(player.getCurrentCash() + (player.getCurrentBet() * 2));
         cashField.setText(String.valueOf(player.getCurrentCash()));
@@ -419,9 +378,8 @@ public class mainForm extends JFrame {
     }
 
     private void processRoundLost() {
-        setInfoViewTo("Lost");
+        setTexture(infoView, "infoScreenLabel", "Lost", "infoScreen");
         System.out.println("lost due to 2/3/12");
-        cashField.setText(String.valueOf(player.getCurrentCash()));
         syncLossProfitField();
         currentBetField.setText("");
         pointField.setText("");
@@ -439,24 +397,25 @@ public class mainForm extends JFrame {
 
     private void processCurrentState() {
         syncPlayerWithCurrentRoll();
-        syncDieIconsWithCurrentRoll();
+        syncDiceIconsWithRoll();
         resetRollDiceButton();
         checkForPointRoll();
         if (!pointTurn) {
-            PYBTimer.schedule(new TimerTask() {
+            mainTimer.schedule(new TimerTask() {
                 @Override
                 public void run() {
                     betPlaced = false;
+                    System.out.println("true field");
                     betAmountField.setEditable(true);
                     currentBetField.setText("");
                     currentRollField.setText("");
-                    setInfoViewTo("PYB");
+                    setTexture(infoView, "infoScreenLabel", "PYB", "infoScreen");
                 }
             }, 3000);
         }
         else {
             rollDiceButton.setEnabled(true);
-            setInfoViewTo("WFRP");
+            setTexture(infoView, "infoScreenLabel", "WFRP", "infoScreen");
         }
         System.out.println("finished rolling");
     }
@@ -471,21 +430,20 @@ public class mainForm extends JFrame {
         currentRollField.setText(String.valueOf(player.getCurrentRoll()));
     }
 
-    private void syncPlayerWithCurrentPoint() {
+    private void syncPlayerWithPoint() {
         player.setMyPoint(player.getCurrentRoll());
         pointField.setText(String.valueOf(player.getMyPoint()));
     }
 
-    private void randomizeDiceIcons() {
-        int randomA = rand.nextInt(6 - 1 + 1) + 1;
-        int randomB = rand.nextInt(6 - 1 + 1) + 1;
-        die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die" + randomA + ".png"));
-        die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die" + randomB + ".png"));
-    }
-
-    private void setInfoViewTo(String infoViewState) {
-        infoView.setIcon(new ImageIcon("src/ui_resources/labels/infoScreenLabel"
-                + infoViewState + ".png"));
+    private void randomizeDiceIcons(final int theTimesToRoll, final int theDelay) {
+        for (int i = 0; i != theTimesToRoll; i++) {
+            int randomA = rand.nextInt(6 - 1 + 1) + 1;
+            int randomB = rand.nextInt(6 - 1 + 1) + 1;
+            setTexture(die1, "die", "Side" + randomA,
+                    "dieIcons", 1, theDelay * i);
+            setTexture(die2, "die", "Side" + randomB,
+                    "dieIcons", 1, theDelay * i);
+        }
     }
 
     private void disableBetting() {
@@ -493,21 +451,28 @@ public class mainForm extends JFrame {
         betAmountField.setEditable(false);
     }
 
-    private void enableBetting() {
-        placeBetButton.setEnabled(true);
-        betAmountField.setEditable(true);
+    private void syncDiceIconsWithRoll() {
+        setTexture(die1, "die", "Side" + dieA.getMySide(),
+                "dieIcons");
+        setTexture(die2, "die", "Side" + dieB.getMySide(),
+                "dieIcons");
     }
 
-    private void syncDieIconsWithCurrentRoll() {
-        die1img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die"
-                + dieA.getMySide() + ".png"));
-        die2img.setIcon(new ImageIcon("src/ui_resources/dieIcons/die"
-                + dieB.getMySide() + ".png"));
-    }
-
-    private void rollBothDice() {
-        dieA.rollDice();
-        dieB.rollDice();
+    private void rollBothDice(final int theTimesToRoll, final int theDelay) {
+        int delay = theTimesToRoll * theDelay;
+        randomizeDiceIcons(theTimesToRoll, theDelay);
+        setTexture(infoView, "infoScreenLabel",
+                "RD", "infoScreen", theTimesToRoll, theDelay);
+        mainTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                dieA.rollDice();
+                dieB.rollDice();
+                setTexture(infoView, "infoScreenLabel",
+                        "PYB", "infoScreen");
+                processCurrentState();
+            }
+        }, delay);
     }
 
     private void switchPanel(JPanel thePanel) {
