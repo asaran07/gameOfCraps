@@ -11,7 +11,7 @@ import res.R;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.12.2";
+    private static final String VERSION = "0.12.4";
     private final Random rand = new Random();
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -119,7 +119,7 @@ public class mainForm extends JFrame {
             setTexture(backbutton, R.buttonTextures.CLICKED,
                     R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY);
             animateButtonAndSwitch(backbutton, R.buttonTextures.CLICKED,
-                    R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY, gameScreen);
+                    R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY, titleScreen);
         });
 
         startingCashField.addKeyListener(new KeyAdapter() {
@@ -147,15 +147,21 @@ public class mainForm extends JFrame {
         });
 
         newGameButton.addActionListener(e -> {
+            continueButtonST.setEnabled(false);
             animateButtonAndSwitch(newGameButton, R.buttonTextures.CLICKED,
                     R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY, setBankScreen);
         });
 
-        restartButton.addActionListener(new ActionListener() {
+        restartButton.addActionListener(e -> {
+            resetGame();
+            continueButtonST.setEnabled(false);
+            switchPanel(setBankScreen);
+        });
+
+        exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                resetGame();
-                switchPanel(setBankScreen);
+                dispose();
             }
         });
     }
@@ -166,12 +172,13 @@ public class mainForm extends JFrame {
         firstStart = false;
         setTexture(infoScreen, R.infoScreenTextures.ROLL_DICE_TO_BEGIN_1);
         resetDice();
+        rollDiceButton.setEnabled(true);
         clearAllFields();
     }
 
     private void resetDice() {
-        dieA.setSide(0);
-        dieB.setSide(0);
+        dieA.setSide(1);
+        dieB.setSide(1);
         syncDiceIconsWithRoll();
     }
 
@@ -181,6 +188,7 @@ public class mainForm extends JFrame {
         currentRollField.setText(R.messages.BLANK);
         cashField.setText(R.messages.BLANK);
         lossProfitField.setText(R.messages.BLANK);
+        lossProfitField.setBackground(new Color(184,207,229));
     }
 
     private void animateButtonAndSwitch(final JButton theButton, final String theButtonName,
@@ -349,10 +357,8 @@ public class mainForm extends JFrame {
     }
 
     private void syncLossProfitField() {
-        if (player.getCurrentCash() >= startingCash) {
-            lossProfitField.setText(String.valueOf((player.getCurrentCash()) - startingCash));
-        }
-        else {
+        lossProfitField.setText(String.valueOf((player.getCurrentCash()) - startingCash));
+        if (Integer.parseInt(lossProfitField.getText()) == (startingCash * -1)) {
             gameOver = true;
         }
         if ((player.getCurrentCash() - startingCash) < 0) {
@@ -401,7 +407,7 @@ public class mainForm extends JFrame {
     }
 
     private void syncPlayerWithCurrentRoll() {
-        player.setCurrentRoll(dieA.diceTotal(dieB));
+        player.setCurrentRoll(dieA.getMySide() + dieB.getMySide());
         currentRollField.setText(String.valueOf(player.getCurrentRoll()));
     }
 
@@ -420,6 +426,8 @@ public class mainForm extends JFrame {
     }
 
     private void resetBetAndPointFields() {
+        player.setMyPoint(0);
+        player.setCurrentBet(0);
         currentBetField.setText(R.messages.BLANK);
         pointField.setText(R.messages.BLANK);
     }
