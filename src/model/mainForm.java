@@ -11,7 +11,7 @@ import res.R;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "0.12.1";
+    private static final String VERSION = "0.12.2";
     private final Random rand = new Random();
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -89,13 +89,21 @@ public class mainForm extends JFrame {
         betAmountField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
-                placeBetButton.setEnabled(isBlank(betAmountField)
-                        && isAlpha(betAmountField));
+                if (isBlank(betAmountField) && isAlpha(betAmountField)) {
+                    placeBetButton.setEnabled(Integer.parseInt(betAmountField.getText()) <= player.getCurrentCash());
+                }
+                else {
+                    placeBetButton.setEnabled(false);
+                }
             }
             @Override
             public void keyTyped(KeyEvent e) {
-                placeBetButton.setEnabled(isBlank(betAmountField)
-                        && isAlpha(betAmountField));
+                if (isBlank(betAmountField) && isAlpha(betAmountField)) {
+                    placeBetButton.setEnabled(Integer.parseInt(betAmountField.getText()) <= player.getCurrentCash());
+                }
+                else {
+                    placeBetButton.setEnabled(false);
+                }
             }
         });
 
@@ -103,11 +111,6 @@ public class mainForm extends JFrame {
             betPlaced = true;
             disableBetting();
             syncCashWithBet();
-            currentBetField.setText(String.valueOf(player.getCurrentBet()));
-            betAmountField.setText(R.messages.GOOD_LUCK);
-            setTexture(infoScreen,
-                    R.infoScreenTextures.BET_PLACED_1);
-            readyNormalTurn();
         });
 
         backbutton.addActionListener(e -> {
@@ -188,9 +191,16 @@ public class mainForm extends JFrame {
     }
 
     private void syncCashWithBet() {
-        player.setCurrentBet(Integer.parseInt(betAmountField.getText()));
-        player.setCurrentCash(player.getCurrentCash() - player.getCurrentBet());
-        cashField.setText(String.valueOf(player.getCurrentCash()));
+        if (Integer.parseInt(betAmountField.getText()) <= player.getCurrentCash()) {
+            player.setCurrentBet(Integer.parseInt(betAmountField.getText()));
+            player.setCurrentCash(player.getCurrentCash() - player.getCurrentBet());
+            cashField.setText(String.valueOf(player.getCurrentCash()));
+            currentBetField.setText(String.valueOf(player.getCurrentBet()));
+            betAmountField.setText(R.messages.GOOD_LUCK);
+            setTexture(infoScreen,
+                    R.infoScreenTextures.BET_PLACED_1);
+            readyNormalTurn();
+        }
     }
 
     private void setTexture(final JComponent theComponent,  final String theComponentTexture,
