@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="Exit button now exits the game.&#10;version 0.12.4">
-      <change beforePath="$PROJECT_DIR$/src/model/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/mainForm.java" afterDir="false" />
+    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="First major version.&#10;Version 1.0.0-rc.1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +185,7 @@
       <workItem from="1678517508880" duration="4114000" />
       <workItem from="1678557769433" duration="17496000" />
       <workItem from="1678652266893" duration="38586000" />
-      <workItem from="1678730304244" duration="10553000" />
+      <workItem from="1678730304244" duration="11679000" />
     </task>
     <task id="LOCAL-00001" summary="getting the basics together">
       <created>1677778120107</created>
@@ -467,7 +467,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678741450266</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="First major version.&#10;Version 1.0.0-rc.1">
+      <created>1678742156903</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1678742156903</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -496,7 +503,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added cash label and field" />
     <MESSAGE value="added cash label and field&#10;version 0.8.2" />
     <MESSAGE value="added loss/profit label and field&#10;version 0.8.3" />
     <MESSAGE value="added borders around fields&#10;version 0.8.4" />
@@ -521,6 +527,7 @@
     <MESSAGE value="Place bet button will disable if bet is higher than player's cash.&#10;version 0.12.2" />
     <MESSAGE value="Added gameOver screen and reset game functions.&#10;version 0.12.3" />
     <MESSAGE value="Exit button now exits the game.&#10;version 0.12.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Exit button now exits the game.&#10;version 0.12.4" />
+    <MESSAGE value="First major version.&#10;Version 1.0.0-rc.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="First major version.&#10;Version 1.0.0-rc.1" />
   </component>
 </project>
