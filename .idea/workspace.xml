@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="Fixed delays for rolling dice which caused issues.&#10;version 0.12.1">
+    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="Place bet button will disable if bet is higher than player's cash.&#10;version 0.12.2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/mainForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/mainForm.form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +188,7 @@
       <workItem from="1678517508880" duration="4114000" />
       <workItem from="1678557769433" duration="17496000" />
       <workItem from="1678652266893" duration="38586000" />
-      <workItem from="1678730304244" duration="7083000" />
+      <workItem from="1678730304244" duration="8276000" />
     </task>
     <task id="LOCAL-00001" summary="getting the basics together">
       <created>1677778120107</created>
@@ -447,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678737333567</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Place bet button will disable if bet is higher than player's cash.&#10;version 0.12.2">
+      <created>1678738234112</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1678738234112</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -476,7 +485,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed null form error" />
     <MESSAGE value="replaced 3 icon objects with path and added hardcoded string for version.&#10;version 0.7.10" />
     <MESSAGE value="current roll field now displays value" />
     <MESSAGE value="added cash label and field" />
@@ -501,6 +509,7 @@
     <MESSAGE value="Removed all swing timers.&#10;version 0.12.0" />
     <MESSAGE value="Replaced most literal strings with final strings. Added a resource folder for literals.&#10;version 0.12.1" />
     <MESSAGE value="Fixed delays for rolling dice which caused issues.&#10;version 0.12.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed delays for rolling dice which caused issues.&#10;version 0.12.1" />
+    <MESSAGE value="Place bet button will disable if bet is higher than player's cash.&#10;version 0.12.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Place bet button will disable if bet is higher than player's cash.&#10;version 0.12.2" />
   </component>
 </project>

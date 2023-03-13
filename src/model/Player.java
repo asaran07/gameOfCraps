@@ -17,6 +17,13 @@ public class Player {
         myWin = false;
     }
 
+    public void reset() {
+        myCurrentCash = 0;
+        myCurrentBet = 0;
+        myCurrentRoll = 0;
+        myWin = false;
+    }
+
     public int getCurrentCash() {
         return myCurrentCash;
     }

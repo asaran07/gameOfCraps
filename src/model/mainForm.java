@@ -54,6 +54,9 @@ public class mainForm extends JFrame {
     private JTextField pointField;
     private JLabel currentRollLabel;
     private JLabel betAmountLabel;
+    private JButton restartButton;
+    private JButton exitButton;
+    private JPanel gameOverScreen;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
     private final Player player = new Player();
@@ -62,10 +65,7 @@ public class mainForm extends JFrame {
     private boolean firstStart = false;
     private boolean betPlaced = false;
     private boolean pointTurn = false;
-    private final boolean wonOrLost = false;
-    private final boolean diceRolled = false;
-    private final boolean calculationBusy = false;
-    private final boolean blinked = false;
+    private boolean gameOver = false;
     private int startingCash = 0;
     Timer mainTimer = new Timer();
 
@@ -150,6 +150,37 @@ public class mainForm extends JFrame {
             animateButtonAndSwitch(newGameButton, R.buttonTextures.CLICKED,
                     R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY, setBankScreen);
         });
+
+        restartButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resetGame();
+                switchPanel(setBankScreen);
+            }
+        });
+    }
+
+    private void resetGame() {
+        player.reset();
+        gameOver = false;
+        firstStart = false;
+        setTexture(infoScreen, R.infoScreenTextures.ROLL_DICE_TO_BEGIN_1);
+        resetDice();
+        clearAllFields();
+    }
+
+    private void resetDice() {
+        dieA.setSide(0);
+        dieB.setSide(0);
+        syncDiceIconsWithRoll();
+    }
+
+    private void clearAllFields() {
+        startingCashField.setText(R.messages.BLANK);
+        currentBetField.setText(R.messages.BLANK);
+        currentRollField.setText(R.messages.BLANK);
+        cashField.setText(R.messages.BLANK);
+        lossProfitField.setText(R.messages.BLANK);
     }
 
     private void animateButtonAndSwitch(final JButton theButton, final String theButtonName,
@@ -318,8 +349,12 @@ public class mainForm extends JFrame {
     }
 
     private void syncLossProfitField() {
-        lossProfitField.setText(String.valueOf((player.getCurrentCash()) - startingCash));
-
+        if (player.getCurrentCash() >= startingCash) {
+            lossProfitField.setText(String.valueOf((player.getCurrentCash()) - startingCash));
+        }
+        else {
+            gameOver = true;
+        }
         if ((player.getCurrentCash() - startingCash) < 0) {
             lossProfitField.setBackground(new Color(255,102,102));
         }
@@ -333,21 +368,30 @@ public class mainForm extends JFrame {
         syncDiceIconsWithRoll();
         resetRollDiceButton();
         checkForPointRoll();
-        if (!pointTurn) {
+        if (!gameOver) {
+            if (!pointTurn) {
+                mainTimer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        betPlaced = false;
+                        betAmountField.setEditable(true);
+                        currentBetField.setText(R.messages.BLANK);
+                        currentRollField.setText(R.messages.BLANK);
+                        setTexture(infoScreen, R.infoScreenTextures.PLACE_YOUR_BET);
+                    }
+                }, R.time.THREE_SECONDS);
+            } else {
+                rollDiceButton.setEnabled(true);
+                setTexture(infoScreen, R.infoScreenTextures.WAITING_FOR_ROLL_POINT);
+            }
+        }
+        else {
             mainTimer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    betPlaced = false;
-                    betAmountField.setEditable(true);
-                    currentBetField.setText(R.messages.BLANK);
-                    currentRollField.setText(R.messages.BLANK);
-                    setTexture(infoScreen, R.infoScreenTextures.PLACE_YOUR_BET);
+                    switchPanel(gameOverScreen);
                 }
             }, R.time.THREE_SECONDS);
-        }
-        else {
-            rollDiceButton.setEnabled(true);
-            setTexture(infoScreen, R.infoScreenTextures.WAITING_FOR_ROLL_POINT);
         }
     }
 
