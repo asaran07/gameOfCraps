@@ -5,57 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnRollover.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnRollover.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetBtnClicked2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnRollover.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelLG2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelLG3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/mainForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnClicked3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnClicked3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/continueBtnClicked3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnClicked3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnClicked3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/animations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/mainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnDisabled.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnClicked1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnHoverNoUline.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnClicked2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/continueButton/continueBtnSpread.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/exitButton/exitBtn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/greyButton/greyButton.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/greyButton/greyButton2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnClicked1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnHoverNoUline.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnClicked2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/newGameButton/newGmBtnSpread.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetBtnClicked.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetBtnClicked1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/placeBetButton/placeBetBtnRollover.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollBtn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollBtnHover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollBtnHoverNoUline.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnClicked.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnClicked1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnRollover.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnHoverNoUline.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnClicked2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/rollDiceButton/rollDiceBtnPressed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnClicked1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnHoverNoUline.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/settingsButton/settingsBtnClicked2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/startButton/startBtn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/dieIcons/die1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/dieIcons/dieSide1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/dieIcons/die2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/dieIcons/dieSide2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/dieIcons/die3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/dieIcons/dieSide3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/dieIcons/die4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/dieIcons/dieSide4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/dieIcons/die5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/dieIcons/dieSide5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/dieIcons/die6.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/dieIcons/dieSide6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/betLabel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/betAmountLabel.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelBP1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelBP1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelBlank.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelBlank.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelLG1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelLG1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelLost.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelLost.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelPYB.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelPYB.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelRD1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelRD1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelRD2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelRD2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelRD3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelRD3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelRDTB1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelRDTB1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelW1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelW1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelWFR1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelWFR1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelWFRP.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelWFRP.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/infoScreenLabelWON.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/infoScreen/infoScreenLabelWON.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnHover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnClicked1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnHoverNoUline.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/buttons/backButton/backBtnClicked2.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +83,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
     "jdk.selected.JAVA_MODULE": "openjdk-19",
-    "last_opened_file_path": "C:/Users/Arsh/Downloads/gameOfScraps/src/ui_resources/labels",
+    "last_opened_file_path": "C:/Users/Arsh/Downloads/gameOfScraps/src/ui_resources/buttons/newGameButton",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -136,21 +98,21 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\continueButton" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\settingsButton" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\placeBetButton" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\newGameButton" />
+      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\settingsButton" />
+      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\continueButton" />
+      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\backButton" />
+      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\view" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels\infoScreen" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\rollDiceButton" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels" />
       <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\labels" />
-      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\model" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="tests" />
@@ -234,7 +196,7 @@
       <workItem from="1678488510014" duration="11388000" />
       <workItem from="1678517508880" duration="4114000" />
       <workItem from="1678557769433" duration="17496000" />
-      <workItem from="1678652266893" duration="31248000" />
+      <workItem from="1678652266893" duration="38531000" />
     </task>
     <task id="LOCAL-00001" summary="getting the basics together">
       <created>1677778120107</created>
@@ -460,7 +422,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678680509406</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Rewrote code and switched to using util Timers vs swing Timers. Wrote methods for changing textures with given delays.&#10;version 0.11.0">
+      <created>1678691027079</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1678691027079</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Rewrote code and switched to using util Timers vs swing Timers. Wrote methods for changing textures with given delays.&#10;version 0.11.0">
+      <created>1678695672543</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1678695672543</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,7 +465,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="button ui changes" />
     <MESSAGE value="added timer functionality for ux feedback" />
     <MESSAGE value="custom buttons and organization of ui" />
     <MESSAGE value="replaced main font" />
@@ -514,6 +489,7 @@
     <MESSAGE value="timer implemented for switching view in sync with lost or win.&#10;version 0.10.2" />
     <MESSAGE value="bet amount button only enables if input is a number.&#10;version 0.10.3" />
     <MESSAGE value="patch 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="patch 1" />
+    <MESSAGE value="Rewrote code and switched to using util Timers vs swing Timers. Wrote methods for changing textures with given delays.&#10;version 0.11.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rewrote code and switched to using util Timers vs swing Timers. Wrote methods for changing textures with given delays.&#10;version 0.11.0" />
   </component>
 </project>

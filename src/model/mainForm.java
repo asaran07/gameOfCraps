@@ -1,11 +1,12 @@
-import model.Die;
-import model.Player;
+package model;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.TimerTask;
+import res.R;
 
 
 public class mainForm extends JFrame {
@@ -82,7 +83,7 @@ public class mainForm extends JFrame {
             }
             else {
                 setTexture(infoView, "infoScreenLabel",
-                        "LG", "infoScreen", 3, 1000);
+                        "LG", "infoScreen", 3, 500);
                 runFirstStart();
             }
         });
@@ -100,49 +101,23 @@ public class mainForm extends JFrame {
             }
         });
 
-        placeBetButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                betPlaced = true;
-                disableBetting();
-                syncCashWithBet();
-                currentBetField.setText(String.valueOf(player.getCurrentBet()));
-                betAmountField.setText("good luck");
-                setTexture(infoView, "infoScreenLabel",
-                        "BP1", "infoScreen");
-                readyNormalTurn();
-            }
+        placeBetButton.addActionListener(e -> {
+            betPlaced = true;
+            disableBetting();
+            syncCashWithBet();
+            currentBetField.setText(String.valueOf(player.getCurrentBet()));
+            betAmountField.setText("good luck");
+            setTexture(infoView, "infoScreenLabel",
+                    "BP1", "infoScreen");
+            readyNormalTurn();
         });
 
-        backbutton.addActionListener(new ActionListener() {
-            int i = 0;
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                backbutton.setText(backbutton.getText());
-                backbutton.setRolloverEnabled(false);
-                timer = new Timer(90, this);
-                timer.setRepeats(false);
-                timer.start();
-                if (i == 4) {
-                    i = 0;
-                }
-                if (i == 0) {
-                    backbutton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\backButton\\backBtnClicked1.png"));
-                }
-                if (i == 1) {
-                    backbutton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\backButton\\backBtnClicked2.png"));
-                }
-                if (i == 2) {
-                    backbutton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\backButton\\backBtnClicked1.png"));
-                }
-                if (i == 3) {
-                    backbutton.setRolloverEnabled(true);
-                    backbutton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\backButton\\backBtn.png"));
-                    switchPanel(titleScreen);
-                    timer.stop();
-                }
-                i++;
-            }
+        backbutton.addActionListener(e -> {
+            backbutton.setText(backbutton.getText());
+            backbutton.setRolloverEnabled(false);
+            setTexture(backbutton, "backBtn", "Clicked",
+                    "backButton", 3, 90);
+            toTitleFromSettings();
         });
 
         startingCashField.addKeyListener(new KeyAdapter() {
@@ -153,87 +128,59 @@ public class mainForm extends JFrame {
             }
         });
 
-        continueButtonST.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                disableBetting();
-                player.setCurrentCash(Integer.parseInt(startingCashField.getText()));
-                startingCash = Integer.parseInt(startingCashField.getText());
-                cashField.setText(String.valueOf(player.getCurrentCash()));
-                continueButtonST.setRolloverEnabled(false);
-                setTexture(continueButtonST, "continueBtn", "Clicked",
-                        "continueButton", 2, 90);
-                mainTimer.schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        continueButtonST.setRolloverEnabled(true);
-                        continueButtonST.setIcon(new ImageIcon("src\\ui_resources\\buttons\\continueButton\\continueBtn.png"));
-                        switchPanel(gameScreen);
-                    }
-                }, 180);
-            }
+        continueButtonST.addActionListener(e -> {
+            disableBetting();
+            player.setCurrentCash(Integer.parseInt(startingCashField.getText()));
+            startingCash = Integer.parseInt(startingCashField.getText());
+            cashField.setText(String.valueOf(player.getCurrentCash()));
+
+            animateButtonAndSwitch(continueButtonST, "continueBtn",
+                    "Clicked", "continueButton",
+                    3, 90, gameScreen);
         });
 
-        settingbutton.addActionListener(new ActionListener() {
-            int i = 0;
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                settingbutton.setRolloverEnabled(false);
-                timer = new Timer(90, this);
-                timer.setRepeats(false);
-                timer.start();
-                if (i == 4) {
-                    i = 0;
-                }
-                if (i == 0) {
-                    settingbutton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\settingsButton\\settingsBtnRollover.png"));
-                }
-                if (i == 1) {
-                    settingbutton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\settingsButton\\settingsBtnClicked2.png"));
-                }
-                if (i == 2) {
-                    settingbutton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\settingsButton\\settingsBtnRollover.png"));
-                }
-                if (i == 3) {
-                    settingbutton.setRolloverEnabled(true);
-                    settingbutton.setIcon(new ImageIcon("src\\ui_resources\\buttons\\settingsButton\\settingsBtn.png"));
-                    switchPanel(settingsScreen);
-                    timer.stop();
-                }
-                i++;
-            }
+        settingbutton.addActionListener(e -> {
+            settingbutton.setRolloverEnabled(false);
+
+            animateButtonAndSwitch(settingbutton, "settingsBtn",
+                    "Clicked", "settingsButton",
+                    3, 90, settingsScreen);
         });
 
-        newGameButton.addActionListener(new ActionListener() {
-            int i = 0;
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                continueButtonST.setEnabled(false);
-                newGameButton.setRolloverEnabled(false);
-                timer = new Timer(90, this);
-                timer.setRepeats(false);
-                timer.start();
-                if (i == 4) {
-                    i = 0;
-                }
-                if (i == 0) {
-                    newGameButton.setIcon(new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnClicked1.png"));
-                }
-                if (i == 1) {
-                    newGameButton.setIcon(new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnClicked2.png"));
-                }
-                if (i == 2) {
-                    newGameButton.setIcon(new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtnClicked1.png"));
-                }
-                if (i == 3) {
-                    newGameButton.setRolloverEnabled(true);
-                    newGameButton.setIcon(new ImageIcon("src/ui_resources/buttons/newGameButton/newGmBtn.png"));
-                    switchPanel(setBankScreen);
-                    timer.stop();
-                }
-                i++;
-            }
+        newGameButton.addActionListener(e -> {
+            animateButtonAndSwitch(newGameButton, "newGameBtn",
+                    "Clicked", "newGameButton",
+                    3, 90, setBankScreen);
         });
+    }
+
+    private void animateButtonAndSwitch(JButton theButton, String theComponentName,
+                                        String theComponentTexture, String theFolderName,
+                                        int theTextureStates, int theDelay, JPanel thePanel) {
+        theButton.setRolloverEnabled(false);
+        setTexture(theButton, theComponentName, theComponentTexture,
+                theFolderName, theTextureStates, theDelay);
+        mainTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                theButton.setRolloverEnabled(true);
+                setTexture(theButton, theComponentName, "",
+                        theFolderName);
+                switchPanel(thePanel);
+            }
+        }, (long) theDelay * theTextureStates);
+    }
+
+    private void toTitleFromSettings() {
+        mainTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                backbutton.setRolloverEnabled(true);
+                setTexture(backbutton, "backBtn", "", "backButton");
+                switchPanel(titleScreen);
+            }
+        }, 180);
+
     }
 
     private void readyNormalTurn() {
@@ -468,8 +415,6 @@ public class mainForm extends JFrame {
             public void run() {
                 dieA.rollDice();
                 dieB.rollDice();
-                setTexture(infoView, "infoScreenLabel",
-                        "PYB", "infoScreen");
                 processCurrentState();
             }
         }, delay);
