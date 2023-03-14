@@ -5,7 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="First major version.&#10;Version 1.0.0-rc.1">
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus100Btn2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus100Btn3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus10Btn2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus10Btn3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus1Btn2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus1Btn3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus20Btn2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus20Btn3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus50Btn2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus50Btn3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus5Btn2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus5Btn3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/earningsLabel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/lossLabel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/profitLabel.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/mainForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/betAmountLabel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/betAmountLabel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/cashLabel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/cashLabel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/currentBetLabel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/currentBetLabel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/currentRollLabel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/currentRollLabel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/mainForm.form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,54 +73,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;525&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;723&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-19&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Arsh/Downloads/gameOfScraps/src/ui_resources/buttons/newGameButton&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "525",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "723",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "jdk.selected.JAVA_MODULE": "openjdk-19",
+    "last_opened_file_path": "C:/Users/Arsh/Downloads/gameOfScraps/src/ui_resources/labels/infoScreen",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;TEXT&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels\infoScreen" />
+      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels" />
+      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\plusButtons" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\newGameButton" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\settingsButton" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\continueButton" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\backButton" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\view" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels\infoScreen" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\rollDiceButton" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels" />
       <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\labels" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
@@ -185,7 +206,7 @@
       <workItem from="1678517508880" duration="4114000" />
       <workItem from="1678557769433" duration="17496000" />
       <workItem from="1678652266893" duration="38586000" />
-      <workItem from="1678730304244" duration="11679000" />
+      <workItem from="1678730304244" duration="15168000" />
     </task>
     <task id="LOCAL-00001" summary="getting the basics together">
       <created>1677778120107</created>
@@ -474,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678742156903</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="First major version.&#10;Version 1.0.0-rc.1">
+      <created>1678742707254</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1678742707254</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
