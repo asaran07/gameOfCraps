@@ -4,28 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="First major version.&#10;Version 1.0.0-rc.1">
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus100Btn2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus100Btn3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus10Btn2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus10Btn3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus1Btn2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus1Btn3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus20Btn2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus20Btn3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus50Btn2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus50Btn3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus5Btn2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/buttons/plusButtons/plus5Btn3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/earningsLabel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/lossLabel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/profitLabel.png" afterDir="false" />
+    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="Added colors to some fields and textures to add money buttons.&#10;Version 1.0.0-rc.2">
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/rules/rules.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/rules/rules1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/rules/rules2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/rules/rules3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_resources/labels/rules/rules4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/mainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/betAmountLabel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/betAmountLabel.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/cashLabel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/cashLabel.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/currentBetLabel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/currentBetLabel.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui_resources/labels/currentRollLabel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui_resources/labels/currentRollLabel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/animations.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/mainForm.form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,8 +79,9 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
+    "extract.method.default.visibility": "private",
     "jdk.selected.JAVA_MODULE": "openjdk-19",
-    "last_opened_file_path": "C:/Users/Arsh/Downloads/gameOfScraps/src/ui_resources/labels/infoScreen",
+    "last_opened_file_path": "C:/Users/Arsh/Downloads/gameOfScraps/src/ui_resources/labels",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -107,28 +96,41 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels\infoScreen" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels" />
+      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources" />
+      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels\infoScreen" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\plusButtons" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\newGameButton" />
-      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\settingsButton" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\rules" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\view" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\labels\infoScreen" />
       <recent name="C:\Users\Arsh\Downloads\gameOfScraps\src\ui_resources\buttons\rollDiceButton" />
-      <recent name="C:\Users\saran\IdeaProjects\Game of Craps\src\ui_resources\labels" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="tests" />
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.mainForm">
+    <configuration name="mainForm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.mainForm" />
+      <module name="Game of Craps" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DiceTest.testBothDice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Game of Craps" />
       <extension name="coverage">
@@ -179,6 +181,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.mainForm" />
         <item itemvalue="JUnit.DiceTest.testBothDice" />
         <item itemvalue="JUnit.DiceTest.testRandomness" />
         <item itemvalue="JUnit.DiceTest.testGet" />
@@ -206,7 +209,10 @@
       <workItem from="1678517508880" duration="4114000" />
       <workItem from="1678557769433" duration="17496000" />
       <workItem from="1678652266893" duration="38586000" />
-      <workItem from="1678730304244" duration="15168000" />
+      <workItem from="1678730304244" duration="21572000" />
+      <workItem from="1678854526302" duration="101000" />
+      <workItem from="1678854672415" duration="8208000" />
+      <workItem from="1678913113476" duration="13704000" />
     </task>
     <task id="LOCAL-00001" summary="getting the basics together">
       <created>1677778120107</created>
@@ -502,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678742707254</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Added colors to some fields and textures to add money buttons.&#10;Version 1.0.0-rc.2">
+      <created>1678753167774</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1678753167774</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +544,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added cash label and field&#10;version 0.8.2" />
     <MESSAGE value="added loss/profit label and field&#10;version 0.8.3" />
     <MESSAGE value="added borders around fields&#10;version 0.8.4" />
     <MESSAGE value="game screen rework with new ui&#10;version 0.8.5" />
@@ -556,6 +568,7 @@
     <MESSAGE value="Added gameOver screen and reset game functions.&#10;version 0.12.3" />
     <MESSAGE value="Exit button now exits the game.&#10;version 0.12.4" />
     <MESSAGE value="First major version.&#10;Version 1.0.0-rc.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="First major version.&#10;Version 1.0.0-rc.1" />
+    <MESSAGE value="Added colors to some fields and textures to add money buttons.&#10;Version 1.0.0-rc.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added colors to some fields and textures to add money buttons.&#10;Version 1.0.0-rc.2" />
   </component>
 </project>

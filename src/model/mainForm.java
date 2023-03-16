@@ -1,5 +1,4 @@
 package model;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -11,7 +10,7 @@ import res.R;
 
 public class mainForm extends JFrame {
 
-    private static final String VERSION = "1.0.0-rc.1";
+    private static final String VERSION = "1.0.0-rc.3";
     private final Random rand = new Random();
     private JPanel mainPanel;
     private JPanel titleScreen;
@@ -52,29 +51,39 @@ public class mainForm extends JFrame {
     private JButton exitButton;
     private JPanel gameOverScreen;
     private JButton plusOneButton;
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
-    private JButton button4;
-    private JButton button5;
+    private JButton plusFiveButton;
+    private JButton plusTenButton;
+    private JButton plusTwentyButton;
+    private JButton plusHundredButton;
+    private JButton plusFiftyButton;
+    private JPanel rulesScreen;
+    private JPanel howToPlayPanel;
+    private JLabel rulesDisplay;
     private final Die dieA = new Die();
     private final Die dieB = new Die();
     private final Player player = new Player();
-    private final boolean firstDiceRolled = false;
-    private final boolean infoScreenBusy = false;
     private boolean firstStart = false;
     private boolean betPlaced = false;
     private boolean pointTurn = false;
     private boolean gameOver = false;
     private int startingCash = 0;
+    JMenuBar jMenuBar = new JMenuBar();
+    JMenu jMenu = new JMenu("Menu");
+    JMenuItem rules = new JMenuItem("Rules");
+    JMenuItem restart = new JMenuItem("Restart");
+    JMenuItem backToGame = new JMenuItem("Back");
+    JMenuItem exit = new JMenuItem("Exit");
     Timer mainTimer = new Timer();
 
     public mainForm() {
         settingbutton.setEnabled(false);
         continueButton.setEnabled(false);
+        createMenuBar();
+        jMenuBar.setVisible(false);
         lossProfitField.setBackground(new Color(184,207,229));
         versionLabel.setText(VERSION);
         setTexture(infoScreen, R.infoScreenTextures.ROLL_DICE_TO_BEGIN_1);
+
         rollDiceButton.addActionListener(e -> {
             disableRollDiceButton();
             disableBetting();
@@ -82,6 +91,8 @@ public class mainForm extends JFrame {
                 rollBothDice(3, R.time.HALF_SECOND);
             }
             else {
+                jMenuBar.setVisible(true);
+                pack();
                 setTexture(infoScreen, R.infoScreenTextures.LOADING_GAME,
                         3, R.time.HALF_SECOND);
                 runFirstStart();
@@ -91,21 +102,11 @@ public class mainForm extends JFrame {
         betAmountField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
-                if (isBlank(betAmountField) && isAlpha(betAmountField)) {
-                    placeBetButton.setEnabled(Integer.parseInt(betAmountField.getText()) <= player.getCurrentCash());
-                }
-                else {
-                    placeBetButton.setEnabled(false);
-                }
+                checkBetAmountField();
             }
             @Override
             public void keyTyped(KeyEvent e) {
-                if (isBlank(betAmountField) && isAlpha(betAmountField)) {
-                    placeBetButton.setEnabled(Integer.parseInt(betAmountField.getText()) <= player.getCurrentCash());
-                }
-                else {
-                    placeBetButton.setEnabled(false);
-                }
+                checkBetAmountField();
             }
         });
 
@@ -128,22 +129,30 @@ public class mainForm extends JFrame {
             @Override
             public void keyReleased(KeyEvent e) {
                 continueButtonST.setEnabled(isAlpha(startingCashField)
-                        && isBlank(startingCashField));
+                        && isBlank(startingCashField) && isPositive(startingCashField));
             }
         });
 
         continueButtonST.addActionListener(e -> {
+            startingCashField.setEnabled(false);
+            backToGame.setEnabled(false);
             disableBetting();
             player.setCurrentCash(Integer.parseInt(startingCashField.getText()));
             startingCash = Integer.parseInt(startingCashField.getText());
             cashField.setText(String.valueOf(player.getCurrentCash()));
-            animateButtonAndSwitch(continueButtonST, R.buttonTextures.CLICKED,
-                    R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY, gameScreen);
+//            animateButtonAndSwitch(continueButtonST, R.buttonTextures.CLICKED,
+//                    R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY, gameScreen);
+            setTexture(continueButtonST, R.buttonTextures.CLICKED, R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY);
+            mainTimer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    displayTutorial();
+                }
+            }, 270);
         });
 
         settingbutton.addActionListener(e -> {
             settingbutton.setRolloverEnabled(false);
-
             animateButtonAndSwitch(settingbutton, R.buttonTextures.CLICKED,
                     R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY, settingsScreen);
         });
@@ -160,7 +169,104 @@ public class mainForm extends JFrame {
             switchPanel(setBankScreen);
         });
 
+        backToGame.addActionListener(e -> {
+            backToGame.setEnabled(false);
+            rules.setEnabled(true);
+            switchPanel(gameScreen);
+        });
+
+        rules.addActionListener(e -> {
+            rulesDisplay.setIcon(new ImageIcon("src/ui_resources/labels/rules/rules.png"));
+            switchPanel(rulesScreen);
+            rules.setEnabled(false);
+            backToGame.setEnabled(true);
+        });
+
+        restartButton.addActionListener(e -> {
+            resetGame();
+            continueButtonST.setEnabled(false);
+            switchPanel(setBankScreen);
+        });
+
+        restart.addActionListener(e -> {
+            resetGame();
+            switchPanel(setBankScreen);
+        });
+
+        plusOneButton.addActionListener(e -> {
+            plusBetAmount(1);
+            checkBetAmountField();
+        });
+
+        plusFiveButton.addActionListener(e -> {
+            plusBetAmount(5);
+            checkBetAmountField();
+        });
+
+        plusTenButton.addActionListener(e -> {
+            plusBetAmount(10);
+            checkBetAmountField();
+        });
+
+        plusTwentyButton.addActionListener(e -> {
+            plusBetAmount(20);
+            checkBetAmountField();
+        });
+
+        plusFiftyButton.addActionListener(e -> {
+            plusBetAmount(50);
+            checkBetAmountField();
+        });
+
+        plusHundredButton.addActionListener(e -> {
+            plusBetAmount(100);
+            checkBetAmountField();
+        });
+
+
         exitButton.addActionListener(e -> dispose());
+        exit.addActionListener(e -> dispose());
+    }
+
+    private void plusBetAmount(int theAmountToIncrease) {
+        if (isBlank(betAmountField)) {
+            betAmountField.setText(String.valueOf(Integer.parseInt(betAmountField.getText()) + theAmountToIncrease));
+        } else {
+            betAmountField.setText("0");
+            betAmountField.setText(String.valueOf(Integer.parseInt(betAmountField.getText()) + theAmountToIncrease));
+        }
+    }
+
+    private void displayTutorial() {
+        switchPanel(rulesScreen);
+        setTexture(rulesDisplay, "", 4, 2000);
+        mainTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                switchPanel(gameScreen);
+                pack();
+            }
+        },8000);
+    }
+    
+    private void checkBetAmountField() {
+        if (isBlank(betAmountField) && isAlpha(betAmountField)) {
+            placeBetButton.setEnabled(Integer.parseInt(betAmountField.getText()) <= player.getCurrentCash());
+        }
+        else {
+            placeBetButton.setEnabled(false);
+        }
+    }
+
+    private void createMenuBar() {
+        setJMenuBar(jMenuBar);
+        jMenuBar.add(jMenu);
+        jMenu.add(rules);
+        jMenu.add(restart);
+        jMenu.add(backToGame);
+        jMenu.add(exit);
+        backToGame.setEnabled(false);
+        rules.setEnabled(true);
     }
 
     private void resetGame() {
@@ -169,6 +275,10 @@ public class mainForm extends JFrame {
         firstStart = false;
         setTexture(infoScreen, R.infoScreenTextures.ROLL_DICE_TO_BEGIN_1);
         resetDice();
+        continueButtonST.setIcon(new ImageIcon("src/ui_resources/buttons/continueButton/continueButton.png"));
+        continueButtonST.setRolloverEnabled(true);
+        startingCashField.setEnabled(true);
+        startingCashField.setEditable(true);
         rollDiceButton.setEnabled(true);
         clearAllFields();
     }
@@ -220,6 +330,7 @@ public class mainForm extends JFrame {
             public void run() {
                 setTexture(infoScreen, R.infoScreenTextures.PLACE_YOUR_BET);
                 firstStart = true;
+                enableBettingButtons();
                 betAmountField.setEditable(true);
                 rollDiceButton.setRolloverEnabled(true);
             }
@@ -288,6 +399,12 @@ public class mainForm extends JFrame {
             }
         }
         return true;
+    }
+
+    private boolean isPositive(JTextField theTextField) {
+        int input;
+        input = Integer.parseInt(theTextField.getText());
+        return (input > 0);
     }
     
     private boolean isBlank(JTextField theTextField) {
@@ -377,6 +494,7 @@ public class mainForm extends JFrame {
                     @Override
                     public void run() {
                         betPlaced = false;
+                        enableBettingButtons();
                         betAmountField.setEditable(true);
                         currentBetField.setText(R.messages.BLANK);
                         currentRollField.setText(R.messages.BLANK);
@@ -435,8 +553,27 @@ public class mainForm extends JFrame {
     }
 
     private void disableBetting() {
+        disableBettingButtons();
         placeBetButton.setEnabled(false);
         betAmountField.setEditable(false);
+    }
+
+    private void disableBettingButtons() {
+        plusOneButton.setEnabled(false);
+        plusFiveButton.setEnabled(false);
+        plusTenButton.setEnabled(false);
+        plusTwentyButton.setEnabled(false);
+        plusFiftyButton.setEnabled(false);
+        plusHundredButton.setEnabled(false);
+    }
+
+    private void enableBettingButtons() {
+        plusOneButton.setEnabled(true);
+        plusFiveButton.setEnabled(true);
+        plusTenButton.setEnabled(true);
+        plusTwentyButton.setEnabled(true);
+        plusFiftyButton.setEnabled(true);
+        plusHundredButton.setEnabled(true);
     }
 
     private void syncDiceIconsWithRoll() {
@@ -479,5 +616,4 @@ public class mainForm extends JFrame {
         mf.setLocationRelativeTo(null);
         mf.pack();
     }
-
 }
