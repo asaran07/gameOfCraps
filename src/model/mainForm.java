@@ -5,11 +5,21 @@ import java.awt.event.*;
 import java.util.Timer;
 import java.util.Random;
 import java.util.TimerTask;
+
 import res.R;
 
 
+/**
+ * mainForm class is the core of the application.
+ *
+ * @author Arshdeep Saran
+ * @date 3/15/2023
+ * @version 1.0.0-rc.3
+ *
+ */
 public class mainForm extends JFrame {
 
+    /** Stores the version of the game */
     private static final String VERSION = "1.0.0-rc.3";
     private final Random rand = new Random();
     private JPanel mainPanel;
@@ -67,14 +77,17 @@ public class mainForm extends JFrame {
     private boolean pointTurn = false;
     private boolean gameOver = false;
     private int startingCash = 0;
-    JMenuBar jMenuBar = new JMenuBar();
-    JMenu jMenu = new JMenu("Menu");
-    JMenuItem rules = new JMenuItem("Rules");
-    JMenuItem restart = new JMenuItem("Restart");
-    JMenuItem backToGame = new JMenuItem("Back");
-    JMenuItem exit = new JMenuItem("Exit");
-    Timer mainTimer = new Timer();
+    private final JMenuBar jMenuBar = new JMenuBar();
+    private final JMenu jMenu = new JMenu("Menu");
+    private final JMenuItem rules = new JMenuItem("Rules");
+    private final JMenuItem restart = new JMenuItem("Restart");
+    private final JMenuItem backToGame = new JMenuItem("Back");
+    private final JMenuItem exit = new JMenuItem("Exit");
+    private final Timer mainTimer = new Timer();
 
+    /**
+     *
+     */
     public mainForm() {
         settingbutton.setEnabled(false);
         continueButton.setEnabled(false);
@@ -140,15 +153,13 @@ public class mainForm extends JFrame {
             player.setCurrentCash(Integer.parseInt(startingCashField.getText()));
             startingCash = Integer.parseInt(startingCashField.getText());
             cashField.setText(String.valueOf(player.getCurrentCash()));
-//            animateButtonAndSwitch(continueButtonST, R.buttonTextures.CLICKED,
-//                    R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY, gameScreen);
             setTexture(continueButtonST, R.buttonTextures.CLICKED, R.buttonData.CLICKED_TEXTURE_STATES, R.buttonData.CLICKED_ANIMATION_DELAY);
             mainTimer.schedule(new TimerTask() {
                 @Override
                 public void run() {
                     displayTutorial();
                 }
-            }, 270);
+            }, R.buttonData.CLICKED_ANIMATION_DELAY * R.buttonData.CLICKED_TEXTURE_STATES);
         });
 
         settingbutton.addActionListener(e -> {
