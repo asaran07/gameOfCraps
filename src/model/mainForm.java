@@ -20,8 +20,11 @@ import res.R;
 public class mainForm extends JFrame {
 
     /** Stores the version of the game */
-    private static final String VERSION = "1.0.0-rc.3";
-    private final Random rand = new Random();
+    public static final String VERSION = "1.0.0-rc.3";
+
+    /** Random object for dice rolling */
+    public final Random rand = new Random();
+
     private JPanel mainPanel;
     private JPanel titleScreen;
     private JPanel settingsScreen;
@@ -86,7 +89,7 @@ public class mainForm extends JFrame {
     private final Timer mainTimer = new Timer();
 
     /**
-     *
+     * Constructs action listeners.
      */
     public mainForm() {
         settingbutton.setEnabled(false);
@@ -239,6 +242,11 @@ public class mainForm extends JFrame {
         exit.addActionListener(e -> dispose());
     }
 
+
+    /**
+     * Increases the bet amount in betAmountField.
+     * @param theAmountToIncrease int
+     */
     private void plusBetAmount(int theAmountToIncrease) {
         if (isBlank(betAmountField)) {
             betAmountField.setText(String.valueOf(Integer.parseInt(betAmountField.getText()) + theAmountToIncrease));
@@ -248,6 +256,10 @@ public class mainForm extends JFrame {
         }
     }
 
+    /**
+     * Switches to the rules panel and changes the rules display
+     * with different textures using a delay.
+     */
     private void displayTutorial() {
         switchPanel(rulesScreen);
         setTexture(rulesDisplay, "", 4, 2000);
@@ -259,7 +271,11 @@ public class mainForm extends JFrame {
             }
         },8000);
     }
-    
+
+    /**
+     * Checks if the betAmountField is blank or empty,
+     * and if the bet amount is less than available cash.
+     */
     private void checkBetAmountField() {
         if (isBlank(betAmountField) && isAlpha(betAmountField)) {
             placeBetButton.setEnabled(Integer.parseInt(betAmountField.getText()) <= player.getCurrentCash());
@@ -269,6 +285,9 @@ public class mainForm extends JFrame {
         }
     }
 
+    /**
+     * Creates the menu bar and adds items to it.
+     */
     private void createMenuBar() {
         setJMenuBar(jMenuBar);
         jMenuBar.add(jMenu);
@@ -280,6 +299,9 @@ public class mainForm extends JFrame {
         rules.setEnabled(true);
     }
 
+    /**
+     * Resets the game.
+     */
     private void resetGame() {
         player.reset();
         gameOver = false;
@@ -294,12 +316,18 @@ public class mainForm extends JFrame {
         clearAllFields();
     }
 
+    /**
+     * Resets the dice to default side and texture.
+     */
     private void resetDice() {
         dieA.setSide(1);
         dieB.setSide(1);
         syncDiceIconsWithRoll();
     }
 
+    /**
+     * Sets all fields to blank.
+     */
     private void clearAllFields() {
         startingCashField.setText(R.messages.BLANK);
         currentBetField.setText(R.messages.BLANK);
@@ -309,6 +337,14 @@ public class mainForm extends JFrame {
         lossProfitField.setBackground(new Color(184,207,229));
     }
 
+    /**
+     * Animates the button and switches to the desired panel.
+     * @param theButton JButton
+     * @param theButtonName Name of the button.
+     * @param theTextureStates Amount of states of the button's texture.
+     * @param theDelay
+     * @param thePanel
+     */
     private void animateButtonAndSwitch(final JButton theButton, final String theButtonName,
                                         final int theTextureStates, final int theDelay, JPanel thePanel) {
         theButton.setRolloverEnabled(false);
@@ -323,6 +359,9 @@ public class mainForm extends JFrame {
         }, (long) theDelay * theTextureStates);
     }
 
+    /**
+     * Prepare for the next non-point turn.
+     */
     private void readyNormalTurn() {
         mainTimer.schedule(new TimerTask() {
             @Override
@@ -335,6 +374,9 @@ public class mainForm extends JFrame {
         }, R.time.TWO_SECONDS);
     }
 
+    /**
+     * Sets the game for play.
+     */
     private void runFirstStart() {
         mainTimer.schedule(new TimerTask() {
             @Override
@@ -348,6 +390,9 @@ public class mainForm extends JFrame {
         }, R.time.THREE_SECONDS);
     }
 
+    /**
+     * Syncs the player's cash with fields.
+     */
     private void syncCashWithBet() {
         if (Integer.parseInt(betAmountField.getText()) <= player.getCurrentCash()) {
             player.setCurrentBet(Integer.parseInt(betAmountField.getText()));
@@ -361,6 +406,13 @@ public class mainForm extends JFrame {
         }
     }
 
+    /**
+     * Sets the icon of a component using multiple texture types and a delay in between.
+     * @param theComponent JComponent.
+     * @param theComponentTexture The texture type.
+     * @param theTextureStates The amount of states of the texture.
+     * @param theDelay int
+     */
     private void setTexture(final JComponent theComponent,  final String theComponentTexture,
                             final int theTextureStates, final int theDelay) {
         int appliedStates = 0;
@@ -385,6 +437,11 @@ public class mainForm extends JFrame {
         }
     }
 
+    /**
+     * Changes icon of a component.
+     * @param theComponent JComponent
+     * @param theComponentTexture The texture to change to.
+     */
     private void setTexture(JComponent theComponent, String theComponentTexture) {
         if (theComponent instanceof JButton jButton) {
             jButton.setIcon(new ImageIcon(R.locations.SOURCE_BUTTONS + theComponent.getName()
@@ -396,11 +453,19 @@ public class mainForm extends JFrame {
         }
     }
 
+    /**
+     * Disables roll dice button.
+     */
     private void disableRollDiceButton() {
         rollDiceButton.setEnabled(false);
         rollDiceButton.setRolloverEnabled(false);
     }
 
+    /**
+     * Checks if field contains alphabetical characters.
+     * @param theTextField JTextField
+     * @return boolean
+     */
     private boolean isAlpha(JTextField theTextField) {
         String input;
         input = theTextField.getText();
@@ -412,17 +477,30 @@ public class mainForm extends JFrame {
         return true;
     }
 
+    /**
+     * Checks if field contains values greater than zero.
+     * @param theTextField JTextField
+     * @return boolean.
+     */
     private boolean isPositive(JTextField theTextField) {
         int input;
         input = Integer.parseInt(theTextField.getText());
         return (input > 0);
     }
-    
+
+    /**
+     * Checks if field is empty or blank.
+     * @param theTextField JTextField
+     * @return boolean
+     */
     private boolean isBlank(JTextField theTextField) {
         return !theTextField.getText().isBlank()
                 && !theTextField.getText().isEmpty();
     }
 
+    /**
+     * Checks if a point turn needs to be run.
+     */
     private void checkForPointRoll() {
         if (!pointTurn) {
             if (player.getCurrentRoll() == 4
@@ -443,6 +521,9 @@ public class mainForm extends JFrame {
         }
     }
 
+    /**
+     * Checks the game to win or lose if current turn is a point turn.
+     */
     private void processPointRoll() {
         if (player.getCurrentRoll() == 7) {
             processRoundLost();
@@ -458,6 +539,9 @@ public class mainForm extends JFrame {
         }
     }
 
+    /**
+     * Checks the game to win or lose if current turn is a normal turn.
+     */
     private void processNormalRoll() {
         if (player.getCurrentRoll() == 7
                 || player.getCurrentRoll() == 11) {
@@ -468,6 +552,9 @@ public class mainForm extends JFrame {
         }
     }
 
+    /**
+     * Wins the current round.
+     */
     private void processRoundWIN() {
         setTexture(infoScreen, R.infoScreenTextures.WON_ROUND);
         syncCash();
@@ -475,12 +562,19 @@ public class mainForm extends JFrame {
         resetBetAndPointFields();
     }
 
+    /**
+     * Loses the current round.
+     */
     private void processRoundLost() {
         setTexture(infoScreen, R.infoScreenTextures.LOST_ROUND);
         syncLossProfitField();
         resetBetAndPointFields();
     }
 
+    /**
+     * Syncs the profit field with player's profit and controls if
+     * game has been won or lost according to read data.
+     */
     private void syncLossProfitField() {
         lossProfitField.setText(String.valueOf((player.getCurrentCash()) - startingCash));
         if (Integer.parseInt(lossProfitField.getText()) == (startingCash * -1)) {
@@ -494,6 +588,10 @@ public class mainForm extends JFrame {
         }
     }
 
+    /**
+     * Advances the game to either a point or normal turn state.
+     * Changes components depending on which one it is.
+     */
     private void processCurrentState() {
         syncPlayerWithCurrentRoll();
         syncDiceIconsWithRoll();
@@ -527,21 +625,35 @@ public class mainForm extends JFrame {
         }
     }
 
+    /**
+     * Resets the rollDiceButton to default.
+     */
     private void resetRollDiceButton() {
         rollDiceButton.setRolloverEnabled(true);
         rollDiceButton.setIcon(new ImageIcon("src/ui_resources/buttons/rollDiceButton/rollDiceButton.png"));
     }
 
+    /**
+     * Sets the player's roll to the total of both dice.
+     */
     private void syncPlayerWithCurrentRoll() {
         player.setCurrentRoll(dieA.getMySide() + dieB.getMySide());
         currentRollField.setText(String.valueOf(player.getCurrentRoll()));
     }
 
+    /**
+     * Syncs the player's point with fields.
+     */
     private void syncPlayerWithPoint() {
         player.setMyPoint(player.getCurrentRoll());
         pointField.setText(String.valueOf(player.getMyPoint()));
     }
 
+    /**
+     * Randomly changes the texture of dice displays.
+     * @param theTimesToRoll int
+     * @param theDelay int
+     */
     private void randomizeDiceIcons(final int theTimesToRoll, final int theDelay) {
         for (int i = 0; i != theTimesToRoll; i++) {
             int randomA = rand.nextInt(6 - 1 + 1) + 1;
@@ -551,6 +663,9 @@ public class mainForm extends JFrame {
         }
     }
 
+    /**
+     * Resets bet and point fields to default.
+     */
     private void resetBetAndPointFields() {
         player.setMyPoint(0);
         player.setCurrentBet(0);
@@ -558,17 +673,26 @@ public class mainForm extends JFrame {
         pointField.setText(R.messages.BLANK);
     }
 
+    /**
+     * Syncs player's cash with fields/
+     */
     private void syncCash() {
         player.setCurrentCash(player.getCurrentCash() + (player.getCurrentBet() * 2));
         cashField.setText(String.valueOf(player.getCurrentCash()));
     }
 
+    /**
+     * Disables the betting entirely.
+     */
     private void disableBetting() {
         disableBettingButtons();
         placeBetButton.setEnabled(false);
         betAmountField.setEditable(false);
     }
 
+    /**
+     * Disables all plus betting buttons.
+     */
     private void disableBettingButtons() {
         plusOneButton.setEnabled(false);
         plusFiveButton.setEnabled(false);
@@ -578,6 +702,9 @@ public class mainForm extends JFrame {
         plusHundredButton.setEnabled(false);
     }
 
+    /**
+     * Enables all plus betting buttons.
+     */
     private void enableBettingButtons() {
         plusOneButton.setEnabled(true);
         plusFiveButton.setEnabled(true);
@@ -587,11 +714,19 @@ public class mainForm extends JFrame {
         plusHundredButton.setEnabled(true);
     }
 
+    /**
+     * Syncs the texture of dice to their respected roll value.
+     */
     private void syncDiceIconsWithRoll() {
         setTexture(die1, "Side" + dieA.getMySide());
         setTexture(die2, "Side" + dieB.getMySide());
     }
 
+    /**
+     * Rolls both dice and advances the game's turn.
+     * @param theTimesToRoll int
+     * @param theDelay int
+     */
     private void rollBothDice(final int theTimesToRoll, final int theDelay) {
         int delay = theTimesToRoll * theDelay;
         randomizeDiceIcons(theTimesToRoll, theDelay);
@@ -606,6 +741,10 @@ public class mainForm extends JFrame {
         }, delay);
     }
 
+    /**
+     * Switches the panel to desired panel.
+     * @param thePanel JPanel
+     */
     private void switchPanel(JPanel thePanel) {
         mainPanel.removeAll();
         mainPanel.add(thePanel);
@@ -619,7 +758,7 @@ public class mainForm extends JFrame {
         int sWidth = screenSize.width/2;
         Dimension screenDimension = new Dimension(sWidth,sHeight);
         mainForm mf = new mainForm();
-        mf.setTitle(VERSION);
+        mf.setTitle(mainForm.VERSION);
         mf.setContentPane(mf.mainPanel);
         mf.setSize(screenDimension);
         mf.setVisible(true);

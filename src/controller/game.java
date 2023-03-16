@@ -1,16 +1,12 @@
 package controller;
 
 import javax.swing.*;
+import model.*;
+import res.*;
 
+import java.awt.*;
 
 public class game extends JFrame {
-
-    private void dis(JComponent theComponent) {
-        if (theComponent instanceof JButton jButton) {
-            jButton.setEnabled(false);
-        }
-    }
-
 }
 
 

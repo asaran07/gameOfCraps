@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="Added rules and fixed plus bet buttons.&#10;Version 1.0.0-rc.3">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/game.java" afterDir="false" />
+    <list default="true" id="20ceb774-6e7a-4fa4-86af-9b7dc8980bed" name="Changes" comment="Added controller functionality.&#10;Version 1.0.0-rc.4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Die.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Die.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/mainForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/R.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/mainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/mainForm.form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,6 +113,9 @@
       <recent name="tests" />
       <recent name="" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.mainForm">
     <configuration name="mainForm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -207,7 +212,7 @@
       <workItem from="1678730304244" duration="21572000" />
       <workItem from="1678854526302" duration="101000" />
       <workItem from="1678854672415" duration="8208000" />
-      <workItem from="1678913113476" duration="16482000" />
+      <workItem from="1678913113476" duration="19226000" />
     </task>
     <task id="LOCAL-00001" summary="getting the basics together">
       <created>1677778120107</created>
@@ -517,7 +522,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678942912366</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Added controller functionality.&#10;Version 1.0.0-rc.4">
+      <created>1678945610269</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1678945610269</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +558,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added borders around fields&#10;version 0.8.4" />
     <MESSAGE value="game screen rework with new ui&#10;version 0.8.5" />
     <MESSAGE value="added first core functionality with info-screen&#10;version 0.8.7" />
     <MESSAGE value="added betting and player bank functions&#10;version 0.8.8" />
@@ -571,6 +582,7 @@
     <MESSAGE value="First major version.&#10;Version 1.0.0-rc.1" />
     <MESSAGE value="Added colors to some fields and textures to add money buttons.&#10;Version 1.0.0-rc.2" />
     <MESSAGE value="Added rules and fixed plus bet buttons.&#10;Version 1.0.0-rc.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added rules and fixed plus bet buttons.&#10;Version 1.0.0-rc.3" />
+    <MESSAGE value="Added controller functionality.&#10;Version 1.0.0-rc.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added controller functionality.&#10;Version 1.0.0-rc.4" />
   </component>
 </project>
